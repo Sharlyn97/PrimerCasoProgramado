@@ -85,7 +85,7 @@ public class ConexionBD {
         boolean ejecuto;
         try {
                 cmd = con.createStatement();
-                ejecuto = cmd.execute("INSERT INTO usuarios(nombre, usuario, contraseña, tipo) VALUES ('"+nombre+"','"+usuario+"','"+contraseña+"','"+tipo+"')");
+                ejecuto = cmd.execute("INSERT INTO usuarios(nombreUsuario, password, nombres, tipo) VALUES ('"+usuario+"','"+contraseña+"','"+nombre+"','"+tipo+"')");
                 
                return true;
                // rs.close();
@@ -106,10 +106,11 @@ public class ConexionBD {
         String cedula=arreglo[1];
         String sigla=arreglo[2];
         boolean ejecuto;
+        boolean ejecutoDos;
         try {
                 cmd = con.createStatement();
-                ejecuto = cmd.execute("INSERT INTO matricula(codigo, cedula, sigla) VALUES ('"+codigo+"','"+cedula+"','"+sigla+"')");
-                
+                ejecuto = cmd.execute("INSERT INTO matricula(numero, cedula) VALUES ('"+codigo+"','"+cedula+"')");
+                ejecutoDos = cmd.execute("INSERT INTO detalle_matricula(numero, sigla) VALUES ('"+codigo+"','"+sigla+"')");
                return true;
                // rs.close();
         }
@@ -168,7 +169,7 @@ public class ConexionBD {
         boolean ejecuto;
         try {
                 cmd = con.createStatement();
-                ejecuto = cmd.execute("UPDATE `usuarios` SET nombre='"+nombre+"',usuario='"+usuario+"',contraseña='"+contraseña+"',tipo='"+tipo+"' WHERE nombre='"+nombre+"'");
+                ejecuto = cmd.execute("UPDATE usuarios SET nombres='"+nombre+"',nombreUsuario='"+usuario+"',password='"+contraseña+"',tipo='"+tipo+"' WHERE nombreUsuario='"+usuario+"'");
                 
                return true;
                // rs.close();
@@ -186,10 +187,11 @@ public class ConexionBD {
         ResultSet rs = null;
         Statement cmd = null;
         boolean ejecuto;
+        boolean ejecutoDos;
         try {
                 cmd = con.createStatement();
-                ejecuto = cmd.execute("UPDATE `matricula` SET codigo='"+codigo+"',nombre='"+cedula+"',direccion='"+sigla+"' WHERE cedula='"+codigo+"'");
-                
+                ejecuto = cmd.execute("UPDATE matricula SET numero='"+codigo+"',cedula='"+cedula+"'");
+                ejecutoDos = cmd.execute("UPDATE detalle_matricula SET numero='"+codigo+"','"+sigla+"')");
                return true;
                // rs.close();
         }
@@ -248,7 +250,7 @@ public class ConexionBD {
         boolean ejecuto;
         try {
                 cmd = con.createStatement();
-                ejecuto = cmd.execute("DELETE FROM usuarios WHERE nombre='"+nombre+"'");
+                ejecuto = cmd.execute("DELETE FROM usuarios WHERE nombres='"+nombre+"'");
                 
                return true;
                // rs.close();
@@ -266,9 +268,13 @@ public class ConexionBD {
         ResultSet rs = null;
         Statement cmd = null;
         boolean ejecuto;
+        boolean ejecutoDos;
         try {
                 cmd = con.createStatement();
                 ejecuto = cmd.execute("DELETE FROM matricula WHERE codigo='"+codigo+"'");
+                ejecutoDos = cmd.execute("DELETE FROM detalle_matricula WHERE codigo='"+codigo+"')");
+                
+                
                 
                return true;
                // rs.close();
@@ -398,12 +404,12 @@ public class ConexionBD {
         boolean encontro=false;
         try {
                 cmd = con.createStatement();
-                rs = cmd.executeQuery("SELECT * FROM usuarios where nombre='"+nombre+"'");
+                rs = cmd.executeQuery("SELECT * FROM usuarios where nombres='"+nombre+"'");
                 
                 while (rs.next()) 
                 {
-                    String usuario = rs.getString("usuario");
-                    String contraseña = rs.getString("contraseña");
+                    String usuario = rs.getString("nombreUsuario");
+                    String contraseña = rs.getString("password");
                     String tipo = rs.getString("tipo");
                     System.out.println("Información de la BD: Usuario "+usuario+" Tipo: "+tipo); 
                     encontro=true;
@@ -427,12 +433,12 @@ public class ConexionBD {
      
         try {
                 cmd = con.createStatement();
-                rs = cmd.executeQuery("SELECT * FROM usuarios where usuario='"+nombreUsuario+"'");
+                rs = cmd.executeQuery("SELECT * FROM usuarios where nombreUsuario='"+nombreUsuario+"'");
                 
                 while (rs.next()) 
                 {
-                  String usuario = rs.getString("usuario");
-                  String contraseña = rs.getString("contraseña");
+                  String usuario = rs.getString("nombreUsuario");
+                  String contraseña = rs.getString("password");
                   if(nombreUsuario.equals(usuario) && password.equals(contraseña))
                   {
                       encontroUsuario=true;
@@ -445,7 +451,7 @@ public class ConexionBD {
         }
         catch(Exception e)
         {
-            System.out.println("SQLException ejecutando sentencia: " + e.getMessage());
+            System.out.println("Este SQLException ejecutando sentencia: " + e.getMessage());
         }
    
       
@@ -465,10 +471,10 @@ public class ConexionBD {
                 while (rs.next()) 
                 {
                     String cedula = rs.getString("cedula");
-                    String sigla = rs.getString("sigla");
+                    //String sigla = rs.getString("sigla");
                     arregloInformacionConsultada[0]=cedula;
-                    arregloInformacionConsultada[1]=sigla;
-                    System.out.println("Información de la BD: "+cedula+" Direccion: "+sigla); 
+                    //arregloInformacionConsultada[1]=sigla;
+                    System.out.println("Información de la BD: "+cedula);//+" Direccion: "+sigla); 
                     encontro=true;
                 }
                 rs.close();
@@ -527,7 +533,7 @@ public class ConexionBD {
         
          try {
                 cmd = con.createStatement();
-                rs = cmd.executeQuery("SELECT COUNT(nombre) FROM usuarios");
+                rs = cmd.executeQuery("SELECT COUNT(nombres) FROM usuarios");
                 
                 while (rs.next()) 
                 {

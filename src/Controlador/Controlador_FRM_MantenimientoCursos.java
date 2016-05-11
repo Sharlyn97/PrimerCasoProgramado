@@ -32,10 +32,17 @@ public class Controlador_FRM_MantenimientoCursos implements ActionListener{
     {
         if(e.getActionCommand().equals("Agregar"))
         {
-         conexion.registrarCurso(frm_MantenimientoCursos.devolverSigla(),frm_MantenimientoCursos.devolverNombre(),frm_MantenimientoCursos.devolverCreditos(),frm_MantenimientoCursos.devolverHorario());
+         if(conexion.registrarCurso(frm_MantenimientoCursos.devolverSigla(),frm_MantenimientoCursos.devolverNombre(),frm_MantenimientoCursos.devolverCreditos(),frm_MantenimientoCursos.devolverHorario()))
+         {
          frm_MantenimientoCursos.resetearInterfaz();
          frm_MantenimientoCursos.estadoInicial();
          frm_MantenimientoCursos.habilitarTF();
+         frm_MantenimientoCursos.mensaje("Se agregó correctamente");
+         }
+         else
+         {
+             frm_MantenimientoCursos.mensaje("No se agregó correctamente");
+         }
         }
         if(e.getActionCommand().equals("Consultar"))
         {
@@ -44,6 +51,7 @@ public class Controlador_FRM_MantenimientoCursos implements ActionListener{
            frm_MantenimientoCursos.mostrarInformacion(conexion.retornarCursos());
            frm_MantenimientoCursos.habilitarBotones();
            frm_MantenimientoCursos.deshabilitarTF();
+           frm_MantenimientoCursos.mensaje("Se consultó correctamente");
           }
           else
           {

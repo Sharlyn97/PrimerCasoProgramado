@@ -7,6 +7,7 @@ package Vista;
 
 import Controlador.Controlador_FRM_MantenimientoCursos;
 import Modelo.ConexionBD;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -23,6 +24,11 @@ public class FRM_MantenimientoCursos extends javax.swing.JFrame {
         initComponents();
         controlador = new Controlador_FRM_MantenimientoCursos(this);
         this.gUI_Botones1.agregarEventos(controlador);
+    }
+    
+    public void mensaje(String mensaje)
+    {
+        JOptionPane.showMessageDialog(null,mensaje);
     }
     public String[] devolverInformacion()
     {
