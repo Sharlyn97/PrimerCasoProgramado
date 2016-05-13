@@ -495,7 +495,7 @@ public class ConexionBD {
         
          try {
                 cmd = con.createStatement();
-                rs = cmd.executeQuery("SELECT COUNT(codigo) FROM matricula");
+                rs = cmd.executeQuery("SELECT COUNT(numero) FROM matricula");
                 
                 while (rs.next()) 
                 {

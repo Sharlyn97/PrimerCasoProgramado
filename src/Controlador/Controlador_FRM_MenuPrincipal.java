@@ -9,6 +9,7 @@ package Controlador;
 
 
 import Modelo.ConexionBD;
+import Vista.FRM_FuenteInformacion;
 import Vista.FRM_Login;
 import Vista.FRM_MantenimientoCursos;
 import Vista.FRM_MantenimientoEstudiantes;
@@ -32,30 +33,33 @@ public class Controlador_FRM_MenuPrincipal implements ActionListener{
     FRM_MantenimientoUsuarios frm_MantenimientoUsuarios;
     FRM_Login login;
     ConexionBD conexion;
+    FRM_FuenteInformacion informacion;
 
 
     
     public Controlador_FRM_MenuPrincipal()
     {
-        mantenimientoEstudiantes=new FRM_MantenimientoEstudiantes();
-        mantenimientoCursos=new FRM_MantenimientoCursos();
-        matricula= new FRM_Matricula(mantenimientoEstudiantes,mantenimientoCursos);
-        frm_MantenimientoUsuarios= new  FRM_MantenimientoUsuarios();
-        login=new FRM_Login();
-        conexion=new ConexionBD();        
-        mantenimientoEstudiantes.controlador_FRM_MantenimientoEstudiantes.conexion=this.conexion;
-        mantenimientoCursos.controlador.conexion=this.conexion;
-        matricula.controlador.conexion=this.conexion;
-        frm_MantenimientoUsuarios.usuarios.conexion=this.conexion;
-        login.login.conexion=this.conexion;
-       if(conexion.comprobarUsuario())
-        {
-           this.login.setVisible(true);
-        }
-       else
-        {
-            JOptionPane.showMessageDialog(null,"No hay usuarios registrados, favor dirigirse al modulo de usuarios");
-        }
+        informacion=new FRM_FuenteInformacion();
+        this.informacion.setVisible(true);
+            mantenimientoEstudiantes=new FRM_MantenimientoEstudiantes();
+            mantenimientoCursos=new FRM_MantenimientoCursos();
+            matricula= new FRM_Matricula(mantenimientoEstudiantes,mantenimientoCursos);
+            frm_MantenimientoUsuarios= new  FRM_MantenimientoUsuarios();
+            login=new FRM_Login();
+            conexion=new ConexionBD();        
+            mantenimientoEstudiantes.controlador_FRM_MantenimientoEstudiantes.conexion=this.conexion;
+            mantenimientoCursos.controlador.conexion=this.conexion;
+            matricula.controlador.conexion=this.conexion;
+            frm_MantenimientoUsuarios.usuarios.conexion=this.conexion;
+            login.login.conexion=this.conexion;
+           if(conexion.comprobarUsuario())
+            {
+               this.login.setVisible(true);
+            }
+           else
+            {
+                JOptionPane.showMessageDialog(null,"No hay usuarios registrados, favor dirigirse al modulo de usuarios");
+            }
         
     }
     

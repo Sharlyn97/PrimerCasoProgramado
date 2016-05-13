@@ -5,6 +5,8 @@
  */
 package Vista;
 
+import Controlador.Controlador_FRM_FuenteInformacion;
+
 /**
  *
  * @author Jesse Fabian
@@ -14,14 +16,34 @@ public class FRM_FuenteInformacion extends javax.swing.JFrame {
     /**
      * Creates new form FRM_FuenteInformacion
      */
+    public Controlador_FRM_FuenteInformacion controlador;
+    
+    
     public FRM_FuenteInformacion() {
         initComponents();
+        controlador=new Controlador_FRM_FuenteInformacion(this);
+        agregarEventos();
     }
 
-    
-    public void getSeleccion()
+     public void agregarEventos()
     {
-        this.jrb_Archivos.isSelected();
+        this.btn_Confirmar.addActionListener(controlador);
+        this.jrb_Archivos.addActionListener(controlador);
+        this.jrb_BaseDatos.addActionListener(controlador);
+        this.jrb_XML.addActionListener(controlador);
+    }
+    
+    public boolean getSeleccionArchivos()
+    {
+      return  this.jrb_Archivos.isSelected();
+    }
+    public boolean getSeleccionBaseDatos()
+    {
+      return   this.jrb_BaseDatos.isSelected();
+    }
+    public boolean getSeleccionXML()
+    {
+     return   this.jrb_XML.isSelected();
     }
     /**
      * This method is called from within the constructor to initialize the form.
