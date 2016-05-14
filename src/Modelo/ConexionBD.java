@@ -17,6 +17,10 @@ public class ConexionBD {
     
     Connection con = null;
     String arregloInformacionConsultada[]=new String[2];
+    public String sigla="";
+    public String cedula="";
+    public String nombre="";
+    public String nombreCurso="";
     String arregloCursos[]=new String[3];
     
     public ConexionBD()
@@ -461,20 +465,37 @@ public class ConexionBD {
       public boolean consultarMatricula(String codigo)
     {
         ResultSet rs = null;
+        ResultSet rsDM = null;
+        ResultSet rsE = null;
+        ResultSet rsC = null;
+        
         Statement cmd = null;
         boolean encontro=false;
 
         try {
                 cmd = con.createStatement();
-                rs = cmd.executeQuery("SELECT * FROM matricula where codigo='"+codigo+"'");
-                
+                rs = cmd.executeQuery("SELECT * FROM matricula where numero='"+codigo+"'");
+                rsDM = cmd.executeQuery("SELECT * FROM detalle_matricula where numero='"+codigo+"'");
+                System.out.println("numero de codigo: "+codigo);
                 while (rs.next()) 
                 {
-                    String cedula = rs.getString("cedula");
+                     cedula = rs.getString("cedula");
+                     sigla = rsDM.getString("sigla");
+                     
+                     rsE = cmd.executeQuery("SELECT * FROM estudiantes where cedula='"+cedula+"'");
+                     rsC = cmd.executeQuery("SELECT * FROM cursos where sigla='"+sigla+"'");
+                     
+                     nombre = rsE.getString("nombre");
+                     nombreCurso = rsC.getString("nombre");
+                     
+                     
+                     
                     //String sigla = rs.getString("sigla");
-                    arregloInformacionConsultada[0]=cedula;
+                   // arregloInformacionConsultada[0]=cedula;
+                    
+                    //
                     //arregloInformacionConsultada[1]=sigla;
-                    System.out.println("Información de la BD: "+cedula);//+" Direccion: "+sigla); 
+                    System.out.println("Información de la BD cedula: "+cedula);//+" Direccion: "+sigla); 
                     encontro=true;
                 }
                 rs.close();
@@ -485,6 +506,8 @@ public class ConexionBD {
         }
         return encontro;
     }
+      
+      
       
         public String devolverCodigo()
     {

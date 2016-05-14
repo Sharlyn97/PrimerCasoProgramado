@@ -15,7 +15,7 @@ import java.awt.event.ActionListener;
  */
 public class Controlador_FRM_FuenteInformacion implements ActionListener{
     
-    public int numero;
+    public int numeroFuente;
     
     FRM_FuenteInformacion informacion;
     
@@ -32,33 +32,60 @@ public class Controlador_FRM_FuenteInformacion implements ActionListener{
         {
             if(informacion.getSeleccionArchivos()&&informacion.getSeleccionBaseDatos()&&informacion.getSeleccionXML())
             {
-                System.out.println("Seleccione solo un archivo");
+                System.out.println("Seleccione solo una fuente de informacion");
             }
             else
             {
-                if(informacion.getSeleccionArchivos())
+                if(informacion.getSeleccionArchivos()&&informacion.getSeleccionBaseDatos())
                 {
-                 System.out.println("Selecciono archivos");
+                     System.out.println("Seleccione solo una fuente de informacion");
+                     
                 }
                 else
                 {
-                    if(informacion.getSeleccionBaseDatos())
+                    if(informacion.getSeleccionArchivos()&&informacion.getSeleccionXML())
                     {
-                     System.out.println("Selecciono Base de datos");
+                     System.out.println("Seleccione solo una fuente de informacion");
                     }
                     else
                     {
-                      if (informacion.getSeleccionXML())
-                        {
-                          System.out.println("Selecciono XML");
+                      if(informacion.getSeleccionBaseDatos()&&informacion.getSeleccionXML())
+                      {
+                       System.out.println("Seleccione solo una fuente de informacion");   
+                      }
+                      else
+                       {
+                            if(informacion.getSeleccionArchivos())
+                            {
+                                informacion.setVisible(false);
+                                numeroFuente=1;
+                              System.out.println("Selecciono archivos numero: "+numeroFuente); 
+                            }
+                            else
+                            {
+                                if(informacion.getSeleccionBaseDatos())
+                                {
+                                    informacion.setVisible(false);
+                                    numeroFuente=2;
+                                  System.out.println("Selecciono Base de datos numero: "+numeroFuente);
+                                }
+                                 else
+                                 {
+                                   if (informacion.getSeleccionXML())
+                                    {
+                                        informacion.setVisible(false);
+                                        numeroFuente=3;
+                                       System.out.println("Selecciono XML numero: "+numeroFuente);
+                                    }
+                                 }
+                            }
                         }
                     }
                 }
+            
             }
-          
+        
         }
-        
-        
         
     }
     

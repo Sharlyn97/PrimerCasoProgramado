@@ -57,7 +57,7 @@ public class FRM_Matricula extends javax.swing.JFrame {
     }
     public String devolverCodigo()
     {
-        return this.jl_CodigoMatricula.getText();
+        return this.jt_CodigoMatricula.getText();
     }
     public String devolverCedula()
     {
@@ -153,6 +153,7 @@ public class FRM_Matricula extends javax.swing.JFrame {
         jt_CodigoMatricula = new javax.swing.JTextField();
         btn_Finalizar = new javax.swing.JButton();
 
+        setResizable(false);
         addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentHidden(java.awt.event.ComponentEvent evt) {
                 formComponentHidden(evt);

@@ -90,6 +90,7 @@ public class FRM_MantenimientoCursos extends javax.swing.JFrame {
         gUI_InformacionCursos1 = new Vista.GUI_InformacionCursos();
         gUI_Botones1 = new Vista.GUI_Botones();
 
+        setResizable(false);
         addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentHidden(java.awt.event.ComponentEvent evt) {
                 formComponentHidden(evt);

@@ -80,6 +80,8 @@ public class FRM_MantenimientoUsuarios extends javax.swing.JFrame {
         gUI_InformacionUsuarios1 = new Vista.GUI_InformacionUsuarios();
         gUI_Botones1 = new Vista.GUI_Botones();
 
+        setResizable(false);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(

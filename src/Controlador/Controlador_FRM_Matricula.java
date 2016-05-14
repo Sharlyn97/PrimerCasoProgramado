@@ -72,10 +72,12 @@ public class Controlador_FRM_Matricula implements ActionListener{
         }
         if(e.getActionCommand().equals("Agregar"))
         {  
-            frm_Matricula.cargarTabla();
-            encontroCurso=false;
+            //frm_Matricula.cargarTabla();
+            //encontroCurso=false;
             frm_Matricula.estadoInicial();
             frm_Matricula.limpiarCurso(); 
+            
+            
         }
         if(e.getActionCommand().equals("Finalizar"))
         {  

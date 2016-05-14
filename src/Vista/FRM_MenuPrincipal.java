@@ -53,13 +53,13 @@ public class FRM_MenuPrincipal extends javax.swing.JFrame {
         jMenu6 = new javax.swing.JMenu();
         jl_FondoMenuPrincipal = new javax.swing.JLabel();
         jm_MenuPrincipal = new javax.swing.JMenuBar();
-        jm_Archivo = new javax.swing.JMenu();
-        jm_Salir = new javax.swing.JMenuItem();
         jm_Mantenimientos = new javax.swing.JMenu();
         jm_Estudiantes = new javax.swing.JMenuItem();
         jm_Cursos = new javax.swing.JMenuItem();
         jm_Matricula = new javax.swing.JMenuItem();
         jm_Usuarios = new javax.swing.JMenuItem();
+        jm_Archivo = new javax.swing.JMenu();
+        jm_Salir = new javax.swing.JMenuItem();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -71,17 +71,11 @@ public class FRM_MenuPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(0, 0));
+        setResizable(false);
 
         jl_FondoMenuPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondo.jpg"))); // NOI18N
 
-        jm_Archivo.setText("Archivo");
-
-        jm_Salir.setText("Salir");
-        jm_Archivo.add(jm_Salir);
-
-        jm_MenuPrincipal.add(jm_Archivo);
-
-        jm_Mantenimientos.setText("Mantenimientos");
+        jm_Mantenimientos.setText("Mantenimiento");
 
         jm_Estudiantes.setText("Estudiantes");
         jm_Mantenimientos.add(jm_Estudiantes);
@@ -102,6 +96,13 @@ public class FRM_MenuPrincipal extends javax.swing.JFrame {
         jm_Mantenimientos.add(jm_Usuarios);
 
         jm_MenuPrincipal.add(jm_Mantenimientos);
+
+        jm_Archivo.setText("Archivo");
+
+        jm_Salir.setText("Salir");
+        jm_Archivo.add(jm_Salir);
+
+        jm_MenuPrincipal.add(jm_Archivo);
 
         setJMenuBar(jm_MenuPrincipal);
 
