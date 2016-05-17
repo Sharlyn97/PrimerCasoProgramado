@@ -22,21 +22,25 @@ public class Controlador_FRM_MantenimientoEstudiantes implements ActionListener{
     Controlador_FRM_MenuPrincipal menuPrincipal;
     FRM_MantenimientoEstudiantes mantenimientoEstudiantes;
     ConexionBD conexion;
-
+    Controlador_FRM_FuenteInformacion informacion;
     
     public Controlador_FRM_MantenimientoEstudiantes(FRM_MantenimientoEstudiantes mantenimientoEstudiantes)
     {
         this.mantenimientoEstudiantes=mantenimientoEstudiantes;
         mantenimientoEstudiantes.estadoInicial();
         this.conexion=conexion;
+        this.informacion=informacion;
     }
     
     
     public void actionPerformed(ActionEvent e)
     {
         if(e.getActionCommand().equals("Consultar"))
-        {
-           if(conexion.consultarEstudiantes(mantenimientoEstudiantes.devolverCedula()))
+        { 
+            System.out.println(""+informacion.devolverNumero());
+           if(informacion.devolverNumero()==2)
+           {
+            if(conexion.consultarEstudiantes(mantenimientoEstudiantes.devolverCedula()))
            {
            mantenimientoEstudiantes.mostrarInformacion(conexion.getArregloInformacion());
            mantenimientoEstudiantes.habilitarBotones();
@@ -48,7 +52,11 @@ public class Controlador_FRM_MantenimientoEstudiantes implements ActionListener{
                mantenimientoEstudiantes.habilitarBotones();
            }
        
+        }else{
+               System.out.println("mamador");
+           }
         }
+           
         if(e.getActionCommand().equals("Agregar"))
         {
          conexion.registrarEstudiante(mantenimientoEstudiantes.devolverCedula(),mantenimientoEstudiantes.devolverNombre(),mantenimientoEstudiantes.devolverDireccion());

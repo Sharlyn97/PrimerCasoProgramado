@@ -15,7 +15,7 @@ import java.awt.event.ActionListener;
  */
 public class Controlador_FRM_FuenteInformacion implements ActionListener{
     
-    public int numeroFuente;
+    private int numeroFuente;
     
     FRM_FuenteInformacion informacion;
     
@@ -89,4 +89,9 @@ public class Controlador_FRM_FuenteInformacion implements ActionListener{
         
     }
     
+    public int devolverNumero()
+    {
+        System.out.println("devolver Numerooooooooooooo "+numeroFuente);
+        return this.numeroFuente;
+    }
 }

@@ -20,7 +20,7 @@ ConexionBD conexion;
         this.conexion=conexion;
     }
 
-
+    
     public void actionPerformed(ActionEvent e) 
     {
             if(e.getActionCommand().equals("Agregar"))

@@ -34,12 +34,13 @@ public class Controlador_FRM_MenuPrincipal implements ActionListener{
     FRM_Login login;
     ConexionBD conexion;
     FRM_FuenteInformacion informacion;
-
+    Controlador_FRM_FuenteInformacion controladorInformacion;
 
     
     public Controlador_FRM_MenuPrincipal()
     {
         informacion=new FRM_FuenteInformacion();
+        controladorInformacion=new Controlador_FRM_FuenteInformacion(informacion);
         this.informacion.setVisible(true);
             mantenimientoEstudiantes=new FRM_MantenimientoEstudiantes();
             mantenimientoCursos=new FRM_MantenimientoCursos();
@@ -48,6 +49,7 @@ public class Controlador_FRM_MenuPrincipal implements ActionListener{
             login=new FRM_Login();
             conexion=new ConexionBD();        
             mantenimientoEstudiantes.controlador_FRM_MantenimientoEstudiantes.conexion=this.conexion;
+            mantenimientoEstudiantes.controlador_FRM_MantenimientoEstudiantes.informacion=this.controladorInformacion;
             mantenimientoCursos.controlador.conexion=this.conexion;
             matricula.controlador.conexion=this.conexion;
             frm_MantenimientoUsuarios.usuarios.conexion=this.conexion;
