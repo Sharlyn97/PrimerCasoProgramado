@@ -25,14 +25,17 @@ public class Controlador_FRM_Matricula implements ActionListener{
     boolean encontroCurso=false;
     ConexionBD conexion;
     Metodos_XML metodos;
-    
+    int fuente=0;
     public Controlador_FRM_Matricula(FRM_MantenimientoEstudiantes mantenimientoEstudiantes,FRM_MantenimientoCursos mantenimientoCursos,FRM_Matricula frm_Matricula)
     {
         this.frm_Matricula=frm_Matricula;
         this.conexion=conexion;
         metodos=new Metodos_XML(frm_Matricula);
     }
-    
+    public void setFuente(int fuente)
+    {
+        this.fuente=fuente;
+    }
     public void actionPerformed(ActionEvent e)
     {
         if(e.getActionCommand().equals("ConsultaRapidaEstudiante"))

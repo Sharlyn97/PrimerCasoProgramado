@@ -39,9 +39,9 @@ public class Controlador_FRM_MenuPrincipal implements ActionListener{
     
     public Controlador_FRM_MenuPrincipal()
     {
-        informacion=new FRM_FuenteInformacion();
-        controladorInformacion=new Controlador_FRM_FuenteInformacion(informacion);
-        this.informacion.setVisible(true);
+            informacion=new FRM_FuenteInformacion(this);
+        
+            this.informacion.setVisible(true);
             mantenimientoEstudiantes=new FRM_MantenimientoEstudiantes();
             mantenimientoCursos=new FRM_MantenimientoCursos();
             matricula= new FRM_Matricula(mantenimientoEstudiantes,mantenimientoCursos);
@@ -49,21 +49,46 @@ public class Controlador_FRM_MenuPrincipal implements ActionListener{
             login=new FRM_Login();
             conexion=new ConexionBD();        
             mantenimientoEstudiantes.controlador_FRM_MantenimientoEstudiantes.conexion=this.conexion;
-            mantenimientoEstudiantes.controlador_FRM_MantenimientoEstudiantes.informacion=this.controladorInformacion;
+            
             mantenimientoCursos.controlador.conexion=this.conexion;
             matricula.controlador.conexion=this.conexion;
             frm_MantenimientoUsuarios.usuarios.conexion=this.conexion;
             login.login.conexion=this.conexion;
-           if(conexion.comprobarUsuario())
+           
+        
+    }
+    public void setFuente(int fuente)
+    {
+        mantenimientoEstudiantes.controlador_FRM_MantenimientoEstudiantes.setFuente(fuente);
+        mantenimientoCursos.controlador.setFuente(fuente);
+        frm_MantenimientoUsuarios.usuarios.setFuente(fuente);
+        matricula.controlador.setFuente(fuente);                
+                
+        if(fuente==1)
+        {
+        
+        }
+        if(fuente==2)
+        {
+            
+            if(conexion.comprobarUsuario())
             {
                this.login.setVisible(true);
             }
            else
             {
                 JOptionPane.showMessageDialog(null,"No hay usuarios registrados, favor dirigirse al modulo de usuarios");
+                
             }
+        }
+        if(fuente==3)
+        {
         
+        }
     }
+    
+    
+
     
     public void actionPerformed(ActionEvent e)
     {

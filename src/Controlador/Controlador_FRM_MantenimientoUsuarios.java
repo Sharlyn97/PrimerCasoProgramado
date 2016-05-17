@@ -13,13 +13,16 @@ public class Controlador_FRM_MantenimientoUsuarios implements ActionListener{
     
 FRM_MantenimientoUsuarios frm_MantenimientoUsuarios;
 ConexionBD conexion;
-
+int fuente=0;
     public Controlador_FRM_MantenimientoUsuarios(FRM_MantenimientoUsuarios frm_MantenimientoUsuarios) 
     {
         this.frm_MantenimientoUsuarios=frm_MantenimientoUsuarios;
         this.conexion=conexion;
     }
-
+    public void setFuente(int fuente)
+    {
+        this.fuente=fuente;
+    }
     
     public void actionPerformed(ActionEvent e) 
     {

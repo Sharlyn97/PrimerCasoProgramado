@@ -20,6 +20,7 @@ public class Controlador_FRM_MantenimientoCursos implements ActionListener{
     
     FRM_MantenimientoCursos frm_MantenimientoCursos;
     ConexionBD conexion;
+    int fuente=0;
     
     public Controlador_FRM_MantenimientoCursos(FRM_MantenimientoCursos frm_MantenimientoCursos)
     {
@@ -27,6 +28,10 @@ public class Controlador_FRM_MantenimientoCursos implements ActionListener{
         this.conexion=conexion;
         frm_MantenimientoCursos.estadoInicial();
     } 
+    public void setFuente(int fuente)
+    {
+        this.fuente=fuente;
+    }
     
     public void actionPerformed(ActionEvent e)
     {

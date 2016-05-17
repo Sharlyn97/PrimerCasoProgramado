@@ -6,6 +6,7 @@
 package Vista;
 
 import Controlador.Controlador_FRM_FuenteInformacion;
+import Controlador.Controlador_FRM_MenuPrincipal;
 
 /**
  *
@@ -19,9 +20,9 @@ public class FRM_FuenteInformacion extends javax.swing.JFrame {
     public Controlador_FRM_FuenteInformacion controlador;
     
     
-    public FRM_FuenteInformacion() {
+    public FRM_FuenteInformacion(Controlador_FRM_MenuPrincipal controlador_FRM_MenuPrincipal) {
         initComponents();
-        controlador=new Controlador_FRM_FuenteInformacion(this);
+        controlador=new Controlador_FRM_FuenteInformacion(this,controlador_FRM_MenuPrincipal);
         agregarEventos();
     }
 

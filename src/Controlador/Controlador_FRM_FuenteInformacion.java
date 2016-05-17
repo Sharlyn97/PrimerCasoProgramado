@@ -15,14 +15,17 @@ import java.awt.event.ActionListener;
  */
 public class Controlador_FRM_FuenteInformacion implements ActionListener{
     
-    private int numeroFuente;
+    
+     int numeroFuente;
     
     FRM_FuenteInformacion informacion;
+    Controlador_FRM_MenuPrincipal controlador_FRM_MenuPrincipal;
     
-    
-    public Controlador_FRM_FuenteInformacion(FRM_FuenteInformacion informacion)
+    public Controlador_FRM_FuenteInformacion(FRM_FuenteInformacion informacion, Controlador_FRM_MenuPrincipal controlador_FRM_MenuPrincipal)
     {
         this.informacion=informacion;
+        this.controlador_FRM_MenuPrincipal=controlador_FRM_MenuPrincipal;
+        numeroFuente=0;
     }
 
     @Override
@@ -30,64 +33,37 @@ public class Controlador_FRM_FuenteInformacion implements ActionListener{
        
         if(e.getActionCommand().equals("Confirmar"))
         {
-            if(informacion.getSeleccionArchivos()&&informacion.getSeleccionBaseDatos()&&informacion.getSeleccionXML())
+            if( (informacion.getSeleccionArchivos()&&informacion.getSeleccionBaseDatos()&&informacion.getSeleccionXML()) || (informacion.getSeleccionArchivos()&&informacion.getSeleccionBaseDatos()) || (informacion.getSeleccionArchivos()&&informacion.getSeleccionXML()) || (informacion.getSeleccionBaseDatos()&&informacion.getSeleccionXML()) )
             {
                 System.out.println("Seleccione solo una fuente de informacion");
-            }
+            } 
             else
-            {
-                if(informacion.getSeleccionArchivos()&&informacion.getSeleccionBaseDatos())
+             {
+                  if(informacion.getSeleccionArchivos())
+                  {
+                      informacion.setVisible(false);
+                      numeroFuente=1;
+                    System.out.println("Selecciono archivos numero: "+numeroFuente); 
+                  }
+                if(informacion.getSeleccionBaseDatos())
                 {
-                     System.out.println("Seleccione solo una fuente de informacion");
-                     
+                    informacion.setVisible(false);
+                    numeroFuente=2;
+                  System.out.println("Selecciono Base de datos numero: "+numeroFuente);
                 }
-                else
-                {
-                    if(informacion.getSeleccionArchivos()&&informacion.getSeleccionXML())
-                    {
-                     System.out.println("Seleccione solo una fuente de informacion");
-                    }
-                    else
-                    {
-                      if(informacion.getSeleccionBaseDatos()&&informacion.getSeleccionXML())
-                      {
-                       System.out.println("Seleccione solo una fuente de informacion");   
-                      }
-                      else
-                       {
-                            if(informacion.getSeleccionArchivos())
-                            {
-                                informacion.setVisible(false);
-                                numeroFuente=1;
-                              System.out.println("Selecciono archivos numero: "+numeroFuente); 
-                            }
-                            else
-                            {
-                                if(informacion.getSeleccionBaseDatos())
-                                {
-                                    informacion.setVisible(false);
-                                    numeroFuente=2;
-                                  System.out.println("Selecciono Base de datos numero: "+numeroFuente);
-                                }
-                                 else
-                                 {
-                                   if (informacion.getSeleccionXML())
-                                    {
-                                        informacion.setVisible(false);
-                                        numeroFuente=3;
-                                       System.out.println("Selecciono XML numero: "+numeroFuente);
-                                    }
-                                 }
-                            }
-                        }
-                    }
-                }
-            
-            }
-        
+                if (informacion.getSeleccionXML())
+                 {
+                     informacion.setVisible(false);
+                     numeroFuente=3;
+                    System.out.println("Selecciono XML numero: "+numeroFuente);
+                 } 
+              }
+          }
+        controlador_FRM_MenuPrincipal.setFuente(numeroFuente);
         }
+            
+            
         
-    }
     
     public int devolverNumero()
     {

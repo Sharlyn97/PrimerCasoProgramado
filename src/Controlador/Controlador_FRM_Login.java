@@ -22,7 +22,7 @@ public class Controlador_FRM_Login implements ActionListener {
     FRM_Login login;
     FRM_MantenimientoUsuarios usuarios;
     ConexionBD conexion;
-
+    
     
     public Controlador_FRM_Login(FRM_Login login)
     {
@@ -39,6 +39,7 @@ public class Controlador_FRM_Login implements ActionListener {
            {
                mensaje("Bienvenido "+login.devolverNombre());
                this.login.setVisible(false);
+               
            }
            else
            {

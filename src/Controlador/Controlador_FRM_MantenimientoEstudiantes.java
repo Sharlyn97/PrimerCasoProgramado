@@ -22,23 +22,26 @@ public class Controlador_FRM_MantenimientoEstudiantes implements ActionListener{
     Controlador_FRM_MenuPrincipal menuPrincipal;
     FRM_MantenimientoEstudiantes mantenimientoEstudiantes;
     ConexionBD conexion;
-    Controlador_FRM_FuenteInformacion informacion;
+    int fuente=0;
     
     public Controlador_FRM_MantenimientoEstudiantes(FRM_MantenimientoEstudiantes mantenimientoEstudiantes)
     {
         this.mantenimientoEstudiantes=mantenimientoEstudiantes;
         mantenimientoEstudiantes.estadoInicial();
         this.conexion=conexion;
-        this.informacion=informacion;
+        
     }
-    
+    public void setFuente(int fuente)
+    {
+        this.fuente=fuente;
+    }
     
     public void actionPerformed(ActionEvent e)
     {
         if(e.getActionCommand().equals("Consultar"))
         { 
-            System.out.println(""+informacion.devolverNumero());
-           if(informacion.devolverNumero()==2)
+            
+           if(fuente==2)
            {
             if(conexion.consultarEstudiantes(mantenimientoEstudiantes.devolverCedula()))
            {
