@@ -72,6 +72,11 @@ public class GUI_Botones extends javax.swing.JPanel {
         this.btn_Eliminar.setEnabled(true);
         this.btn_Modificar.setEnabled(true);
     }
+    public void habilitarModiEliminar()
+    {
+        this.btn_Eliminar.setEnabled(true);
+        this.btn_Modificar.setEnabled(true);
+    }
     public void habilitarAgregar()
     {
         this.btn_Agregar.setEnabled(true);

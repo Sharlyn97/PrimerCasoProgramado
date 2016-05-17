@@ -127,6 +127,18 @@ public class FRM_Matricula extends javax.swing.JFrame {
         this.jt_CodigoMatricula.setText(controlador.colocarCodigo());
     }
 
+    public void mostrarInformacion(String arreglo[])
+    {
+        this.jt_Cedula.setText(arreglo[1]);
+        
+        this.jt_Sigla.setText(arreglo[0]);
+    }
+    
+    
+    public void habilitarModiEliminar()
+    {
+        this.gUI_Botones2.habilitarModiEliminar();
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

@@ -22,6 +22,7 @@ public class ConexionBD {
     public String nombre="";
     public String nombreCurso="";
     String arregloCursos[]=new String[3];
+    String arregloMatricula[]=new String[4];
     
     public ConexionBD()
     {
@@ -82,14 +83,14 @@ public class ConexionBD {
         
     }
     
-      public boolean registrarUsuario(String nombre, String usuario, String contraseña, String tipo)
+      public boolean registrarUsuario(String nombre, String nombreUsuario, String password, String tipo)
     {
         ResultSet rs = null;
         Statement cmd = null;
         boolean ejecuto;
         try {
                 cmd = con.createStatement();
-                ejecuto = cmd.execute("INSERT INTO usuarios(nombreUsuario, password, nombres, tipo) VALUES ('"+usuario+"','"+contraseña+"','"+nombre+"','"+tipo+"')");
+                ejecuto = cmd.execute("INSERT INTO usuarios(nombreUsuario, password, nombres, tipo) VALUES ('"+nombreUsuario+"','"+password+"','"+nombre+"','"+tipo+"')");
                 
                return true;
                // rs.close();
@@ -461,41 +462,24 @@ public class ConexionBD {
       
         return encontroUsuario;
     }
-     
+      
       public boolean consultarMatricula(String codigo)
     {
         ResultSet rs = null;
-        ResultSet rsDM = null;
-        ResultSet rsE = null;
-        ResultSet rsC = null;
-        
         Statement cmd = null;
         boolean encontro=false;
 
         try {
                 cmd = con.createStatement();
                 rs = cmd.executeQuery("SELECT * FROM matricula where numero='"+codigo+"'");
-                rsDM = cmd.executeQuery("SELECT * FROM detalle_matricula where numero='"+codigo+"'");
-                System.out.println("numero de codigo: "+codigo);
+                
                 while (rs.next()) 
                 {
-                     cedula = rs.getString("cedula");
-                     sigla = rsDM.getString("sigla");
-                     
-                     rsE = cmd.executeQuery("SELECT * FROM estudiantes where cedula='"+cedula+"'");
-                     rsC = cmd.executeQuery("SELECT * FROM cursos where sigla='"+sigla+"'");
-                     
-                     nombre = rsE.getString("nombre");
-                     nombreCurso = rsC.getString("nombre");
-                     
-                     
-                     
-                    //String sigla = rs.getString("sigla");
-                   // arregloInformacionConsultada[0]=cedula;
-                    
-                    //
-                    //arregloInformacionConsultada[1]=sigla;
-                    System.out.println("Información de la BD cedula: "+cedula);//+" Direccion: "+sigla); 
+                    String numero = rs.getString("numero");
+                    String cedula = rs.getString("cedula");
+                    arregloMatricula[0]=numero;
+                    arregloMatricula[1]=cedula;
+                    System.out.println("Información de la BD: "+cedula); 
                     encontro=true;
                 }
                 rs.close();
@@ -507,7 +491,7 @@ public class ConexionBD {
         return encontro;
     }
       
-      
+
       
         public String devolverCodigo()
     {
@@ -579,7 +563,59 @@ public class ConexionBD {
          return hayUsuarios;
      }
      
-    
+     public String consultarNombreEstudiantes(String cedula)
+    {
+        ResultSet rs = null;
+        Statement cmd = null;
+        String nombre="";
+
+        try {
+                cmd = con.createStatement();
+                rs = cmd.executeQuery("SELECT * FROM estudiantes where cedula='"+cedula+"'");
+                
+                while (rs.next()) 
+                {
+                    nombre = rs.getString("nombre");
+                    System.out.println("Información de la BD: "+nombre); 
+                    
+                }
+                rs.close();
+        }
+        catch(Exception e)
+        {
+            System.out.println("SQLException ejecutando sentencia: " + e.getMessage());
+        }
+        return nombre;
+    }
+      public String consultarSiglaCurso(String codigo)
+    {
+        ResultSet rs = null;
+        Statement cmd = null;
+        String sigla="";
+
+        try {
+                cmd = con.createStatement();
+                rs = cmd.executeQuery("SELECT * FROM detalle_matricula where numero='"+codigo+"'");
+                
+                while (rs.next()) 
+                {
+                   sigla=rs.getString("sigla");
+                   
+                    
+                }
+                rs.close();
+        }
+        catch(Exception e)
+        {
+            System.out.println("SQLException ejecutando sentencia: " + e.getMessage());
+        }
+        return sigla;
+    }
+     
+    public String[] getArregloInformacionMatricula()
+    {
+        return this.arregloMatricula;
+    }
      
      public String[] getArregloInformacion()
     {

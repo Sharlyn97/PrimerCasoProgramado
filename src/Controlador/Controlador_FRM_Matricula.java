@@ -11,10 +11,12 @@ import Vista.FRM_MantenimientoEstudiantes;
 import Vista.FRM_Matricula;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import Modelo.Metodos_XML;
+import javax.swing.JOptionPane;
 
 /**
  *
- * @author tecnologiamultimedia
+ * @author Jesse y Sharlyn
  */
 public class Controlador_FRM_Matricula implements ActionListener{
     
@@ -22,11 +24,13 @@ public class Controlador_FRM_Matricula implements ActionListener{
     boolean encontroEstudiante=false; 
     boolean encontroCurso=false;
     ConexionBD conexion;
+    Metodos_XML metodos;
     
     public Controlador_FRM_Matricula(FRM_MantenimientoEstudiantes mantenimientoEstudiantes,FRM_MantenimientoCursos mantenimientoCursos,FRM_Matricula frm_Matricula)
     {
         this.frm_Matricula=frm_Matricula;
         this.conexion=conexion;
+        metodos=new Metodos_XML(frm_Matricula);
     }
     
     public void actionPerformed(ActionEvent e)
@@ -61,18 +65,24 @@ public class Controlador_FRM_Matricula implements ActionListener{
         {
             if(conexion.consultarMatricula(frm_Matricula.devolverCodigo()))
             {
-                String arreglo[]=conexion.getArregloInformacion();  
-                
-                     
+               frm_Matricula.mostrarInformacion(conexion.getArregloInformacionMatricula());
+               frm_Matricula.mostrarNombreEstudiante(conexion.consultarNombreEstudiantes(frm_Matricula.devolverCedula()));
+               frm_Matricula.mostrarNombreCurso(conexion.consultarSiglaCurso(frm_Matricula.devolverCodigo()));
+               frm_Matricula.cargarTabla();
+               frm_Matricula.habilitarModiEliminar();
+               conexion.devolverCodigo();
+        
             }
             else
             {
-              frm_Matricula.mostrarMensaje("El código consultado, no tiene ninguna matricula registrada");  
+              mensaje("El estudiante no ha sido registrado");
+              frm_Matricula.habilitarAgregar();
+              conexion.devolverCodigo();
             }
         }
         if(e.getActionCommand().equals("Agregar"))
         {  
-            //frm_Matricula.cargarTabla();
+            frm_Matricula.cargarTabla();
             //encontroCurso=false;
             frm_Matricula.estadoInicial();
             frm_Matricula.limpiarCurso(); 
@@ -83,10 +93,12 @@ public class Controlador_FRM_Matricula implements ActionListener{
         {  
             for(int contador=0;contador<frm_Matricula.getCantidadDeCursosMatriculados();contador++)
             {
-               conexion.registrarMatricula(frm_Matricula.getInformacionTabla(contador));
+                conexion.registrarMatricula(frm_Matricula.getInformacionTabla(contador));
+                metodos.guardarEnXMLMatricula(frm_Matricula.getInformacionTabla(contador));
             }
             frm_Matricula.resetearInterfaz();
-            conexion.devolverCodigo();
+            //conexion.devolverCodigo();
+            metodos.colocarCodigo();
             
           //  metodosMatricula.mostrarInformacion();
         }
@@ -101,9 +113,13 @@ public class Controlador_FRM_Matricula implements ActionListener{
             frm_Matricula.habilitarAgregar();
         }
     }
-    
+    public void mensaje(String mensaje)
+    {
+        JOptionPane.showMessageDialog(null,mensaje);
+    }
     public String colocarCodigo()
     {
-        return conexion.devolverCodigo();
+        return metodos.colocarCodigo();
+        //return conexion.devolverCodigo();
     }
 }

@@ -7,6 +7,7 @@ package Vista;
 
 
 import Controlador.Controlador_FRM_MenuPrincipal;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -38,6 +39,10 @@ public class FRM_MenuPrincipal extends javax.swing.JFrame {
         this.jm_Usuarios.addActionListener(controlador_FRM_MenuPrincipal);
     }
 
+    public void mostrarMensaje(String mensaje)
+    {
+        JOptionPane.showMessageDialog(null,mensaje);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

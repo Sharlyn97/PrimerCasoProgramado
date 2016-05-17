@@ -60,7 +60,6 @@ public class FRM_FuenteInformacion extends javax.swing.JFrame {
         btn_Confirmar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
         jrb_Archivos.setText("Archivos Planos");
