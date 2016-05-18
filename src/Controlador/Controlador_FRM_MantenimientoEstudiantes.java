@@ -6,6 +6,7 @@
  */
 package Controlador;
 
+import Modelo.ArchivoEstudiantes;
 import Modelo.ConexionBD;
 import Modelo.Metodos_XML;
 import Vista.FRM_MantenimientoEstudiantes;
@@ -24,6 +25,7 @@ public class Controlador_FRM_MantenimientoEstudiantes implements ActionListener{
     FRM_MantenimientoEstudiantes mantenimientoEstudiantes;
     ConexionBD conexion;
     Metodos_XML metodos;
+    ArchivoEstudiantes archivo;
     int fuente=0;
     
     public Controlador_FRM_MantenimientoEstudiantes(FRM_MantenimientoEstudiantes mantenimientoEstudiantes)
@@ -32,6 +34,7 @@ public class Controlador_FRM_MantenimientoEstudiantes implements ActionListener{
         mantenimientoEstudiantes.estadoInicial();
         this.conexion=conexion;
         this.metodos=metodos;
+        archivo=new ArchivoEstudiantes();
     }
     
     public void setFuente(int fuente)
@@ -45,7 +48,7 @@ public class Controlador_FRM_MantenimientoEstudiantes implements ActionListener{
         { 
            if(fuente==1)
            {
-               
+             
            }
            if(fuente==2)
            {

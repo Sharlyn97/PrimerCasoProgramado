@@ -26,6 +26,11 @@ public class FRM_MantenimientoUsuarios extends javax.swing.JFrame {
         return this.gUI_InformacionUsuarios1.devolverNombreDeUsuario();
     }
     
+    public String[] devolverInformacion()
+    {
+        return this.gUI_InformacionUsuarios1.devolverInformacion();
+    }
+    
     public void mostrarInformacion(String arreglo[])
     {
          this.gUI_InformacionUsuarios1.mostrarInformacion(arreglo);
