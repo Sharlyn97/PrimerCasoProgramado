@@ -8,10 +8,13 @@ package Controlador;
 
 import Modelo.ArchivoEstudiantes;
 import Modelo.ConexionBD;
+import Modelo.Estudiante;
+import Modelo.MetodosEstudiantes;
 import Modelo.Metodos_XML;
 import Vista.FRM_MantenimientoEstudiantes;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -26,6 +29,7 @@ public class Controlador_FRM_MantenimientoEstudiantes implements ActionListener{
     ConexionBD conexion;
     Metodos_XML metodos;
     ArchivoEstudiantes archivo;
+    MetodosEstudiantes metodos2;
     int fuente=0;
     
     public Controlador_FRM_MantenimientoEstudiantes(FRM_MantenimientoEstudiantes mantenimientoEstudiantes)
@@ -34,12 +38,28 @@ public class Controlador_FRM_MantenimientoEstudiantes implements ActionListener{
         mantenimientoEstudiantes.estadoInicial();
         this.conexion=conexion;
         this.metodos=metodos;
+        metodos2=new MetodosEstudiantes();
         archivo=new ArchivoEstudiantes();
+        metodos2.setArray(archivo.devolverInformacionDeEstudiantes());
     }
     
     public void setFuente(int fuente)
     {
         this.fuente=fuente;
+    }
+    
+    public void crearArchivo()
+    {
+      ArrayList <Estudiante> array=metodos2.getArray();
+     archivo.crearArchivoEstudiantes();
+     
+     for(int conta=0; conta<array.size(); conta++)
+     {
+         archivo.ingresarInformacionEstudiantes(array.get(conta));
+         System.out.println("ingresa la información: "+array.get(conta).getCedula()+array.get(conta).getDireccion()+array.get(conta).getNombreCompleto());
+         archivo.devolverInformacionDeEstudiantes();
+     }   
+     
     }
     
     public void actionPerformed(ActionEvent e)
@@ -48,7 +68,15 @@ public class Controlador_FRM_MantenimientoEstudiantes implements ActionListener{
         { 
            if(fuente==1)
            {
-             
+             if(metodos2.consultarEstudiante(mantenimientoEstudiantes.devolverCedula()))
+            {
+                mantenimientoEstudiantes.mostrarInformacion(metodos.getArregloInformacion());
+                mensaje("Se encontó el estudiante");
+            }
+            else
+            {
+                mensaje("No se encontró el estudiante");
+            }
            }
            if(fuente==2)
            {
