@@ -21,10 +21,11 @@ public class FRM_Login extends javax.swing.JFrame {
     
     public Controlador_FRM_Login login;
     
-    public FRM_Login() {
+    public FRM_Login(FRM_MenuPrincipal menu) 
+    {
         initComponents();
         setVisible(false);
-        login=new Controlador_FRM_Login(this);
+        login=new Controlador_FRM_Login(this, menu);
         gUI_BotonesLogin1.agregarEventos(login);
     }
     public String[] devolverInformacion()

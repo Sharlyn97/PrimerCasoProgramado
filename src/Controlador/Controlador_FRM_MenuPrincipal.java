@@ -38,16 +38,20 @@ public class Controlador_FRM_MenuPrincipal implements ActionListener{
     Metodos_XML metodos;
     FRM_FuenteInformacion informacion;
     Controlador_FRM_FuenteInformacion controladorInformacion;
+    FRM_MenuPrincipal menu;
     
-    public Controlador_FRM_MenuPrincipal()
+    public Controlador_FRM_MenuPrincipal(FRM_MenuPrincipal menu)
     {
+        
+            this.menu=menu;
+        
             informacion=new FRM_FuenteInformacion(this);        
             this.informacion.setVisible(true);
             mantenimientoEstudiantes=new FRM_MantenimientoEstudiantes();
             mantenimientoCursos=new FRM_MantenimientoCursos();
             matricula= new FRM_Matricula(mantenimientoEstudiantes,mantenimientoCursos);
-            frm_MantenimientoUsuarios= new  FRM_MantenimientoUsuarios();
-            login=new FRM_Login();
+            frm_MantenimientoUsuarios= new  FRM_MantenimientoUsuarios(menu);
+            login=new FRM_Login(menu);
             conexion=new ConexionBD(); 
             metodos=new Metodos_XML();
     

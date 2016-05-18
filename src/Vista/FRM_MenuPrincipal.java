@@ -26,7 +26,7 @@ public class FRM_MenuPrincipal extends javax.swing.JFrame {
     public FRM_MenuPrincipal() {
         initComponents();
         this.setLocation(100, 100);
-        controlador_FRM_MenuPrincipal = new Controlador_FRM_MenuPrincipal();
+        controlador_FRM_MenuPrincipal = new Controlador_FRM_MenuPrincipal(this);
         agregarEventos();
     }  
     public void agregarEventos()
@@ -158,7 +158,7 @@ public class FRM_MenuPrincipal extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FRM_MenuPrincipal().setVisible(true);
+                new FRM_MenuPrincipal().setVisible(false);
             }
         });
     }

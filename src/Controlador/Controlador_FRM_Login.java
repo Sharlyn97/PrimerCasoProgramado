@@ -9,6 +9,7 @@ import Modelo.ConexionBD;
 import Modelo.Metodos_XML;
 import Vista.FRM_Login;
 import Vista.FRM_MantenimientoUsuarios;
+import Vista.FRM_MenuPrincipal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
@@ -24,11 +25,13 @@ public class Controlador_FRM_Login implements ActionListener {
     FRM_MantenimientoUsuarios usuarios;
     ConexionBD conexion;
     Metodos_XML metodos;
+    FRM_MenuPrincipal menu;
     
-    public Controlador_FRM_Login(FRM_Login login)
+    public Controlador_FRM_Login(FRM_Login login,FRM_MenuPrincipal menu)
     {
         this.login=login;
-        usuarios=new FRM_MantenimientoUsuarios();
+        usuarios=new FRM_MantenimientoUsuarios(menu);
+        this.menu=menu;
         this.conexion=conexion;
         this.metodos=metodos;
     }
@@ -41,7 +44,7 @@ public class Controlador_FRM_Login implements ActionListener {
            {
                mensaje("Bienvenido "+login.devolverNombre());
                this.login.setVisible(false);
-               
+               this.menu.setVisible(true);
            }
            else
            {

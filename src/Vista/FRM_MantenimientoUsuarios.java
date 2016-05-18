@@ -15,7 +15,7 @@ public class FRM_MantenimientoUsuarios extends javax.swing.JFrame {
 
     
     public Controlador_FRM_MantenimientoUsuarios usuarios;
-    public FRM_MantenimientoUsuarios() {
+    public FRM_MantenimientoUsuarios(FRM_MenuPrincipal menu) {
         initComponents();
         setVisible(false);
         usuarios= new Controlador_FRM_MantenimientoUsuarios(this);

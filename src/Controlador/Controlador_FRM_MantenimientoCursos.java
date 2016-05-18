@@ -10,6 +10,7 @@ import Modelo.ConexionBD;
 import Modelo.MetodosCursos;
 import Modelo.Metodos_XML;
 import Vista.FRM_MantenimientoCursos;
+import Vista.FRM_MenuPrincipal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
