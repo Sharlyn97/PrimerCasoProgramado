@@ -31,8 +31,9 @@ public class Controlador_FRM_MantenimientoEstudiantes implements ActionListener{
         this.mantenimientoEstudiantes=mantenimientoEstudiantes;
         mantenimientoEstudiantes.estadoInicial();
         this.conexion=conexion;
-        
+        this.metodos=metodos;
     }
+    
     public void setFuente(int fuente)
     {
         this.fuente=fuente;
@@ -63,7 +64,17 @@ public class Controlador_FRM_MantenimientoEstudiantes implements ActionListener{
         }
            if(fuente==3)
            {
-               
+            if(metodos.consultarInformacionDelXmlEstudiantes(mantenimientoEstudiantes.devolverCedula()))
+           {
+           mantenimientoEstudiantes.mostrarInformacion(metodos.getArregloInformacion());
+           mantenimientoEstudiantes.habilitarBotones();
+           mantenimientoEstudiantes.deshabilitarTF();
+           }
+           else
+           {
+               mensaje("El estudiante no ha sido registrado");
+               mantenimientoEstudiantes.habilitarBotones();
+           }   
            }
         }
            
@@ -82,7 +93,10 @@ public class Controlador_FRM_MantenimientoEstudiantes implements ActionListener{
          }
          if(fuente==3)
          {
-             
+         metodos.guardarEnXMLEstudiantes(mantenimientoEstudiantes.devolverInformacion());
+         mensaje("El estudiante ha sido agregado exitosamente");
+         mantenimientoEstudiantes.resetearInterfaz();
+         mantenimientoEstudiantes.habilitarTF();
          }
         }
         if(e.getActionCommand().equals("Modificar"))
@@ -101,7 +115,11 @@ public class Controlador_FRM_MantenimientoEstudiantes implements ActionListener{
             }
             if(fuente==3)
             {
-                
+            metodos.modificarInformacionDelXmlEstudiantes(mantenimientoEstudiantes.devolverInformacion());
+            mensaje("El estudiante se modificó exitosamente");
+            mantenimientoEstudiantes.resetearInterfaz();
+            mantenimientoEstudiantes.estadoInicial();
+            mantenimientoEstudiantes.habilitarTF();
             }
         }
         if(e.getActionCommand().equals("Eliminar"))
@@ -120,7 +138,11 @@ public class Controlador_FRM_MantenimientoEstudiantes implements ActionListener{
             }
             if(fuente==3)
             {
-                
+            metodos.eliminarInformacionDelXmlEstudiantes((mantenimientoEstudiantes.devolverCedula()));
+            mensaje("El estudiante ha sido eliminado exitosamente");
+            mantenimientoEstudiantes.resetearInterfaz();
+            mantenimientoEstudiantes.estadoInicial();
+            mantenimientoEstudiantes.habilitarTF();
             }
         }
     
