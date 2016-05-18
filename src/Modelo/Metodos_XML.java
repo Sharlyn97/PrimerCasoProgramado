@@ -467,6 +467,40 @@ public class Metodos_XML
          return itemEncontrado;
     }
     
+    public String consultarInformacionEstudiantes(String cedula)
+    { 
+         Element raiz = document.getDocumentElement();
+         NodeList listaDeItems = raiz.getElementsByTagName("Estudiante");
+         Node tag=null,datoContenido=null;
+         String informacion="";
+         boolean itemEncontrado=false,tituloCedula=false;
+         int contador=0;
+
+         for(int contadorItems=0; contadorItems<listaDeItems.getLength(); contadorItems++) 
+         {   
+             Node item = listaDeItems.item(contadorItems);
+             NodeList datosItem = item.getChildNodes();
+             for(int contadorTags=0; contadorTags<datosItem.getLength(); contadorTags++) 
+             {           
+                 tag = datosItem.item(contadorTags); 
+                 datoContenido = tag.getFirstChild();
+
+                 if(tag.getNodeName().equals("cedula") && datoContenido.getNodeValue().equals(""+cedula) )
+                 {
+                    itemEncontrado=true;     
+                 }
+                 if(itemEncontrado && contador<3)
+                 {
+                    arregloInformacion[contador]=datoContenido.getNodeValue();
+                    informacion=arregloInformacion[1];
+                    contador++;
+                 }
+             }
+
+         }
+         return informacion;
+    }
+    
     public boolean consultarInformacionDelXmlCursos(String sigla)
     { 
          Element raiz = document.getDocumentElement();
@@ -570,6 +604,7 @@ public class Metodos_XML
     {
         return this.arregloInformacion;
     }
+    
     public void modificarInformacionDelXmlEstudiantes(String informacion[])
     { 
          Element raiz = document.getDocumentElement();

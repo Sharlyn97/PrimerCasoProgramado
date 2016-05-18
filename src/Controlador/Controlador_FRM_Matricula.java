@@ -24,9 +24,9 @@ public class Controlador_FRM_Matricula implements ActionListener{
     boolean encontroEstudiante=false; 
     boolean encontroCurso=false;
     ConexionBD conexion;
-    Metodos_XML metodos;
-    
+    Metodos_XML metodos;    
     int fuente=0;
+    
     public Controlador_FRM_Matricula(FRM_MantenimientoEstudiantes mantenimientoEstudiantes,FRM_MantenimientoCursos mantenimientoCursos,FRM_Matricula frm_Matricula)
     {
         this.frm_Matricula=frm_Matricula;
@@ -41,6 +41,12 @@ public class Controlador_FRM_Matricula implements ActionListener{
     {
         if(e.getActionCommand().equals("ConsultaRapidaEstudiante"))
         {
+            if(fuente==1)
+            {
+            
+            }
+            if(fuente==2)
+            {
             if(conexion.consultarEstudiantes(frm_Matricula.devolverCedula()))
             {
                 String arreglo[]=conexion.getArregloInformacion();
@@ -52,8 +58,28 @@ public class Controlador_FRM_Matricula implements ActionListener{
                 frm_Matricula.mostrarMensaje("El estudiante consultado no se encuentra, favor dirigirse al módulo de Mantenimiento Estudiantes");
             }
         }
+            if(fuente==3)
+            {
+              if(metodos.consultarInformacionDelXmlEstudiantes(frm_Matricula.devolverCedula()))
+            {
+                String arreglo[]=metodos.getArregloInformacion();
+                frm_Matricula.mostrarNombreEstudiante(arreglo[0]);
+                encontroEstudiante=true;        
+            }
+            else
+            {
+                frm_Matricula.mostrarMensaje("El estudiante consultado no se encuentra, favor dirigirse al módulo de Mantenimiento Estudiantes");
+            }  
+            }
+        }
         if(e.getActionCommand().equals("ConsultaRapidaCurso"))
         {
+           if(fuente==1)
+           {
+               
+           }
+           if(fuente==2)
+           {
            if(conexion.consultarCurso(frm_Matricula.devolverSigla()))
             {
                 String arreglo[]=conexion.getArregloInformacion();
@@ -65,8 +91,28 @@ public class Controlador_FRM_Matricula implements ActionListener{
                 frm_Matricula.mostrarMensaje("El curso consultado no se encuentra, favor dirigirse al módulo de Mantenimiento Cursos");
             } 
         }
+           if(fuente==3)
+           {
+              if(metodos.consultarInformacionDelXmlCursos(frm_Matricula.devolverSigla()))
+            {
+                String arreglo[]=metodos.getArregloInformacion();
+                frm_Matricula.mostrarNombreCurso(arreglo[0]);
+                encontroCurso=true;
+            }
+            else
+            {
+                frm_Matricula.mostrarMensaje("El curso consultado no se encuentra, favor dirigirse al módulo de Mantenimiento Cursos");
+            }  
+           }
+        }
         if(e.getActionCommand().equals("Consultar"))
         {
+            if(fuente==1)
+            {
+                
+            }
+            if(fuente==2)
+            {
             if(conexion.consultarMatricula(frm_Matricula.devolverCodigo()))
             {
                frm_Matricula.mostrarInformacion(conexion.getArregloInformacionMatricula());
@@ -84,10 +130,29 @@ public class Controlador_FRM_Matricula implements ActionListener{
               conexion.devolverCodigo();
             }
         }
+            if(fuente==3)
+            {
+              if(metodos.consultarInformacionDelXmlMatricula(frm_Matricula.devolverCodigo()))
+            {
+               frm_Matricula.mostrarInformacion(metodos.getArregloInformacion());
+               frm_Matricula.mostrarNombreEstudiante(metodos.consultarInformacionEstudiantes(frm_Matricula.devolverCedula()));
+               frm_Matricula.mostrarNombreCurso(frm_Matricula.devolverSigla());
+               frm_Matricula.cargarTabla();
+               frm_Matricula.habilitarModiEliminar();
+               metodos.colocarCodigo();
+
+            }
+            else
+            {
+              mensaje("El estudiante no ha sido registrado");
+              frm_Matricula.habilitarAgregar();
+              metodos.colocarCodigo();
+            }
+            }
+        }
         if(e.getActionCommand().equals("Agregar"))
         {  
             frm_Matricula.cargarTabla();
-            //encontroCurso=false;
             frm_Matricula.estadoInicial();
             frm_Matricula.limpiarCurso(); 
             
@@ -95,27 +160,54 @@ public class Controlador_FRM_Matricula implements ActionListener{
         }
         if(e.getActionCommand().equals("Finalizar"))
         {  
+            if(fuente==1)
+            {
+                
+            }
+            if(fuente==2)
+            {
             for(int contador=0;contador<frm_Matricula.getCantidadDeCursosMatriculados();contador++)
             {
                 conexion.registrarMatricula(frm_Matricula.getInformacionTabla(contador));
-                metodos.guardarEnXMLMatricula(frm_Matricula.getInformacionTabla(contador));
             }
-            frm_Matricula.resetearInterfaz();
-            //conexion.devolverCodigo();
-            metodos.colocarCodigo();
-            
-          //  metodosMatricula.mostrarInformacion();
-        }
-        if(e.getActionCommand().equals("Eliminar"))
-        {
-            conexion.eliminarMatricula(frm_Matricula.devolverCodigo());
             frm_Matricula.resetearInterfaz();
             conexion.devolverCodigo();
         }
+            if(fuente==3)
+            {
+               for(int contador=0;contador<frm_Matricula.getCantidadDeCursosMatriculados();contador++)
+            {
+                metodos.guardarEnXMLMatricula(frm_Matricula.getInformacionTabla(contador));
+            }
+            frm_Matricula.resetearInterfaz();
+            metodos.colocarCodigo(); 
+            }
+        }
+        if(e.getActionCommand().equals("Eliminar"))
+        {
+            if(fuente==1)
+            {
+                
+            }
+            if(fuente==2)
+            {
+            conexion.eliminarMatricula(frm_Matricula.devolverCodigo());
+            frm_Matricula.resetearInterfaz();
+            conexion.devolverCodigo();
+            }
+            if(fuente==3)
+            {
+             metodos.eliminarInformacionDelXmlMatricula(frm_Matricula.devolverCodigo());
+             frm_Matricula.resetearInterfaz();
+             metodos.colocarCodigo();
+            }
+        
         if(encontroEstudiante && encontroCurso)
         {
             frm_Matricula.habilitarAgregar();
         }
+        
+    }
     }
     public void mensaje(String mensaje)
     {
@@ -126,4 +218,6 @@ public class Controlador_FRM_Matricula implements ActionListener{
         return metodos.colocarCodigo();
         //return conexion.devolverCodigo();
     }
+
 }
+
