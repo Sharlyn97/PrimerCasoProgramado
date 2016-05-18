@@ -9,12 +9,14 @@ package Controlador;
 
 
 import Modelo.ConexionBD;
+import Modelo.Metodos_XML;
 import Vista.FRM_FuenteInformacion;
 import Vista.FRM_Login;
 import Vista.FRM_MantenimientoCursos;
 import Vista.FRM_MantenimientoEstudiantes;
 import Vista.FRM_Matricula;
 import Vista.FRM_MantenimientoUsuarios;
+import Vista.FRM_MenuPrincipal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
@@ -33,27 +35,34 @@ public class Controlador_FRM_MenuPrincipal implements ActionListener{
     FRM_MantenimientoUsuarios frm_MantenimientoUsuarios;
     FRM_Login login;
     ConexionBD conexion;
+    Metodos_XML metodos;
     FRM_FuenteInformacion informacion;
     Controlador_FRM_FuenteInformacion controladorInformacion;
-
     
     public Controlador_FRM_MenuPrincipal()
     {
-            informacion=new FRM_FuenteInformacion(this);
-        
+            informacion=new FRM_FuenteInformacion(this);        
             this.informacion.setVisible(true);
             mantenimientoEstudiantes=new FRM_MantenimientoEstudiantes();
             mantenimientoCursos=new FRM_MantenimientoCursos();
             matricula= new FRM_Matricula(mantenimientoEstudiantes,mantenimientoCursos);
             frm_MantenimientoUsuarios= new  FRM_MantenimientoUsuarios();
             login=new FRM_Login();
-            conexion=new ConexionBD();        
+            conexion=new ConexionBD(); 
+            metodos=new Metodos_XML();
+    
+                        
             mantenimientoEstudiantes.controlador_FRM_MantenimientoEstudiantes.conexion=this.conexion;
-            
             mantenimientoCursos.controlador.conexion=this.conexion;
             matricula.controlador.conexion=this.conexion;
             frm_MantenimientoUsuarios.usuarios.conexion=this.conexion;
             login.login.conexion=this.conexion;
+           
+            mantenimientoEstudiantes.controlador_FRM_MantenimientoEstudiantes.metodos=this.metodos;
+            mantenimientoCursos.controlador.metodos=this.metodos;
+            matricula.controlador.metodos=this.metodos;
+            frm_MantenimientoUsuarios.usuarios.metodos=this.metodos;
+            login.login.metodos=this.metodos;
            
         
     }
@@ -70,15 +79,14 @@ public class Controlador_FRM_MenuPrincipal implements ActionListener{
         }
         if(fuente==2)
         {
-            
-            if(conexion.comprobarUsuario())
+           if(conexion.comprobarUsuario())
             {
                this.login.setVisible(true);
             }
            else
             {
                 JOptionPane.showMessageDialog(null,"No hay usuarios registrados, favor dirigirse al modulo de usuarios");
-                
+                this.frm_MantenimientoUsuarios.setVisible(true);
             }
         }
         if(fuente==3)
@@ -86,8 +94,6 @@ public class Controlador_FRM_MenuPrincipal implements ActionListener{
         
         }
     }
-    
-    
 
     
     public void actionPerformed(ActionEvent e)

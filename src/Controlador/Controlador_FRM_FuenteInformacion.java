@@ -16,7 +16,7 @@ import java.awt.event.ActionListener;
 public class Controlador_FRM_FuenteInformacion implements ActionListener{
     
     
-     int numeroFuente;
+     int numeroFuente=0;
     
     FRM_FuenteInformacion informacion;
     Controlador_FRM_MenuPrincipal controlador_FRM_MenuPrincipal;
@@ -25,7 +25,6 @@ public class Controlador_FRM_FuenteInformacion implements ActionListener{
     {
         this.informacion=informacion;
         this.controlador_FRM_MenuPrincipal=controlador_FRM_MenuPrincipal;
-        numeroFuente=0;
     }
 
     @Override

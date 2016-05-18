@@ -25,12 +25,13 @@ public class Controlador_FRM_Matricula implements ActionListener{
     boolean encontroCurso=false;
     ConexionBD conexion;
     Metodos_XML metodos;
+    
     int fuente=0;
     public Controlador_FRM_Matricula(FRM_MantenimientoEstudiantes mantenimientoEstudiantes,FRM_MantenimientoCursos mantenimientoCursos,FRM_Matricula frm_Matricula)
     {
         this.frm_Matricula=frm_Matricula;
         this.conexion=conexion;
-        metodos=new Metodos_XML(frm_Matricula);
+        this.metodos=metodos;
     }
     public void setFuente(int fuente)
     {
@@ -74,7 +75,7 @@ public class Controlador_FRM_Matricula implements ActionListener{
                frm_Matricula.cargarTabla();
                frm_Matricula.habilitarModiEliminar();
                conexion.devolverCodigo();
-            //adffsfsgsdkgsokhsdoifhiofovsihjgesophjoijfvoihsofdhsorif
+
             }
             else
             {

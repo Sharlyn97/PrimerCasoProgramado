@@ -2,6 +2,7 @@
 package Controlador;
 
 import Modelo.ConexionBD;
+import Modelo.Metodos_XML;
 import Vista.FRM_MantenimientoUsuarios;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,11 +14,13 @@ public class Controlador_FRM_MantenimientoUsuarios implements ActionListener{
     
 FRM_MantenimientoUsuarios frm_MantenimientoUsuarios;
 ConexionBD conexion;
+Metodos_XML metodos;
 int fuente=0;
     public Controlador_FRM_MantenimientoUsuarios(FRM_MantenimientoUsuarios frm_MantenimientoUsuarios) 
     {
         this.frm_MantenimientoUsuarios=frm_MantenimientoUsuarios;
         this.conexion=conexion;
+        this.metodos=metodos;
     }
     public void setFuente(int fuente)
     {

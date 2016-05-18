@@ -49,9 +49,8 @@ public class Metodos_XML
     String nombreArchivo3;
     String nombreArchivo4;
     
-    public Metodos_XML(FRM_Matricula ventana) 
-    {
-        this.ventana=ventana;  
+    public Metodos_XML() 
+    { 
         nombreArchivo="Estudiante";
         nombreArchivo2="Curso";
         nombreArchivo3="Matricula";
@@ -59,7 +58,7 @@ public class Metodos_XML
         
         if(cargarXMLEstudiante() && cargarXMLCurso() && cargarXMLMatricula() && cargarXMLUsuario())
         {
-            ventana.mostrarMensaje("Ya existe un archivo XML creado, ya fue cargado y puede proceder a utilizarlo");
+            System.out.println("Ya existe un archivo XML creado, ya fue cargado y puede proceder a utilizarlo");
         }
         else
         {
@@ -71,7 +70,8 @@ public class Metodos_XML
          //   crearXMLCurso();
          //   crearXMLMatricula();
           //  crearXMLUsuario();
-            ventana.mostrarMensaje("No existía un archivo XML creado, ya fue creado y puede proceder a utilizarlo");
+           // ventana.mostrarMensaje
+            System.out.println("No existía un archivo XML creado, ya fue creado y puede proceder a utilizarlo");
         }
         
         arregloInformacion=new String[3];

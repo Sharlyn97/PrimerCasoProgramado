@@ -6,6 +6,7 @@
 package Controlador;
 
 import Modelo.ConexionBD;
+import Modelo.Metodos_XML;
 import Vista.FRM_Login;
 import Vista.FRM_MantenimientoUsuarios;
 import java.awt.event.ActionEvent;
@@ -22,13 +23,14 @@ public class Controlador_FRM_Login implements ActionListener {
     FRM_Login login;
     FRM_MantenimientoUsuarios usuarios;
     ConexionBD conexion;
-    
+    Metodos_XML metodos;
     
     public Controlador_FRM_Login(FRM_Login login)
     {
         this.login=login;
         usuarios=new FRM_MantenimientoUsuarios();
         this.conexion=conexion;
+        this.metodos=metodos;
     }
     
     public void actionPerformed(ActionEvent e) {
