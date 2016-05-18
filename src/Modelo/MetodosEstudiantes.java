@@ -35,9 +35,7 @@ public class MetodosEstudiantes {
     if(vueltasRegistrar==0)
     {  
       arrayEstudiantes.add(temporal);
-      vueltasRegistrar=1;
-     
-     // JOptionPane.showMessageDialog(null,"El estudiante se agregó correctamente");  
+      vueltasRegistrar=1; 
      agrego=true;
     }    
     else
@@ -51,12 +49,10 @@ public class MetodosEstudiantes {
          }   
            if(estudianteRepetido)
             {
-                    //JOptionPane.showMessageDialog(null,"El estudiante ya existe"); 
             }
            else
             {
                     arrayEstudiantes.add(temporal);
-                    //JOptionPane.showMessageDialog(null,"El estudiante se agregó correctamente");
                     
                     estudianteRepetido=false;
                     agrego=true;
@@ -112,14 +108,13 @@ public class MetodosEstudiantes {
              arrayEstudiantes.get(contador).setNombreCompleto(nombre);
              arrayEstudiantes.get(contador).setDireccion(direccion);
              modifico=true;
-            // JOptionPane.showMessageDialog(null,"El estudiante se modificó correctamente"); 
+
          }
          else
          {
              vueltas++;
              if(vueltas==arrayEstudiantes.size())
              {
-              //JOptionPane.showMessageDialog(null,"El estudiante no existe"); 
              }
          }
      }
@@ -134,8 +129,7 @@ public class MetodosEstudiantes {
          if(arrayEstudiantes.get(contador).getCedula().equals(cedula))
          {
              arrayEstudiantes.remove(contador);
-             elimino=true;
-            // JOptionPane.showMessageDialog(null,"El estudiante se ha eliminado correctamente");   
+             elimino=true;   
          }
      }
      return  elimino;

@@ -113,7 +113,15 @@ public class Controlador_FRM_MantenimientoEstudiantes implements ActionListener{
         {
          if(fuente==1)
          {
-             
+             if(metodos2.agregarEstudiante(mantenimientoEstudiantes.devolverInformacion(),mantenimientoEstudiantes.devolverCedula()))
+            {
+                mantenimientoEstudiantes.resetearInterfaz();
+                mensaje("Se agregó correctamente");
+            }
+            else
+            {
+                mensaje("No se encontró el curso");
+            }
          }
          if(fuente==2)
          {
@@ -134,7 +142,15 @@ public class Controlador_FRM_MantenimientoEstudiantes implements ActionListener{
         {
             if(fuente==1)
             {
-                
+               if(metodos2.modificarEstudiante(mantenimientoEstudiantes.devolverCedula(), mantenimientoEstudiantes.devolverNombre(), mantenimientoEstudiantes.devolverDireccion()))
+           {
+               mantenimientoEstudiantes.resetearInterfaz();
+               mensaje("Se modificó correctamente");
+           }
+           else
+            {
+               mensaje("No se encontró el curso");
+            } 
             }
             if(fuente==2)
             {
@@ -157,7 +173,15 @@ public class Controlador_FRM_MantenimientoEstudiantes implements ActionListener{
         {
             if(fuente==1)
             {
-                
+              if(metodos2.eliminarEstudiante(mantenimientoEstudiantes.devolverCedula()))
+            {
+                mantenimientoEstudiantes.resetearInterfaz();
+                mensaje("Se eliminó correctamente");
+            }
+            else
+            {
+                mensaje("No se encontró el curso");
+            }  
             }
             if(fuente==2)
             {

@@ -7,6 +7,7 @@ package Controlador;
 
 
 import Modelo.ConexionBD;
+import Modelo.MetodosCursos;
 import Modelo.Metodos_XML;
 import Vista.FRM_MantenimientoCursos;
 import java.awt.event.ActionEvent;
@@ -22,6 +23,7 @@ public class Controlador_FRM_MantenimientoCursos implements ActionListener{
     FRM_MantenimientoCursos frm_MantenimientoCursos;
     ConexionBD conexion;
     Metodos_XML metodos;
+    MetodosCursos metodosCursos;
     int fuente=0;
     
     public Controlador_FRM_MantenimientoCursos(FRM_MantenimientoCursos frm_MantenimientoCursos)
@@ -29,6 +31,7 @@ public class Controlador_FRM_MantenimientoCursos implements ActionListener{
         this.frm_MantenimientoCursos= frm_MantenimientoCursos;
         this.conexion=conexion;
         this.metodos=metodos;
+        metodosCursos=new MetodosCursos();
         frm_MantenimientoCursos.estadoInicial();
     } 
     public void setFuente(int fuente)
@@ -42,7 +45,15 @@ public class Controlador_FRM_MantenimientoCursos implements ActionListener{
         {
             if(fuente==1)
             {
-                
+              if(metodosCursos.agregarCurso(frm_MantenimientoCursos.devolverInformacion()))
+            {
+                frm_MantenimientoCursos.resetearInterfaz();
+                mensaje("Se agregó correctamente");
+            }
+            else
+            {
+                mensaje("No se encontró el curso");
+            }  
             }
             if(fuente==2)
             {
@@ -73,7 +84,15 @@ public class Controlador_FRM_MantenimientoCursos implements ActionListener{
         {
           if(fuente==1)
           {
-              
+              if(metodosCursos.consultarCurso(frm_MantenimientoCursos.devolverSigla()))
+            {
+                frm_MantenimientoCursos.mostrarInformacion(metodos.getArregloInformacion());
+                mensaje("Se encontró el curso");
+            }
+            else
+            {
+                mensaje("No se encontró el curso");
+            }
           }
           if(fuente==2)
           {
@@ -110,7 +129,15 @@ public class Controlador_FRM_MantenimientoCursos implements ActionListener{
         {
             if(fuente==1)
             {
-                
+                if(metodosCursos.modificarCurso(frm_MantenimientoCursos.devolverInformacion()))
+           {
+               frm_MantenimientoCursos.resetearInterfaz();
+               mensaje("Se modificó correctamente");
+           }
+           else
+            {
+               mensaje("No se encontró el curso");
+            } 
             }
             if(fuente==2)
             {
@@ -133,7 +160,15 @@ public class Controlador_FRM_MantenimientoCursos implements ActionListener{
         {
             if(fuente==1)
             {
-                
+                if(metodosCursos.eliminarCurso(frm_MantenimientoCursos.devolverSigla()))
+            {
+                frm_MantenimientoCursos.resetearInterfaz();
+                mensaje("Se eliminó correctamente");
+            }
+            else
+            {
+                mensaje("No se encontró el curso");
+            }  
             }
             if(fuente==2)
             {

@@ -24,6 +24,16 @@ public class MetodosCursos {
         arrayCursos=new ArrayList <Cursos>();
         arregloDatos=new String[3];
     }
+    
+     public ArrayList <Cursos> getArray()
+    {
+        System.out.println("Array: "+arrayCursos.get(0).getInformacion());
+        return arrayCursos;
+    }
+    public void setArray(ArrayList<Cursos>array)
+    {
+      arrayCursos=array;
+    }
    public boolean agregarCurso(String informacion[])//String siglasCurso
  {
      boolean cursoRepetido=false;
@@ -40,7 +50,7 @@ public class MetodosCursos {
      {
          for(int contador=0; contador<arrayCursos.size(); contador++)
          {
-            //System.out.println("Siglas contador: "+arrayCursos.get(contador).getSigla()+" 2.siglas usuario: "+informacion[1]);
+  
            if(arrayCursos.get(contador).getSigla().equals(informacion[0]))  
            {
                cursoRepetido=true;
@@ -61,7 +71,7 @@ public class MetodosCursos {
      return agrego;
  }
 
- public boolean modificarCurso(String informacion[])//revisar creditos[]
+ public boolean modificarCurso(String informacion[])
  {
      boolean modifico=false;
      
@@ -74,7 +84,6 @@ public class MetodosCursos {
              arrayCursos.get(contador).setHorario(informacion[3]);
              modifico=true;
          }
-        // System.out.println("Siglas contador: "+arrayCurso.get(contador).getSiglas()+" 2.siglas usuario: "+informacion[1]);
      }
      return modifico;
  }
@@ -84,7 +93,6 @@ public class MetodosCursos {
      boolean consulto=false;
      for(int contador=0; contador<arrayCursos.size(); contador++)
      {
-         //System.out.println(arrayCurso.get(contador).getNombre());
          if(arrayCursos.get(contador).getSigla().equals(siglasCurso))
         {
             arregloDatos[0]=arrayCursos.get(contador).getNombre();
@@ -107,14 +115,14 @@ public class MetodosCursos {
          {
              arrayCursos.remove(contador);
              eliminado=true;
-             //JOptionPane.showMessageDialog(null,"El curso se ha eliminado correctamente");
+
          }
          else
          {
              vueltas++;
              if(vueltas==arrayCursos.size())
              {
-               // JOptionPane.showMessageDialog(null,"El curso no existe");   
+                 
              }
          }
      }
@@ -124,7 +132,6 @@ public class MetodosCursos {
  {
       Cursos temporal;
      temporal=arrayCursos.get(0);
-     //System.out.println(temporal.getInformacion());
  }
  
  public String[] getArregloInformacion()
