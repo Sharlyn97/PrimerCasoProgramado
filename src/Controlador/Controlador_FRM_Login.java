@@ -45,6 +45,7 @@ public class Controlador_FRM_Login implements ActionListener {
                mensaje("Bienvenido "+login.devolverNombre());
                this.login.setVisible(false);
                this.menu.setVisible(true);
+               //se subió
            }
            else
            {
