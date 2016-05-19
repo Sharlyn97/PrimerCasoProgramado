@@ -28,6 +28,7 @@ public class ArchivoCursos {
         else
         {
           System.out.println("Error al cargar archivo");  
+          
         }
     }
     

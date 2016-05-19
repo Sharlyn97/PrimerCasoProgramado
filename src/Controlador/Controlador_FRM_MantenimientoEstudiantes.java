@@ -31,7 +31,7 @@ public class Controlador_FRM_MantenimientoEstudiantes implements ActionListener{
     ConexionBD conexion;
     Metodos_XML metodos;
     ArchivoEstudiantes archivo;
-    MetodosEstudiantes metodos2;
+    MetodosEstudiantes metodosEstudiantes;
     int fuente=0;
     
     public Controlador_FRM_MantenimientoEstudiantes(FRM_MantenimientoEstudiantes mantenimientoEstudiantes)
@@ -40,10 +40,10 @@ public class Controlador_FRM_MantenimientoEstudiantes implements ActionListener{
         mantenimientoEstudiantes.estadoInicial();
         this.conexion=conexion;
         this.metodos=metodos;
-        frm_Matricula.controlador.metodosEstudiantes=this.metodos2;
-        metodos2=new MetodosEstudiantes();
+        metodosEstudiantes=new MetodosEstudiantes();
         archivo=new ArchivoEstudiantes();
-        metodos2.setArray(archivo.devolverInformacionDeEstudiantes());
+        metodosEstudiantes.setArray(archivo.devolverInformacionDeEstudiantes());
+        frm_Matricula.controlador.metodosEstudiantes=this.metodosEstudiantes;
     }
     
     public void setFuente(int fuente)
@@ -53,7 +53,7 @@ public class Controlador_FRM_MantenimientoEstudiantes implements ActionListener{
     
     public void crearArchivo()
     {
-      ArrayList <Estudiante> array=metodos2.getArray();
+      ArrayList <Estudiante> array=metodosEstudiantes.getArray();
      archivo.crearArchivoEstudiantes();
      
      for(int conta=0; conta<array.size(); conta++)
@@ -71,7 +71,7 @@ public class Controlador_FRM_MantenimientoEstudiantes implements ActionListener{
         { 
            if(fuente==1)
            {
-             if(metodos2.consultarEstudiante(mantenimientoEstudiantes.devolverCedula()))
+             if(metodosEstudiantes.consultarEstudiante(mantenimientoEstudiantes.devolverCedula()))
             {
                 mantenimientoEstudiantes.mostrarInformacion(metodos.getArregloInformacion());
                 mensaje("Se encontó el estudiante");
@@ -116,7 +116,7 @@ public class Controlador_FRM_MantenimientoEstudiantes implements ActionListener{
         {
          if(fuente==1)
          {
-             if(metodos2.agregarEstudiante(mantenimientoEstudiantes.devolverInformacion(),mantenimientoEstudiantes.devolverCedula()))
+             if(metodosEstudiantes.agregarEstudiante(mantenimientoEstudiantes.devolverInformacion(),mantenimientoEstudiantes.devolverCedula()))
             {
                 mantenimientoEstudiantes.resetearInterfaz();
                 mensaje("Se agregó correctamente");
@@ -145,7 +145,7 @@ public class Controlador_FRM_MantenimientoEstudiantes implements ActionListener{
         {
             if(fuente==1)
             {
-               if(metodos2.modificarEstudiante(mantenimientoEstudiantes.devolverCedula(), mantenimientoEstudiantes.devolverNombre(), mantenimientoEstudiantes.devolverDireccion()))
+               if(metodosEstudiantes.modificarEstudiante(mantenimientoEstudiantes.devolverCedula(), mantenimientoEstudiantes.devolverNombre(), mantenimientoEstudiantes.devolverDireccion()))
            {
                mantenimientoEstudiantes.resetearInterfaz();
                mensaje("Se modificó correctamente");
@@ -176,7 +176,7 @@ public class Controlador_FRM_MantenimientoEstudiantes implements ActionListener{
         {
             if(fuente==1)
             {
-              if(metodos2.eliminarEstudiante(mantenimientoEstudiantes.devolverCedula()))
+              if(metodosEstudiantes.eliminarEstudiante(mantenimientoEstudiantes.devolverCedula()))
             {
                 mantenimientoEstudiantes.resetearInterfaz();
                 mensaje("Se eliminó correctamente");

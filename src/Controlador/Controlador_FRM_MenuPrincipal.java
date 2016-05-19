@@ -47,8 +47,9 @@ public class Controlador_FRM_MenuPrincipal implements ActionListener{
             this.menu=menu;
         
             informacion=new FRM_FuenteInformacion(this);        
-            this.informacion.setVisible(true);
             mantenimientoEstudiantes=new FRM_MantenimientoEstudiantes();
+            this.informacion.setVisible(true);
+            
             mantenimientoCursos=new FRM_MantenimientoCursos();
             matricula= new FRM_Matricula(mantenimientoEstudiantes,mantenimientoCursos);
             frm_MantenimientoUsuarios= new  FRM_MantenimientoUsuarios(menu);
