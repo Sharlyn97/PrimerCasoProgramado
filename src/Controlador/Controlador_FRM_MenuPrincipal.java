@@ -39,6 +39,7 @@ public class Controlador_FRM_MenuPrincipal implements ActionListener{
     FRM_FuenteInformacion informacion;
     Controlador_FRM_FuenteInformacion controladorInformacion;
     FRM_MenuPrincipal menu;
+    int fuente=0;
     
     public Controlador_FRM_MenuPrincipal(FRM_MenuPrincipal menu)
     {
@@ -77,10 +78,19 @@ public class Controlador_FRM_MenuPrincipal implements ActionListener{
         frm_MantenimientoUsuarios.usuarios.setFuente(fuente);
         matricula.controlador.setFuente(fuente); 
         login.login.setFuente(fuente);
-                
+        this.fuente=fuente;   
+       
         if(fuente==1)
         {
-        
+       if(frm_MantenimientoUsuarios.usuarios.metodosUsuarios.comprobarUsuario())
+       {
+         this.login.setVisible(true);
+            }
+           else
+            {
+                JOptionPane.showMessageDialog(null,"No hay usuarios registrados, favor dirigirse al modulo de usuarios");
+                this.frm_MantenimientoUsuarios.setVisible(true);
+            }         
         }
         if(fuente==2)
         {
@@ -96,7 +106,15 @@ public class Controlador_FRM_MenuPrincipal implements ActionListener{
         }
         if(fuente==3)
         {
-        
+         if(metodos.comprobarUsuarios())
+        {
+           this.login.setVisible(true);
+            }
+           else
+            {
+                JOptionPane.showMessageDialog(null,"No hay usuarios registrados, favor dirigirse al modulo de usuarios");
+                this.frm_MantenimientoUsuarios.setVisible(true);
+            } 
         }
     }
 
@@ -119,7 +137,18 @@ public class Controlador_FRM_MenuPrincipal implements ActionListener{
         if(e.getActionCommand().equals("Matricula"))
         {
             this.matricula.setVisible(true);
-            this.matricula.colocarCodigo();
+            if(fuente==1)
+            {
+            this.matricula.colocarCodigoArchivos();
+            }
+            if(fuente==2)
+            {
+            this.matricula.colocarCodigoBaseDatos();
+            }
+            if(fuente==3)
+            {
+            this.matricula.colocarCodigoXML();
+            }
         }
          if(e.getActionCommand().equals("Usuarios"))
         {

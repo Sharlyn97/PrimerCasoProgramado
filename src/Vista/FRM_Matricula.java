@@ -109,7 +109,19 @@ public class FRM_Matricula extends javax.swing.JFrame {
     }
     public void resetearInterfaz()
     {
-        colocarCodigo();
+        if(controlador.fuente==1)
+        {
+           colocarCodigoArchivos();    
+        }
+        if(controlador.fuente==2)
+        {
+           colocarCodigoBaseDatos();
+        }
+        if(controlador.fuente==3)
+        {
+           colocarCodigoXML(); 
+        }
+        
         this.jt_Cedula.setText("");
         this.jt_NombreEstudiante.setText("");
         this.jt_Sigla.setText("");
@@ -122,9 +134,19 @@ public class FRM_Matricula extends javax.swing.JFrame {
             modelo.removeRow(0);
         }   
     }
-    public void colocarCodigo()
+    public void colocarCodigoXML()
     {
-        this.jt_CodigoMatricula.setText(controlador.colocarCodigo());
+        this.jt_CodigoMatricula.setText(controlador.colocarCodigoXML());
+    }
+    
+    public void colocarCodigoBaseDatos()
+    {
+        this.jt_CodigoMatricula.setText(controlador.colocarCodigoBaseDatos());
+    }
+    
+    public void colocarCodigoArchivos()
+    {
+        this.jt_CodigoMatricula.setText(controlador.colocarCodigoArchivos());
     }
 
     public void mostrarInformacion(String arreglo[])

@@ -97,6 +97,24 @@ public class MetodosEstudiantes {
         return existe;
     
     }
+    
+     public String consultarNombreEstudiante(String cedula)
+    {
+        String nombre="";
+        
+        for(int contador=0;contador<arrayEstudiantes.size();contador++)
+        {
+            if(arrayEstudiantes.get(contador).getCedula().equals(cedula))
+            {
+                nombre=arrayEstudiantes.get(contador).getNombreCompleto();
+                              
+            }
+        
+        }
+        return nombre;
+    
+    }
+     
     public boolean modificarEstudiante(String cedula, String nombre, String direccion)
     { 
         boolean modifico=false;

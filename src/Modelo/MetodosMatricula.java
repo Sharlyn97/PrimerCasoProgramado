@@ -71,6 +71,22 @@ public class MetodosMatricula {
         return existe;
     }
     
+    public String consultarSiglaCurso(String codigo)
+    {
+        String sigla="";
+        
+        for(int contador=0;contador<arrayMatricula.size();contador++)
+        {
+            if(arrayMatricula.get(contador).getCodigo().equals(codigo))
+            {
+
+              sigla=arrayMatricula.get(contador).getSigla();
+                
+            }
+        }
+        return sigla;
+    }
+    
     
     public void modificarMatricula(String arreglo[])
     {
@@ -83,11 +99,11 @@ public class MetodosMatricula {
             }
         }
     }
-    public void eliminarMatricula(String arreglo[])
+    public void eliminarMatricula(String codigo)
     {
         for(int contador=0;contador<arrayMatricula.size();contador++)
         {
-            if(arrayMatricula.get(contador).getCodigo().equals(arreglo[0]))
+            if(arrayMatricula.get(contador).getCodigo().equals(codigo))
             {
                 arrayMatricula.remove(contador);
             }

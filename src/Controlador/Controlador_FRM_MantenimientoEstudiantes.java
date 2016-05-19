@@ -12,6 +12,7 @@ import Modelo.Estudiante;
 import Modelo.MetodosEstudiantes;
 import Modelo.Metodos_XML;
 import Vista.FRM_MantenimientoEstudiantes;
+import Vista.FRM_Matricula;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -26,6 +27,7 @@ public class Controlador_FRM_MantenimientoEstudiantes implements ActionListener{
 
     Controlador_FRM_MenuPrincipal menuPrincipal;
     FRM_MantenimientoEstudiantes mantenimientoEstudiantes;
+    FRM_Matricula frm_Matricula;
     ConexionBD conexion;
     Metodos_XML metodos;
     ArchivoEstudiantes archivo;
@@ -38,6 +40,7 @@ public class Controlador_FRM_MantenimientoEstudiantes implements ActionListener{
         mantenimientoEstudiantes.estadoInicial();
         this.conexion=conexion;
         this.metodos=metodos;
+        frm_Matricula.controlador.metodosEstudiantes=this.metodos2;
         metodos2=new MetodosEstudiantes();
         archivo=new ArchivoEstudiantes();
         metodos2.setArray(archivo.devolverInformacionDeEstudiantes());

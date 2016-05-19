@@ -600,6 +600,8 @@ public class Metodos_XML
          return itemEncontrado;
     }
     
+    
+    
     public boolean consultarInformacionDeUsuarios(String usuario,String contraseña)
     { 
          Element raiz = document.getDocumentElement();
@@ -947,6 +949,21 @@ public class Metodos_XML
         {
             System.err.println("Error al eliminar: " + e);
         }
+    }
+    public boolean comprobarUsuarios()
+    {
+         Element raiz = document.getDocumentElement();
+         NodeList listaDeItems = raiz.getElementsByTagName("Usuario");
+         int cantidad = listaDeItems.getLength();
+
+         boolean usuario=false;
+
+         if(cantidad<=1)
+        {
+            usuario=true;
+         }
+       
+         return usuario;
     }
     
     public String colocarCodigo()

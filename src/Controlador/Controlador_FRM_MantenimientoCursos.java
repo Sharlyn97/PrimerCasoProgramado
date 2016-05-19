@@ -13,6 +13,7 @@ import Modelo.Estudiante;
 import Modelo.MetodosCursos;
 import Modelo.Metodos_XML;
 import Vista.FRM_MantenimientoCursos;
+import Vista.FRM_Matricula;
 import Vista.FRM_MenuPrincipal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -26,6 +27,7 @@ import javax.swing.JOptionPane;
 public class Controlador_FRM_MantenimientoCursos implements ActionListener{
     
     FRM_MantenimientoCursos frm_MantenimientoCursos;
+    FRM_Matricula frm_Matricula;
     ConexionBD conexion;
     Metodos_XML metodos;
     MetodosCursos metodosCursos;
@@ -37,6 +39,7 @@ public class Controlador_FRM_MantenimientoCursos implements ActionListener{
         this.frm_MantenimientoCursos= frm_MantenimientoCursos;
         this.conexion=conexion;
         this.metodos=metodos;
+        frm_Matricula.controlador.metodosCursos=metodosCursos;
         archivo=new ArchivoCursos();
         metodosCursos=new MetodosCursos();
         frm_MantenimientoCursos.estadoInicial();

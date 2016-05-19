@@ -114,4 +114,17 @@ public class MetodosUsuarios {
     {
         return this.arregloInformacionConsultada;
     }
+    
+    public boolean comprobarUsuario()
+    {
+        boolean usuario=false;
+        
+        if(arrayUsuarios.size()<=1)
+        {
+            usuario=true;
+        }
+        
+        
+        return usuario; 
+    }
 }
