@@ -31,7 +31,7 @@ public class Controlador_FRM_MantenimientoEstudiantes implements ActionListener{
     ConexionBD conexion;
     Metodos_XML metodos;
     ArchivoEstudiantes archivo;
-    MetodosEstudiantes metodosEstudiantes;
+    public MetodosEstudiantes metodosEstudiantes;
     int fuente=0;
     
     public Controlador_FRM_MantenimientoEstudiantes(FRM_MantenimientoEstudiantes mantenimientoEstudiantes)
@@ -43,7 +43,7 @@ public class Controlador_FRM_MantenimientoEstudiantes implements ActionListener{
         metodosEstudiantes=new MetodosEstudiantes();
         archivo=new ArchivoEstudiantes();
         metodosEstudiantes.setArray(archivo.devolverInformacionDeEstudiantes());
-        frm_Matricula.controlador.metodosEstudiantes=this.metodosEstudiantes;
+        
     }
     
     public void setFuente(int fuente)

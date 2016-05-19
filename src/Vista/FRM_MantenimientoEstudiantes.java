@@ -16,7 +16,9 @@ import javax.swing.JOptionPane;
 public class FRM_MantenimientoEstudiantes extends javax.swing.JFrame {
     
 
+    
     public Controlador_FRM_MantenimientoEstudiantes controlador_FRM_MantenimientoEstudiantes;
+    //FRM_Matricula matricula;
     
     public FRM_MantenimientoEstudiantes() {
         initComponents();

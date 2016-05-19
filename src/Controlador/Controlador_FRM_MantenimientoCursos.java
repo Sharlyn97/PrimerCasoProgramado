@@ -39,7 +39,6 @@ public class Controlador_FRM_MantenimientoCursos implements ActionListener{
         this.frm_MantenimientoCursos= frm_MantenimientoCursos;
         this.conexion=conexion;
         this.metodos=metodos;
-        frm_Matricula.controlador.metodosCursos=metodosCursos;
         archivo=new ArchivoCursos();
         metodosCursos=new MetodosCursos();
         frm_MantenimientoCursos.estadoInicial();

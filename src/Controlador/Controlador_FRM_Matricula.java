@@ -35,6 +35,7 @@ public class Controlador_FRM_Matricula implements ActionListener{
     MetodosMatricula metodosMatricula;
     MetodosEstudiantes metodosEstudiantes;
     MetodosCursos metodosCursos;
+    
     public int fuente=0;
     
     public Controlador_FRM_Matricula(FRM_MantenimientoEstudiantes mantenimientoEstudiantes,FRM_MantenimientoCursos mantenimientoCursos,FRM_Matricula frm_Matricula)
@@ -47,6 +48,7 @@ public class Controlador_FRM_Matricula implements ActionListener{
         archivo=new ArchivoMatricula();
         metodosMatricula=new MetodosMatricula();
         metodosMatricula.setArray(archivo.devolverInformacionDeMatricula());
+        
     }
     
     public void crearArchivo()
