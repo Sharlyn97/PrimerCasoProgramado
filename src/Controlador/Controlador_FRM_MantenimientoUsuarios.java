@@ -15,7 +15,6 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
-// afopsdmgfdmgodhbdkflokdmgotrfsfoiffmdvpodfbodfzmc
 
 public class Controlador_FRM_MantenimientoUsuarios implements ActionListener{
     
@@ -57,71 +56,104 @@ int fuente=0;
     
     public void actionPerformed(ActionEvent e) 
     {
-            if(e.getActionCommand().equals("Agregar"))
-            {   
+        if(e.getActionCommand().equals("Agregar"))
+        {   
            if(fuente==1)
            {
-              metodosUsuarios.agregarUsuario(frm_MantenimientoUsuarios.devolverInformacion());
-              frm_MantenimientoUsuarios.resetearInterfaz();
-              mensaje("Se agregó correctamente");
-            
-           }
+                if(metodosUsuarios.agregarUsuario(frm_MantenimientoUsuarios.devolverInformacion()))
+                {
+                    frm_MantenimientoUsuarios.resetearInterfaz();
+                    frm_MantenimientoUsuarios.mensaje("Se agregó correctamente");
+                }
+                else
+                {
+                    frm_MantenimientoUsuarios.mensaje("Hubo un problema al agregar el usuario, intente nuevamente");
+                }
+           } 
            if(fuente==2)
            {
-           conexion.registrarUsuario(frm_MantenimientoUsuarios.devolverNombreCompleto(),frm_MantenimientoUsuarios.devolverNombreUsuario(),frm_MantenimientoUsuarios.devolverContraseña(),frm_MantenimientoUsuarios.devolverTipo());
-           mensaje("El usuario ha sido agregado exitosamente");
-           frm_MantenimientoUsuarios.resetearIntefaz();
-           frm_MantenimientoUsuarios.estadoInicial();
-           frm_MantenimientoUsuarios.habilitarTF();           
-            }
+                if(conexion.registrarUsuario(frm_MantenimientoUsuarios.devolverNombreCompleto(),frm_MantenimientoUsuarios.devolverNombreUsuario(),frm_MantenimientoUsuarios.devolverContraseña(),frm_MantenimientoUsuarios.devolverTipo()))
+                {
+                    frm_MantenimientoUsuarios.mensaje("El usuario ha sido agregado exitosamente");
+                    frm_MantenimientoUsuarios.resetearIntefaz();
+                    frm_MantenimientoUsuarios.estadoInicial();
+                    frm_MantenimientoUsuarios.habilitarTF();           
+                }
+               else
+               {
+                   frm_MantenimientoUsuarios.mensaje("Hubo un problema al agregar el usuario, intente nuevamente");
+               }
+           } 
            if(fuente==3)
            {
-           metodos.modificarInformacionDelXmlUsuario(frm_MantenimientoUsuarios.devolverInformacion());
-           mensaje("El usuario ha sido agregado exitosamente");
-           frm_MantenimientoUsuarios.resetearIntefaz();
-           frm_MantenimientoUsuarios.estadoInicial();
-           frm_MantenimientoUsuarios.habilitarTF();    
+                if(metodos.modificarInformacionDelXmlUsuario(frm_MantenimientoUsuarios.devolverInformacion()))
+                {
+                frm_MantenimientoUsuarios.mensaje("El usuario ha sido agregado exitosamente");
+                frm_MantenimientoUsuarios.resetearIntefaz();
+                frm_MantenimientoUsuarios.estadoInicial();
+                frm_MantenimientoUsuarios.habilitarTF();    
+                }
+                else
+                {
+                    frm_MantenimientoUsuarios.mensaje("Hubo un problema al agregar el usuario, intente nuevamente");
+                }
            }
-           }
+         }
             if(e.getActionCommand().equals("Modificar"))
             {
-            if(fuente==1)
-            {
-               metodosUsuarios.modificarUsuario(frm_MantenimientoUsuarios.devolverInformacion());           
-               frm_MantenimientoUsuarios.resetearInterfaz();
-               mensaje("Se modificó correctamente");
-           
-            }
+                if(fuente==1)
+                {
+                   if(metodosUsuarios.modificarUsuario(frm_MantenimientoUsuarios.devolverInformacion()))
+                    {
+                    frm_MantenimientoUsuarios.resetearInterfaz();
+                    frm_MantenimientoUsuarios.mensaje("Se modificó correctamente");
+                    }
+                    else
+                    {
+                        frm_MantenimientoUsuarios.mensaje("No se pudo modificar correctamente");
+                    }
+                }
             if(fuente==2)
             {
-            conexion.actualizarUsuario(frm_MantenimientoUsuarios.devolverNombreCompleto(),frm_MantenimientoUsuarios.devolverNombreUsuario(),frm_MantenimientoUsuarios.devolverContraseña(),frm_MantenimientoUsuarios.devolverTipo());
-            mensaje("El usuario se modificó exitosamente");
-            frm_MantenimientoUsuarios.resetearIntefaz();
-            frm_MantenimientoUsuarios.estadoInicial();
-            frm_MantenimientoUsuarios.habilitarTF();
+                if(conexion.actualizarUsuario(frm_MantenimientoUsuarios.devolverNombreCompleto(),frm_MantenimientoUsuarios.devolverNombreUsuario(),frm_MantenimientoUsuarios.devolverContraseña(),frm_MantenimientoUsuarios.devolverTipo()))
+                {
+                    frm_MantenimientoUsuarios.mensaje("El usuario se modificó exitosamente");
+                    frm_MantenimientoUsuarios.resetearIntefaz();
+                    frm_MantenimientoUsuarios.estadoInicial();
+                    frm_MantenimientoUsuarios.habilitarTF();
+                }
+                else
+                {
+                    frm_MantenimientoUsuarios.mensaje("No se pudo modificar correctamente");
+                }
             }
             if(fuente==3)
             {
-            metodos.modificarInformacionDelXmlUsuario(frm_MantenimientoUsuarios.devolverInformacion());
-            mensaje("El usuario se modificó exitosamente");
-            frm_MantenimientoUsuarios.resetearIntefaz();
-            frm_MantenimientoUsuarios.estadoInicial();
-            frm_MantenimientoUsuarios.habilitarTF();
+                if(metodos.modificarInformacionDelXmlUsuario(frm_MantenimientoUsuarios.devolverInformacion()))
+                {
+                    frm_MantenimientoUsuarios.mensaje("El usuario se modificó exitosamente");
+                    frm_MantenimientoUsuarios.resetearIntefaz();
+                    frm_MantenimientoUsuarios.estadoInicial();
+                    frm_MantenimientoUsuarios.habilitarTF();
+                }
+                else
+                {
+                    frm_MantenimientoUsuarios.mensaje("No se pudo modificar correctamente");
+                }
             }
-            }
-            
+         }   
             if(e.getActionCommand().equals("Consultar"))
             {
              if(fuente==1)
              {
                  if(metodosUsuarios.consultarUsuario(frm_MantenimientoUsuarios.devolverNombreUsuario()))
-            {
+               {
                 frm_MantenimientoUsuarios.mostrarInformacion(metodos.getArregloInformacion());
-                mensaje("Se encontró el usuario");
-            }
+                frm_MantenimientoUsuarios.mensaje("Se encontró el usuario");
+                }
             else
             {
-                mensaje("No se encontró el usuario");
+                frm_MantenimientoUsuarios.mensaje("El usuario no ha sido registrado");
             } 
              }
              if(fuente==2)
@@ -134,7 +166,7 @@ int fuente=0;
              }
              else
              {
-                 mensaje("El usuario no ha sido registrado");
+                 frm_MantenimientoUsuarios.mensaje("El usuario no ha sido registrado");
                  frm_MantenimientoUsuarios.habilitarBotones();
              }
             }
@@ -148,43 +180,55 @@ int fuente=0;
              }
              else
              {
-                 mensaje("El usuario no ha sido registrado");
+                 frm_MantenimientoUsuarios.mensaje("El usuario no ha sido registrado");
                  frm_MantenimientoUsuarios.habilitarBotones();
              }  
              }
-            }
+          }
             
           if(e.getActionCommand().equals("Eliminar"))
            {
                if(fuente==1)
                {
-                metodosUsuarios.eliminarUsuario(frm_MantenimientoUsuarios.devolverInformacion());
-                frm_MantenimientoUsuarios.resetearInterfaz();
-                mensaje("Se eliminó correctamente");
-            
-            
-               }
+                    if(metodosUsuarios.eliminarUsuario(frm_MantenimientoUsuarios.devolverInformacion()))
+                    {
+                        frm_MantenimientoUsuarios.resetearInterfaz();
+                        frm_MantenimientoUsuarios.mensaje("Se eliminó correctamente");
+                    }
+                   else
+                   {
+                       frm_MantenimientoUsuarios.mensaje("No se pudo eliminar al usuario");
+                   }
+               }  
                if(fuente==2)
                {
-            conexion.eliminarUsuario(frm_MantenimientoUsuarios.devolverNombreCompleto());
-            mensaje("El usuario ha sido eliminado exitosamente");
-            frm_MantenimientoUsuarios.resetearIntefaz();
-            frm_MantenimientoUsuarios.estadoInicial();
-            frm_MantenimientoUsuarios.habilitarTF();
-           }
+                    if(conexion.eliminarUsuario(frm_MantenimientoUsuarios.devolverNombreCompleto()))
+                    {
+                        frm_MantenimientoUsuarios.mensaje("El usuario ha sido eliminado exitosamente");
+                        frm_MantenimientoUsuarios.resetearIntefaz();
+                        frm_MantenimientoUsuarios.estadoInicial();
+                        frm_MantenimientoUsuarios.habilitarTF();
+                    }
+                    else
+                    {
+                        frm_MantenimientoUsuarios.mensaje("No se pudo eliminar el usuario");
+                    }
+               }    
                if(fuente==3)
                {
-            metodos.eliminarInformacionDelXmlUsuario(frm_MantenimientoUsuarios.devolverNombreCompleto());
-            mensaje("El usuario ha sido eliminado exitosamente");
-            frm_MantenimientoUsuarios.resetearIntefaz();
-            frm_MantenimientoUsuarios.estadoInicial();
-            frm_MantenimientoUsuarios.habilitarTF();
+                   if(metodos.eliminarInformacionDelXmlUsuario(frm_MantenimientoUsuarios.devolverNombreCompleto()))
+                   {
+                        frm_MantenimientoUsuarios.mensaje("El usuario ha sido eliminado exitosamente");
+                        frm_MantenimientoUsuarios.resetearIntefaz();
+                        frm_MantenimientoUsuarios.estadoInicial();
+                        frm_MantenimientoUsuarios.habilitarTF();
+                   }
+                    else
+                    {
+                        frm_MantenimientoUsuarios.mensaje("No se pudo eliminar el usuario");
+                    }
                }
-           }
 
-    }
-    public void mensaje(String mensaje)
-    {
-        JOptionPane.showMessageDialog(null,mensaje);
-    }    
+            }
+       }
 }

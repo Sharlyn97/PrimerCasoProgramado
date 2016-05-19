@@ -6,6 +6,7 @@
 package Vista;
 
 import Controlador.Controlador_FRM_MantenimientoEstudiantes;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -77,6 +78,10 @@ public class FRM_MantenimientoEstudiantes extends javax.swing.JFrame {
     public void habilitarTF()
     {
         this.gUI_InformacionEstudiantes1.habilitarTF();
+    }
+    public void mensaje(String mensaje)
+    {
+        JOptionPane.showMessageDialog(null,mensaje);
     }
     
     /**

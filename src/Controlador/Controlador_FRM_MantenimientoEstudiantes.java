@@ -74,11 +74,11 @@ public class Controlador_FRM_MantenimientoEstudiantes implements ActionListener{
              if(metodosEstudiantes.consultarEstudiante(mantenimientoEstudiantes.devolverCedula()))
             {
                 mantenimientoEstudiantes.mostrarInformacion(metodos.getArregloInformacion());
-                mensaje("Se encontó el estudiante");
+                mantenimientoEstudiantes.mensaje("Se encontó el estudiante");
             }
             else
             {
-                mensaje("No se encontró el estudiante");
+                mantenimientoEstudiantes.mensaje("No se encontró el estudiante");
             }
            }
            if(fuente==2)
@@ -88,10 +88,11 @@ public class Controlador_FRM_MantenimientoEstudiantes implements ActionListener{
            mantenimientoEstudiantes.mostrarInformacion(conexion.getArregloInformacion());
            mantenimientoEstudiantes.habilitarBotones();
            mantenimientoEstudiantes.deshabilitarTF();
+           mantenimientoEstudiantes.mensaje("Se encontró al estudiante");
            }
            else
            {
-               mensaje("El estudiante no ha sido registrado");
+               mantenimientoEstudiantes.mensaje("El estudiante no ha sido registrado");
                mantenimientoEstudiantes.habilitarBotones();
            }
        
@@ -103,10 +104,11 @@ public class Controlador_FRM_MantenimientoEstudiantes implements ActionListener{
            mantenimientoEstudiantes.mostrarInformacion(metodos.getArregloInformacion());
            mantenimientoEstudiantes.habilitarBotones();
            mantenimientoEstudiantes.deshabilitarTF();
+           mantenimientoEstudiantes.mensaje("Se encontró al estudiante");
            }
            else
            {
-               mensaje("El estudiante no ha sido registrado");
+               mantenimientoEstudiantes.mensaje("El estudiante no ha sido registrado");
                mantenimientoEstudiantes.habilitarBotones();
            }   
            }
@@ -119,96 +121,128 @@ public class Controlador_FRM_MantenimientoEstudiantes implements ActionListener{
              if(metodosEstudiantes.agregarEstudiante(mantenimientoEstudiantes.devolverInformacion(),mantenimientoEstudiantes.devolverCedula()))
             {
                 mantenimientoEstudiantes.resetearInterfaz();
-                mensaje("Se agregó correctamente");
+                mantenimientoEstudiantes.mensaje("Se agregó correctamente");
             }
             else
             {
-                mensaje("No se encontró el curso");
+                mantenimientoEstudiantes.mensaje("No se agregó correctamente");
             }
          }
          if(fuente==2)
          {
-         conexion.registrarEstudiante(mantenimientoEstudiantes.devolverCedula(),mantenimientoEstudiantes.devolverNombre(),mantenimientoEstudiantes.devolverDireccion());
-         mensaje("El estudiante ha sido agregado exitosamente");
-         mantenimientoEstudiantes.resetearInterfaz();
-         mantenimientoEstudiantes.habilitarTF();
+            if(conexion.registrarEstudiante(mantenimientoEstudiantes.devolverCedula(),mantenimientoEstudiantes.devolverNombre(),mantenimientoEstudiantes.devolverDireccion()))
+            {
+                mantenimientoEstudiantes.mensaje("El estudiante ha sido agregado exitosamente");
+                mantenimientoEstudiantes.resetearInterfaz();
+                mantenimientoEstudiantes.habilitarTF();
+            }
+            else
+            {
+                mantenimientoEstudiantes.mensaje("No se agregó correctamente");
+            }
          }
          if(fuente==3)
          {
-         metodos.guardarEnXMLEstudiantes(mantenimientoEstudiantes.devolverInformacion());
-         mensaje("El estudiante ha sido agregado exitosamente");
-         mantenimientoEstudiantes.resetearInterfaz();
-         mantenimientoEstudiantes.habilitarTF();
-         }
-        }
+            if(metodos.guardarEnXMLEstudiantes(mantenimientoEstudiantes.devolverInformacion()))
+            {
+                mantenimientoEstudiantes.mensaje("El estudiante ha sido agregado exitosamente");
+                mantenimientoEstudiantes.resetearInterfaz();
+                mantenimientoEstudiantes.habilitarTF();
+            }
+            else
+            {
+                mantenimientoEstudiantes.mensaje("No se agregó correctamente");
+            }
+          }
+        } 
         if(e.getActionCommand().equals("Modificar"))
         {
             if(fuente==1)
             {
                if(metodosEstudiantes.modificarEstudiante(mantenimientoEstudiantes.devolverCedula(), mantenimientoEstudiantes.devolverNombre(), mantenimientoEstudiantes.devolverDireccion()))
-           {
+              {
                mantenimientoEstudiantes.resetearInterfaz();
-               mensaje("Se modificó correctamente");
-           }
-           else
-            {
-               mensaje("No se encontró el curso");
-            } 
+               mantenimientoEstudiantes.mensaje("Se modificó correctamente");
+              }
+              else
+             {
+                mantenimientoEstudiantes.mensaje("No se encontró el estudiante");
+             } 
             }
             if(fuente==2)
             {
-            conexion.actualizarEstudiante(mantenimientoEstudiantes.devolverCedula(),mantenimientoEstudiantes.devolverNombre(),mantenimientoEstudiantes.devolverDireccion());
-            mensaje("El estudiante se modificó exitosamente");
-            mantenimientoEstudiantes.resetearInterfaz();
-            mantenimientoEstudiantes.estadoInicial();
-            mantenimientoEstudiantes.habilitarTF();
+                if(conexion.actualizarEstudiante(mantenimientoEstudiantes.devolverCedula(),mantenimientoEstudiantes.devolverNombre(),mantenimientoEstudiantes.devolverDireccion()))
+                {
+                    mantenimientoEstudiantes.mensaje("El estudiante se modificó exitosamente");
+                    mantenimientoEstudiantes.resetearInterfaz();
+                    mantenimientoEstudiantes.estadoInicial();
+                    mantenimientoEstudiantes.habilitarTF();
+                }
+            
+                else
+                {
+                    mantenimientoEstudiantes.mensaje("No se encontró el estudiante");
+                }
             }
             if(fuente==3)
             {
-            metodos.modificarInformacionDelXmlEstudiantes(mantenimientoEstudiantes.devolverInformacion());
-            mensaje("El estudiante se modificó exitosamente");
-            mantenimientoEstudiantes.resetearInterfaz();
-            mantenimientoEstudiantes.estadoInicial();
-            mantenimientoEstudiantes.habilitarTF();
-            }
+                if(metodos.modificarInformacionDelXmlEstudiantes(mantenimientoEstudiantes.devolverInformacion()))
+                {
+                    mantenimientoEstudiantes.mensaje("El estudiante se modificó exitosamente");
+                    mantenimientoEstudiantes.resetearInterfaz();
+                    mantenimientoEstudiantes.estadoInicial();
+                    mantenimientoEstudiantes.habilitarTF();
+                }
+            
+                else
+                {
+                    mantenimientoEstudiantes.mensaje("No se encontró el estudiante");
+                }
+            }     
         }
         if(e.getActionCommand().equals("Eliminar"))
         {
             if(fuente==1)
             {
               if(metodosEstudiantes.eliminarEstudiante(mantenimientoEstudiantes.devolverCedula()))
-            {
+              {
                 mantenimientoEstudiantes.resetearInterfaz();
-                mensaje("Se eliminó correctamente");
-            }
-            else
-            {
-                mensaje("No se encontró el curso");
-            }  
+                mantenimientoEstudiantes.mensaje("Se eliminó correctamente");
+              }
+                else
+                {
+                    mantenimientoEstudiantes.mensaje("No se encontró el estudiante");
+                }  
             }
             if(fuente==2)
             {
-            conexion.eliminarEstudiante(mantenimientoEstudiantes.devolverCedula());
-            mensaje("El estudiante ha sido eliminado exitosamente");
-            mantenimientoEstudiantes.resetearInterfaz();
-            mantenimientoEstudiantes.estadoInicial();
-            mantenimientoEstudiantes.habilitarTF();
-            }
+                if(conexion.eliminarEstudiante(mantenimientoEstudiantes.devolverCedula()))
+                {
+                    mantenimientoEstudiantes.mensaje("El estudiante ha sido eliminado exitosamente");
+                    mantenimientoEstudiantes.resetearInterfaz();
+                    mantenimientoEstudiantes.estadoInicial();
+                    mantenimientoEstudiantes.habilitarTF();
+                }
+                else
+                {
+                    mantenimientoEstudiantes.mensaje("No se encontró el estudiante");
+                }
+            }   
             if(fuente==3)
             {
-            metodos.eliminarInformacionDelXmlEstudiantes((mantenimientoEstudiantes.devolverCedula()));
-            mensaje("El estudiante ha sido eliminado exitosamente");
-            mantenimientoEstudiantes.resetearInterfaz();
-            mantenimientoEstudiantes.estadoInicial();
-            mantenimientoEstudiantes.habilitarTF();
+                if(metodos.eliminarInformacionDelXmlEstudiantes((mantenimientoEstudiantes.devolverCedula())))
+                {
+                    mantenimientoEstudiantes.mensaje("El estudiante ha sido eliminado exitosamente");
+                    mantenimientoEstudiantes.resetearInterfaz();
+                    mantenimientoEstudiantes.estadoInicial();
+                    mantenimientoEstudiantes.habilitarTF();
+                }
+                else
+                {
+                    mantenimientoEstudiantes.mensaje("No se encontró al estudiante");
+                }
             }
+    
         }
-    
     }
-    
-    public void mensaje(String mensaje)
-    {
-        JOptionPane.showMessageDialog(null,mensaje);
-    }
-    
-}
+}    

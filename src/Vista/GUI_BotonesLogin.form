@@ -20,8 +20,6 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="btn_Entrar" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="btn_Registrarse" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="btn_Salir" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
@@ -33,7 +31,6 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btn_Entrar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btn_Registrarse" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btn_Salir" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
@@ -45,11 +42,6 @@
     <Component class="javax.swing.JButton" name="btn_Entrar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Entrar"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="btn_Registrarse">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Registrarse"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btn_Salir">

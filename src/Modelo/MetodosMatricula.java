@@ -99,15 +99,19 @@ public class MetodosMatricula {
             }
         }
     }
-    public void eliminarMatricula(String codigo)
+    public boolean eliminarMatricula(String codigo)
     {
+        boolean elimino=false;
         for(int contador=0;contador<arrayMatricula.size();contador++)
         {
             if(arrayMatricula.get(contador).getCodigo().equals(codigo))
             {
                 arrayMatricula.remove(contador);
+                elimino=true;
+                
             }
         }
+        return elimino;
     }
     public String[] getArregloInformacion()
     {

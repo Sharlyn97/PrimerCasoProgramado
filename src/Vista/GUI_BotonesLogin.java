@@ -27,7 +27,6 @@ public class GUI_BotonesLogin extends javax.swing.JPanel {
     {
         this.controladorLogin=controlador;
         this.btn_Entrar.addActionListener(controlador);
-        this.btn_Registrarse.addActionListener(controlador);
         this.btn_Salir.addActionListener(controlador);
     
     }
@@ -41,12 +40,9 @@ public class GUI_BotonesLogin extends javax.swing.JPanel {
     private void initComponents() {
 
         btn_Entrar = new javax.swing.JButton();
-        btn_Registrarse = new javax.swing.JButton();
         btn_Salir = new javax.swing.JButton();
 
         btn_Entrar.setText("Entrar");
-
-        btn_Registrarse.setText("Registrarse");
 
         btn_Salir.setText("Salir");
 
@@ -58,8 +54,6 @@ public class GUI_BotonesLogin extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(btn_Entrar)
                 .addGap(18, 18, 18)
-                .addComponent(btn_Registrarse)
-                .addGap(18, 18, 18)
                 .addComponent(btn_Salir)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -69,7 +63,6 @@ public class GUI_BotonesLogin extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_Entrar)
-                    .addComponent(btn_Registrarse)
                     .addComponent(btn_Salir))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -78,7 +71,6 @@ public class GUI_BotonesLogin extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_Entrar;
-    private javax.swing.JButton btn_Registrarse;
     private javax.swing.JButton btn_Salir;
     // End of variables declaration//GEN-END:variables
 }

@@ -7,6 +7,7 @@ package Vista;
 
 import Controlador.Controlador_FRM_FuenteInformacion;
 import Controlador.Controlador_FRM_MenuPrincipal;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -45,6 +46,10 @@ public class FRM_FuenteInformacion extends javax.swing.JFrame {
     public boolean getSeleccionXML()
     {
      return   this.jrb_XML.isSelected();
+    } 
+    public void mensaje(String mensaje)
+    {
+       JOptionPane.showMessageDialog(null,mensaje);
     }
     /**
      * This method is called from within the constructor to initialize the form.

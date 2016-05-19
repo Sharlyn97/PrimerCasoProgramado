@@ -6,6 +6,7 @@
 package Vista;
 
 import Controlador.Controlador_FRM_Login;
+import javax.swing.JOptionPane;
 
 
 
@@ -39,6 +40,10 @@ public class FRM_Login extends javax.swing.JFrame {
     public String devolverContraseña()
     {
         return this.gUI_InformacionLogin1.devolverContraseña();
+    }
+    public void mensaje(String mensaje)
+    {
+        JOptionPane.showMessageDialog(null,mensaje);
     }
     /**
      * This method is called from within the constructor to initialize the form.

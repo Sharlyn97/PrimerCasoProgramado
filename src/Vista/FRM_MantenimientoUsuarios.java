@@ -6,6 +6,7 @@
 package Vista;
 
 import Controlador.Controlador_FRM_MantenimientoUsuarios;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -76,6 +77,10 @@ public class FRM_MantenimientoUsuarios extends javax.swing.JFrame {
     public void resetearInterfaz()
     {
         this.gUI_InformacionUsuarios1.resetearInterfaz();
+    }
+    public void mensaje(String mensaje)
+    {
+        JOptionPane.showMessageDialog(null,mensaje);
     }
     /**
      * This method is called from within the constructor to initialize the form.

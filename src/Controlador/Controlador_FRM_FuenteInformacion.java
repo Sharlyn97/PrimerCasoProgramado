@@ -34,7 +34,7 @@ public class Controlador_FRM_FuenteInformacion implements ActionListener{
         {
             if( (informacion.getSeleccionArchivos()&&informacion.getSeleccionBaseDatos()&&informacion.getSeleccionXML()) || (informacion.getSeleccionArchivos()&&informacion.getSeleccionBaseDatos()) || (informacion.getSeleccionArchivos()&&informacion.getSeleccionXML()) || (informacion.getSeleccionBaseDatos()&&informacion.getSeleccionXML()) )
             {
-                System.out.println("Seleccione solo una fuente de informacion");
+                informacion.mensaje("Seleccione solo una fuente de informacion");
             } 
             else
              {
@@ -42,19 +42,19 @@ public class Controlador_FRM_FuenteInformacion implements ActionListener{
                   {
                       informacion.setVisible(false);
                       numeroFuente=1;
-                    System.out.println("Selecciono archivos numero: "+numeroFuente); 
+                   
                   }
                 if(informacion.getSeleccionBaseDatos())
                 {
                     informacion.setVisible(false);
                     numeroFuente=2;
-                  System.out.println("Selecciono Base de datos numero: "+numeroFuente);
+                  
                 }
                 if (informacion.getSeleccionXML())
                  {
                      informacion.setVisible(false);
                      numeroFuente=3;
-                    System.out.println("Selecciono XML numero: "+numeroFuente);
+                   
                  } 
               }
           }
@@ -65,8 +65,7 @@ public class Controlador_FRM_FuenteInformacion implements ActionListener{
         
     
     public int devolverNumero()
-    {
-        System.out.println("devolver Numerooooooooooooo "+numeroFuente);
+    { 
         return this.numeroFuente;
     }
 }

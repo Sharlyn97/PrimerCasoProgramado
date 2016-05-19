@@ -32,10 +32,11 @@ public class MetodosUsuarios {
       arrayUsuarios=array;
     }
     
-    public void agregarUsuario(String informacion[])
+    public boolean agregarUsuario(String informacion[])
     {
-    Usuario temporal=new Usuario(informacion[0],informacion[1],informacion[2]);  
-    arrayUsuarios.add(temporal);
+        Usuario temporal=new Usuario(informacion[0],informacion[1],informacion[2]);  
+        arrayUsuarios.add(temporal);
+        return true;
     }
     
     public void mostrarInformacion()
@@ -82,26 +83,32 @@ public class MetodosUsuarios {
     }
     
     
-    public void modificarUsuario(String arreglo[])
+    public boolean modificarUsuario(String arreglo[])
     {
+        boolean modifico=false;
         for(int contador=0;contador<arrayUsuarios.size();contador++)
         {
             if(arrayUsuarios.get(contador).getNombreUsuario().equals(arreglo[1]))
             {
                 arrayUsuarios.get(contador).setNombre(arreglo[0]);
                 arrayUsuarios.get(contador).setNombreUsuario(arreglo[1]);
+                modifico=true;
             }
         }
+        return modifico;
     }
-    public void eliminarUsuario(String arreglo[])
+    public boolean eliminarUsuario(String arreglo[])
     {
+        boolean elimino=false;
         for(int contador=0;contador<arrayUsuarios.size();contador++)
         {
             if(arrayUsuarios.get(contador).getNombreUsuario().equals(arreglo[1]))
             {
                 arrayUsuarios.remove(contador);
+                elimino=true;
             }
         }
+        return elimino;
     }
     
     

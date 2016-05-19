@@ -258,8 +258,9 @@ public class Metodos_XML
         return cargo;
     } 
     
-    public void guardarEnXMLEstudiantes(String arregloInformacion[])//Método nuevo en pruebas
+    public boolean guardarEnXMLEstudiantes(String arregloInformacion[])//Método nuevo en pruebas
     {
+        boolean guardo=false;
         try{
             
             raiz = document.createElement("Estudiante");
@@ -287,15 +288,19 @@ public class Metodos_XML
             transformer.transform(source, result);
             transformer.transform(source, console);
             
+            guardo=true;
+            
             }
         catch (Exception e) 
         {
             System.err.println("Error al guardar: " + e);
         }
+        return guardo;
     }
     
-    public void guardarEnXMLCurso(String arregloInformacion[])//Método nuevo en pruebas
+    public boolean guardarEnXMLCurso(String arregloInformacion[])//Método nuevo en pruebas
     {
+        boolean agrego=false;
         try{
             
             raiz = document.createElement("Curso");
@@ -326,12 +331,14 @@ public class Metodos_XML
             transformer = TransformerFactory.newInstance().newTransformer();
             transformer.transform(source, result);
             transformer.transform(source, console);
+            agrego=true;
             
             }
         catch (Exception e) 
         {
             System.err.println("Error al guardar: " + e);
         }
+        return agrego;
     }
     
     public void guardarEnXMLMatricula(String arregloInformacion[])//Método nuevo en pruebas
@@ -635,7 +642,7 @@ public class Metodos_XML
         return this.arregloInformacion;
     }
     
-    public void modificarInformacionDelXmlEstudiantes(String informacion[])
+    public boolean modificarInformacionDelXmlEstudiantes(String informacion[])
     { 
          Element raiz = document.getDocumentElement();
          NodeList listaDeItems = raiz.getElementsByTagName("Estudiante");
@@ -643,6 +650,7 @@ public class Metodos_XML
          String arregloInformacion[]=new String[3];
          boolean itemEncontrado=false,tituloCedula=false;
          int contador=0;
+         boolean modifico=false;
          try
          {
             for(int contadorItems=0; contadorItems<listaDeItems.getLength(); contadorItems++) 
@@ -661,6 +669,7 @@ public class Metodos_XML
                     {
                         datoContenido.setNodeValue(informacion[contador]);                    
                         contador++;
+                        modifico=true;
                     }
                 }
             }
@@ -675,9 +684,10 @@ public class Metodos_XML
         {
             System.err.println("Error al modificar: " + e);
         }
+         return modifico;
     }
     
-    public void modificarInformacionDelXmlCursos(String informacion[])
+    public boolean modificarInformacionDelXmlCursos(String informacion[])
     { 
          Element raiz = document.getDocumentElement();
          NodeList listaDeItems = raiz.getElementsByTagName("Curso");
@@ -685,6 +695,7 @@ public class Metodos_XML
          String arregloInformacion[]=new String[3];
          boolean itemEncontrado=false,tituloSigla=false;
          int contador=0;
+         boolean modifico=false;
          try
          {
             for(int contadorItems=0; contadorItems<listaDeItems.getLength(); contadorItems++) 
@@ -703,6 +714,7 @@ public class Metodos_XML
                     {
                         datoContenido.setNodeValue(informacion[contador]);                    
                         contador++;
+                       modifico=true; 
                     }
                 }
             }
@@ -717,6 +729,7 @@ public class Metodos_XML
         {
             System.err.println("Error al modificar: " + e);
         }
+      return modifico;   
     }
     
     public void modificarInformacionDelXmlMatricula(String informacion[])
@@ -761,7 +774,7 @@ public class Metodos_XML
         }
     }
     
-    public void modificarInformacionDelXmlUsuario(String informacion[])
+    public boolean  modificarInformacionDelXmlUsuario(String informacion[])
     { 
          Element raiz = document.getDocumentElement();
          NodeList listaDeItems = raiz.getElementsByTagName("Usuario");
@@ -769,6 +782,7 @@ public class Metodos_XML
          String arregloInformacion[]=new String[3];
          boolean itemEncontrado=false,tituloUsuario=false;
          int contador=0;
+         boolean modifico=false;
          try
          {
             for(int contadorItems=0; contadorItems<listaDeItems.getLength(); contadorItems++) 
@@ -796,20 +810,23 @@ public class Metodos_XML
            transformer = TransformerFactory.newInstance().newTransformer();
            transformer.transform(source, result);
            transformer.transform(source, console);
+           modifico=true;
         }
         catch (Exception e) 
         {
             System.err.println("Error al modificar: " + e);
         }
+         return modifico;
     }
     
-    public void eliminarInformacionDelXmlEstudiantes(String cedula)
+    public boolean eliminarInformacionDelXmlEstudiantes(String cedula)
     { 
          Element raiz = document.getDocumentElement();
          NodeList listaDeItems = raiz.getElementsByTagName("Estudiante");
          Node tag=null,datoContenido=null;
          String arregloInformacion[]=new String[3];
          boolean itemEncontrado=false,tituloCedula=false;
+         boolean elimino=false;
 
          try{
             for(int contadorItems=0; contadorItems<listaDeItems.getLength(); contadorItems++) 
@@ -830,6 +847,7 @@ public class Metodos_XML
                        transformer = TransformerFactory.newInstance().newTransformer();
                        transformer.transform(source, result);
                        transformer.transform(source, console);
+                       elimino=true;
                     } 
                 }
             }
@@ -838,15 +856,17 @@ public class Metodos_XML
         {
             System.err.println("Error al eliminar: " + e);
         }
+         return elimino;
     }
     
-    public void eliminarInformacionDelXmlCurso(String sigla)
+    public boolean eliminarInformacionDelXmlCurso(String sigla)
     { 
          Element raiz = document.getDocumentElement();
          NodeList listaDeItems = raiz.getElementsByTagName("Curso");
          Node tag=null,datoContenido=null;
          String arregloInformacion[]=new String[3];
          boolean itemEncontrado=false,tituloSigla=false;
+         boolean elimino=false;
 
          try{
             for(int contadorItems=0; contadorItems<listaDeItems.getLength(); contadorItems++) 
@@ -867,6 +887,7 @@ public class Metodos_XML
                        transformer = TransformerFactory.newInstance().newTransformer();
                        transformer.transform(source, result);
                        transformer.transform(source, console);
+                       elimino=true;
                     } 
                 }
             }
@@ -875,15 +896,17 @@ public class Metodos_XML
         {
             System.err.println("Error al eliminar: " + e);
         }
+       return elimino;  
     }
     
-    public void eliminarInformacionDelXmlMatricula(String codigo)
+    public boolean eliminarInformacionDelXmlMatricula(String codigo)
     { 
          Element raiz = document.getDocumentElement();
          NodeList listaDeItems = raiz.getElementsByTagName("Matricula");
          Node tag=null,datoContenido=null;
          String arregloInformacion[]=new String[3];
          boolean itemEncontrado=false,tituloCodigo=false;
+         boolean elimino=false;
 
          try{
             for(int contadorItems=0; contadorItems<listaDeItems.getLength(); contadorItems++) 
@@ -904,6 +927,7 @@ public class Metodos_XML
                        transformer = TransformerFactory.newInstance().newTransformer();
                        transformer.transform(source, result);
                        transformer.transform(source, console);
+                       elimino=true;
                     } 
                 }
             }
@@ -912,15 +936,17 @@ public class Metodos_XML
         {
             System.err.println("Error al eliminar: " + e);
         }
+      return elimino;   
     }
     
-    public void eliminarInformacionDelXmlUsuario(String usuario)
+    public boolean eliminarInformacionDelXmlUsuario(String usuario)
     { 
          Element raiz = document.getDocumentElement();
          NodeList listaDeItems = raiz.getElementsByTagName("Usuario");
          Node tag=null,datoContenido=null;
          String arregloInformacion[]=new String[3];
          boolean itemEncontrado=false,tituloUsuario=false;
+         boolean elimino=false;
 
          try{
             for(int contadorItems=0; contadorItems<listaDeItems.getLength(); contadorItems++) 
@@ -941,6 +967,7 @@ public class Metodos_XML
                        transformer = TransformerFactory.newInstance().newTransformer();
                        transformer.transform(source, result);
                        transformer.transform(source, console);
+                       elimino=true;
                     } 
                 }
             }
@@ -949,6 +976,7 @@ public class Metodos_XML
         {
             System.err.println("Error al eliminar: " + e);
         }
+         return elimino;
     }
     public boolean comprobarUsuarios()
     {
