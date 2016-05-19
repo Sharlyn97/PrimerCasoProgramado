@@ -5,13 +5,18 @@
  */
 package Controlador;
 
+import Modelo.ArchivoUsuarios;
 import Modelo.ConexionBD;
+import Modelo.Cursos;
+import Modelo.MetodosUsuarios;
 import Modelo.Metodos_XML;
+import Modelo.Usuario;
 import Vista.FRM_Login;
 import Vista.FRM_MantenimientoUsuarios;
 import Vista.FRM_MenuPrincipal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -26,6 +31,8 @@ public class Controlador_FRM_Login implements ActionListener {
     ConexionBD conexion;
     Metodos_XML metodos;
     FRM_MenuPrincipal menu;
+    ArchivoUsuarios archivo;
+    MetodosUsuarios metodosUsuarios;
     int fuente=0;
     public Controlador_FRM_Login(FRM_Login login,FRM_MenuPrincipal menu)
     {
@@ -34,11 +41,27 @@ public class Controlador_FRM_Login implements ActionListener {
         this.menu=menu;
         this.conexion=conexion;
         this.metodos=metodos;
+        this.archivo=archivo;
+        metodosUsuarios=new MetodosUsuarios();
+        metodosUsuarios.setArray(archivo.devolverInformacionDeUsuario());
     }
     
     public void setFuente(int fuente)
     {
         this.fuente=fuente;
+    }
+    
+     public void crearArchivo()
+    {
+      ArrayList <Usuario> array=metodosUsuarios.getArray();
+     archivo.cargarArchivoUsuarios();
+     
+     for(int conta=0; conta<array.size(); conta++)
+     {
+         archivo.ingresarInformacionUsuarios(array.get(conta));
+         archivo.devolverInformacionDeUsuario();
+     }   
+     
     }
     
     public void actionPerformed(ActionEvent e) {
@@ -47,7 +70,18 @@ public class Controlador_FRM_Login implements ActionListener {
         {
            if(fuente==1)
            {
-               
+               if(metodosUsuarios.consultarLoginUsuario(login.devolverNombre(),login.devolverContraseña()))
+           {
+               mensaje("Bienvenido "+login.devolverNombre());
+               this.login.setVisible(false);
+               this.menu.setVisible(true);
+               //se subió
+           }
+           else
+           {
+               this.login.setVisible(true);
+               mensaje("Acceso denegado, por favor revise sus datos e intente nuevamente o registrese");
+           }
            }
            if(fuente==2)
            {

@@ -65,6 +65,22 @@ public class MetodosUsuarios {
     
     }
     
+    public boolean consultarLoginUsuario(String nombreUsuario,String contraseña)
+    {
+        boolean existe=false;
+        
+        for(int contador=0;contador<arrayUsuarios.size();contador++)
+        {
+            if(arrayUsuarios.get(contador).getNombreUsuario().equals(nombreUsuario) && arrayUsuarios.get(contador).getContraseña().equals(contraseña))
+            {
+                existe=true;
+            }
+        
+        }
+        return existe;
+    
+    }
+    
     
     public void modificarUsuario(String arreglo[])
     {

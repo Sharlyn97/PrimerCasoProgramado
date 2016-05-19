@@ -7,6 +7,7 @@ import Modelo.Estudiante;
 import Modelo.MetodosUsuarios;
 import Modelo.Metodos_XML;
 import Modelo.Usuario;
+import Vista.FRM_Login;
 import Vista.FRM_MantenimientoUsuarios;
 import Vista.FRM_MenuPrincipal;
 import java.awt.event.ActionEvent;
@@ -19,6 +20,7 @@ import javax.swing.JOptionPane;
 public class Controlador_FRM_MantenimientoUsuarios implements ActionListener{
     
 FRM_MantenimientoUsuarios frm_MantenimientoUsuarios;
+FRM_Login login;
 ConexionBD conexion;
 Metodos_XML metodos;
 MetodosUsuarios metodosUsuarios;
@@ -30,7 +32,10 @@ int fuente=0;
         this.frm_MantenimientoUsuarios=frm_MantenimientoUsuarios;
         this.conexion=conexion;
         this.metodos=metodos;
+        login.login.archivo=this.archivo;
         metodosUsuarios=new MetodosUsuarios();
+        metodosUsuarios.setArray(archivo.devolverInformacionDeUsuario());
+        
     }
     public void setFuente(int fuente)
     {

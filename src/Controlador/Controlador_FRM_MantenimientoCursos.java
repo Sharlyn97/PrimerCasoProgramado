@@ -6,18 +6,22 @@
 package Controlador;
 
 
+import Modelo.ArchivoCursos;
 import Modelo.ConexionBD;
+import Modelo.Cursos;
+import Modelo.Estudiante;
 import Modelo.MetodosCursos;
 import Modelo.Metodos_XML;
 import Vista.FRM_MantenimientoCursos;
 import Vista.FRM_MenuPrincipal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
  *
- * @author
+ * @author Jesse
  */
 public class Controlador_FRM_MantenimientoCursos implements ActionListener{
     
@@ -25,6 +29,7 @@ public class Controlador_FRM_MantenimientoCursos implements ActionListener{
     ConexionBD conexion;
     Metodos_XML metodos;
     MetodosCursos metodosCursos;
+    ArchivoCursos archivo;
     int fuente=0;
     
     public Controlador_FRM_MantenimientoCursos(FRM_MantenimientoCursos frm_MantenimientoCursos)
@@ -32,12 +37,27 @@ public class Controlador_FRM_MantenimientoCursos implements ActionListener{
         this.frm_MantenimientoCursos= frm_MantenimientoCursos;
         this.conexion=conexion;
         this.metodos=metodos;
+        archivo=new ArchivoCursos();
         metodosCursos=new MetodosCursos();
         frm_MantenimientoCursos.estadoInicial();
+        metodosCursos.setArray(archivo.devolverInformacionDeCursos());
     } 
     public void setFuente(int fuente)
     {
         this.fuente=fuente;
+    }
+    
+    public void crearArchivo()
+    {
+      ArrayList <Cursos> array=metodosCursos.getArray();
+     archivo.crearArchivoCursos();
+     
+     for(int conta=0; conta<array.size(); conta++)
+     {
+         archivo.ingresarInformacionCursos(array.get(conta));
+         archivo.devolverInformacionDeCursos();
+     }   
+     
     }
     
     public void actionPerformed(ActionEvent e)
