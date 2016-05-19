@@ -75,7 +75,8 @@ public class Controlador_FRM_MenuPrincipal implements ActionListener{
         mantenimientoEstudiantes.controlador_FRM_MantenimientoEstudiantes.setFuente(fuente);
         mantenimientoCursos.controlador.setFuente(fuente);
         frm_MantenimientoUsuarios.usuarios.setFuente(fuente);
-        matricula.controlador.setFuente(fuente);                
+        matricula.controlador.setFuente(fuente); 
+        login.login.setFuente(fuente);
                 
         if(fuente==1)
         {

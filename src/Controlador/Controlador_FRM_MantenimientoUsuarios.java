@@ -1,12 +1,17 @@
 
 package Controlador;
 
+import Modelo.ArchivoUsuarios;
 import Modelo.ConexionBD;
+import Modelo.Estudiante;
+import Modelo.MetodosUsuarios;
 import Modelo.Metodos_XML;
+import Modelo.Usuario;
 import Vista.FRM_MantenimientoUsuarios;
 import Vista.FRM_MenuPrincipal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 // afopsdmgfdmgodhbdkflokdmgotrfsfoiffmdvpodfbodfzmc
@@ -16,6 +21,8 @@ public class Controlador_FRM_MantenimientoUsuarios implements ActionListener{
 FRM_MantenimientoUsuarios frm_MantenimientoUsuarios;
 ConexionBD conexion;
 Metodos_XML metodos;
+MetodosUsuarios metodosUsuarios;
+ArchivoUsuarios archivo;
 int fuente=0;
 
     public Controlador_FRM_MantenimientoUsuarios(FRM_MantenimientoUsuarios frm_MantenimientoUsuarios) 
@@ -23,10 +30,24 @@ int fuente=0;
         this.frm_MantenimientoUsuarios=frm_MantenimientoUsuarios;
         this.conexion=conexion;
         this.metodos=metodos;
+        metodosUsuarios=new MetodosUsuarios();
     }
     public void setFuente(int fuente)
     {
         this.fuente=fuente;
+    }
+    
+     public void crearArchivo()
+    {
+      ArrayList <Usuario> array=metodosUsuarios.getArray();
+     archivo.crearArchivoUsuarios();
+     
+     for(int conta=0; conta<array.size(); conta++)
+     {
+         archivo.ingresarInformacionUsuarios(array.get(conta));
+         archivo.devolverInformacionDeUsuario();
+     }   
+     
     }
     
     public void actionPerformed(ActionEvent e) 
@@ -35,7 +56,10 @@ int fuente=0;
             {   
            if(fuente==1)
            {
-               
+              metodosUsuarios.agregarUsuario(frm_MantenimientoUsuarios.devolverInformacion());
+              frm_MantenimientoUsuarios.resetearInterfaz();
+              mensaje("Se agregó correctamente");
+            
            }
            if(fuente==2)
            {
@@ -58,7 +82,10 @@ int fuente=0;
             {
             if(fuente==1)
             {
-                
+               metodosUsuarios.modificarUsuario(frm_MantenimientoUsuarios.devolverInformacion());           
+               frm_MantenimientoUsuarios.resetearInterfaz();
+               mensaje("Se modificó correctamente");
+           
             }
             if(fuente==2)
             {
@@ -82,7 +109,15 @@ int fuente=0;
             {
              if(fuente==1)
              {
-                 
+                 if(metodosUsuarios.consultarUsuario(frm_MantenimientoUsuarios.devolverNombreUsuario()))
+            {
+                frm_MantenimientoUsuarios.mostrarInformacion(metodos.getArregloInformacion());
+                mensaje("Se encontró el usuario");
+            }
+            else
+            {
+                mensaje("No se encontró el usuario");
+            } 
              }
              if(fuente==2)
              {
@@ -118,7 +153,11 @@ int fuente=0;
            {
                if(fuente==1)
                {
-                   
+                metodosUsuarios.eliminarUsuario(frm_MantenimientoUsuarios.devolverInformacion());
+                frm_MantenimientoUsuarios.resetearInterfaz();
+                mensaje("Se eliminó correctamente");
+            
+            
                }
                if(fuente==2)
                {

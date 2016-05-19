@@ -26,7 +26,7 @@ public class Controlador_FRM_Login implements ActionListener {
     ConexionBD conexion;
     Metodos_XML metodos;
     FRM_MenuPrincipal menu;
-    
+    int fuente=0;
     public Controlador_FRM_Login(FRM_Login login,FRM_MenuPrincipal menu)
     {
         this.login=login;
@@ -36,11 +36,22 @@ public class Controlador_FRM_Login implements ActionListener {
         this.metodos=metodos;
     }
     
+    public void setFuente(int fuente)
+    {
+        this.fuente=fuente;
+    }
+    
     public void actionPerformed(ActionEvent e) {
         
         if(e.getActionCommand().equals("Entrar"))
         {
-           if(conexion.consultarUsuarios(login.devolverInformacion()))
+           if(fuente==1)
+           {
+               
+           }
+           if(fuente==2)
+           {
+            if(conexion.consultarUsuarios(login.devolverInformacion()))
            {
                mensaje("Bienvenido "+login.devolverNombre());
                this.login.setVisible(false);
@@ -51,6 +62,22 @@ public class Controlador_FRM_Login implements ActionListener {
            {
                this.login.setVisible(true);
                mensaje("Acceso denegado, por favor revise sus datos e intente nuevamente o registrese");
+           }
+           }
+           if(fuente==3)
+           {
+            if(metodos.consultarInformacionDeUsuarios(login.devolverNombre(),login.devolverContraseña()))
+           {
+               mensaje("Bienvenido "+login.devolverNombre());
+               this.login.setVisible(false);
+               this.menu.setVisible(true);
+               //se subió
+           }
+           else
+           {
+               this.login.setVisible(true);
+               mensaje("Acceso denegado, por favor revise sus datos e intente nuevamente o registrese");
+           }   
            }
         }
         if(e.getActionCommand().equals("Registrarse"))

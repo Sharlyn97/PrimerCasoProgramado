@@ -22,6 +22,15 @@ public class MetodosUsuarios {
         arrayUsuarios=new ArrayList <Usuario>();
         arregloInformacionConsultada=new String[3];
     }
+     public ArrayList <Usuario> getArray()
+    {
+        System.out.println("Array: "+arrayUsuarios.get(0).getInformacion());
+        return arrayUsuarios;
+    }
+    public void setArray(ArrayList<Usuario>array)
+    {
+      arrayUsuarios=array;
+    }
     
     public void agregarUsuario(String informacion[])
     {

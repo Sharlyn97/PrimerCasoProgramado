@@ -67,6 +67,7 @@ public class GUI_InformacionUsuarios extends javax.swing.JPanel {
  {
      this.jt_NombreCompleto.setText("");
      this.jt_NombreUsuario.setText("");
+     this.jpf_Contraseña.setText("");
  }
  
  public void deshabilitarTF()

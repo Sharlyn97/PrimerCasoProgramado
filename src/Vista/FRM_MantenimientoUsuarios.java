@@ -73,6 +73,10 @@ public class FRM_MantenimientoUsuarios extends javax.swing.JFrame {
         this.gUI_Botones1.estadoInicial();
     }
 
+    public void resetearInterfaz()
+    {
+        this.gUI_InformacionUsuarios1.resetearInterfaz();
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

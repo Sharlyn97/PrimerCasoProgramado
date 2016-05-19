@@ -32,6 +32,11 @@ public class GUI_InformacionLogin extends javax.swing.JPanel {
      {
          return this.jt_NombreUsuario.getText();
      }
+     
+     public String devolverContraseña()
+     {
+         return this.jpf_Contraseña.getText();
+     }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
