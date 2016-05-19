@@ -244,5 +244,52 @@ public class Controlador_FRM_MantenimientoEstudiantes implements ActionListener{
             }
     
         }
+        if(e.getActionCommand().equals("ConsultaRapida"))
+        { 
+             if(fuente==1)
+           {
+             if(metodosEstudiantes.consultarEstudiante(mantenimientoEstudiantes.devolverCedula()))
+            {
+                mantenimientoEstudiantes.mostrarInformacion(metodos.getArregloInformacion());
+                mantenimientoEstudiantes.mensaje("Se encontó el estudiante");
+            }
+            else
+            {
+                mantenimientoEstudiantes.mensaje("No se encontró el estudiante");
+            }
+           }
+           if(fuente==2)
+           {
+            if(conexion.consultarEstudiantes(mantenimientoEstudiantes.devolverCedula()))
+           {
+           mantenimientoEstudiantes.mostrarInformacion(conexion.getArregloInformacion());
+           mantenimientoEstudiantes.habilitarBotones();
+           mantenimientoEstudiantes.deshabilitarTF();
+           mantenimientoEstudiantes.mensaje("Se encontró al estudiante");
+           }
+           else
+           {
+               mantenimientoEstudiantes.mensaje("El estudiante no ha sido registrado");
+               mantenimientoEstudiantes.habilitarBotones();
+           }
+       
+        }
+           if(fuente==3)
+           {
+                if(metodos.consultarInformacionDelXmlEstudiantes(mantenimientoEstudiantes.devolverCedula()))
+               {
+               mantenimientoEstudiantes.mostrarInformacion(metodos.getArregloInformacion());
+               mantenimientoEstudiantes.habilitarBotones();
+               mantenimientoEstudiantes.deshabilitarTF();
+               mantenimientoEstudiantes.mensaje("Se encontró al estudiante");
+               }
+               else
+               {
+                   mantenimientoEstudiantes.mensaje("El estudiante no ha sido registrado");
+                   mantenimientoEstudiantes.habilitarBotones();
+               }   
+           }
+        
+        }
     }
 }    

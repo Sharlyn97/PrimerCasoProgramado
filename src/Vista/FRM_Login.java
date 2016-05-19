@@ -57,7 +57,7 @@ public class FRM_Login extends javax.swing.JFrame {
         gUI_InformacionLogin1 = new Vista.GUI_InformacionLogin();
         gUI_BotonesLogin1 = new Vista.GUI_BotonesLogin();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setResizable(false);
 
