@@ -13,11 +13,12 @@ import java.awt.event.ActionListener;
  *
  * @author Moon
  */
+//Fabian miersh 
 public class Controlador_FRM_FuenteInformacion implements ActionListener{
     
     
      int numeroFuente=0;
-    
+     
     FRM_FuenteInformacion informacion;
     Controlador_FRM_MenuPrincipal controlador_FRM_MenuPrincipal;
     
