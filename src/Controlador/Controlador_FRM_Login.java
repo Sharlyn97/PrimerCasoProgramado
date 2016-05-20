@@ -43,7 +43,7 @@ public class Controlador_FRM_Login implements ActionListener {
         this.metodos=metodos;
         this.archivo=archivo;
         metodosUsuarios=new MetodosUsuarios();
-       // metodosUsuarios.setArray(archivo.devolverInformacionDeUsuario());
+//        metodosUsuarios.setArray(archivo.devolverInformacionDeUsuario());
     }
     
     public void setFuente(int fuente)

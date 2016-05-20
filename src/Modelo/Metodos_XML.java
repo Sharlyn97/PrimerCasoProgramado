@@ -55,7 +55,6 @@ public class Metodos_XML
         nombreArchivo2="Curso";
         nombreArchivo3="Matricula";
         nombreArchivo4="Usuario";
-        
         if(cargarXMLEstudiante() && cargarXMLCurso() && cargarXMLMatricula() && cargarXMLUsuario())
         {
             System.out.println("Ya existe un archivo XML creado, ya fue cargado y puede proceder a utilizarlo");
@@ -379,8 +378,9 @@ public class Metodos_XML
         }
     }
     
-    public void guardarEnXMLUsuarios(String arregloInformacion[])//Método nuevo en pruebas
+    public boolean guardarEnXMLUsuarios(String arregloInformacion[])//Método nuevo en pruebas
     {
+        boolean agrego=false;
         try{
             
             raiz = document.createElement("Usuario");
@@ -411,12 +411,13 @@ public class Metodos_XML
             transformer = TransformerFactory.newInstance().newTransformer();
             transformer.transform(source, result);
             transformer.transform(source, console);
-            
+            agrego=true;
             }
         catch (Exception e) 
         {
             System.err.println("Error al guardar: " + e);
         }
+        return agrego;
     }
     
     
@@ -981,12 +982,12 @@ public class Metodos_XML
     public boolean comprobarUsuarios()
     {
          Element raiz = document.getDocumentElement();
-         NodeList listaDeItems = raiz.getElementsByTagName("Usuario");
+         NodeList listaDeItems = raiz.getElementsByTagName("usuario");
          int cantidad = listaDeItems.getLength();
 
          boolean usuario=false;
 
-         if(cantidad<=1)
+         if(cantidad<0)
         {
             usuario=true;
          }

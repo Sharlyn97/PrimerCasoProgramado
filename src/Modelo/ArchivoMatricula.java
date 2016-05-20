@@ -27,7 +27,8 @@ public class ArchivoMatricula {
         }
         else
         {
-          System.out.println("Error al cargar archivo");  
+          System.out.println("Error al cargar archivo"); 
+          crearArchivoMatricula();
         }
         
     }

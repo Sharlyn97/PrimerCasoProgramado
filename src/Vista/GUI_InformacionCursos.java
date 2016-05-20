@@ -59,9 +59,9 @@ public class GUI_InformacionCursos extends javax.swing.JPanel {
     }
     public void mostrarInformacion(String arreglo[])
     {
-        this.jt_Nombre.setText(arreglo[0]);
-        this.jcb_Creditos.setSelectedIndex(Integer.parseInt(arreglo[1]));
-        this.jt_Horario.setText(arreglo[2]);
+        this.jt_Nombre.setText(arreglo[1]);
+        this.jcb_Creditos.setSelectedIndex(Integer.parseInt(arreglo[2]));
+        this.jt_Horario.setText(arreglo[3]);
     }
     
     public void resetearInterfaz()

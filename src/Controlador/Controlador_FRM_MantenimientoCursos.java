@@ -72,6 +72,7 @@ public class Controlador_FRM_MantenimientoCursos implements ActionListener{
                {
                 frm_MantenimientoCursos.resetearInterfaz();
                 frm_MantenimientoCursos.mensaje("Se agregó correctamente");
+                crearArchivo();
                }
                 else
                 {

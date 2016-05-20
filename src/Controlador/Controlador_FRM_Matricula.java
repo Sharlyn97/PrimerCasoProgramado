@@ -240,6 +240,7 @@ public class Controlador_FRM_Matricula implements ActionListener{
                frm_Matricula.resetearInterfaz();
                metodosMatricula.devolverCodigo();  
                frm_Matricula.mostrarMensaje("Matricula finalizada");
+               crearArchivo();
             }
             if(fuente==2)
             {

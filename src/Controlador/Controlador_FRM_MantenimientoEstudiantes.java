@@ -79,6 +79,7 @@ public class Controlador_FRM_MantenimientoEstudiantes implements ActionListener{
             else
             {
                 mantenimientoEstudiantes.mensaje("No se encontró el estudiante");
+                mantenimientoEstudiantes.habilitarAgregar();
             }
            }
            if(fuente==2)
@@ -122,6 +123,7 @@ public class Controlador_FRM_MantenimientoEstudiantes implements ActionListener{
             {
                 mantenimientoEstudiantes.resetearInterfaz();
                 mantenimientoEstudiantes.mensaje("Se agregó correctamente");
+                crearArchivo();
             }
             else
             {

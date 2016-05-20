@@ -33,8 +33,7 @@ int fuente=0;
         this.metodos=metodos;
         archivo=new ArchivoUsuarios();  
         metodosUsuarios=new MetodosUsuarios();
-        metodosUsuarios.setArray(archivo.devolverInformacionDeUsuario());
-        
+        metodosUsuarios.setArray(archivo.devolverInformacionDeUsuario());        
     }
     public void setFuente(int fuente)
     {
@@ -64,6 +63,7 @@ int fuente=0;
                 {
                     frm_MantenimientoUsuarios.resetearInterfaz();
                     frm_MantenimientoUsuarios.mensaje("Se agregó correctamente");
+                    crearArchivo();
                 }
                 else
                 {
@@ -86,7 +86,7 @@ int fuente=0;
            } 
            if(fuente==3)
            {
-                if(metodos.modificarInformacionDelXmlUsuario(frm_MantenimientoUsuarios.devolverInformacion()))
+                if(metodos.guardarEnXMLUsuarios(frm_MantenimientoUsuarios.devolverInformacion()))
                 {
                 frm_MantenimientoUsuarios.mensaje("El usuario ha sido agregado exitosamente");
                 frm_MantenimientoUsuarios.resetearIntefaz();
@@ -172,7 +172,7 @@ int fuente=0;
             }
              if(fuente==3)
              {
-               if(metodos.consultarInformacionDelXmlUsuarios(frm_MantenimientoUsuarios.devolverNombreCompleto()))
+               if(metodos.consultarInformacionDelXmlUsuarios(frm_MantenimientoUsuarios.devolverNombreUsuario()))
              {
              frm_MantenimientoUsuarios.mostrarInformacion(metodos.getArregloInformacion());
              frm_MantenimientoUsuarios.habilitarBotones();
@@ -216,7 +216,7 @@ int fuente=0;
                }    
                if(fuente==3)
                {
-                   if(metodos.eliminarInformacionDelXmlUsuario(frm_MantenimientoUsuarios.devolverNombreCompleto()))
+                   if(metodos.eliminarInformacionDelXmlUsuario(frm_MantenimientoUsuarios.devolverNombreUsuario()))
                    {
                         frm_MantenimientoUsuarios.mensaje("El usuario ha sido eliminado exitosamente");
                         frm_MantenimientoUsuarios.resetearIntefaz();

@@ -50,15 +50,14 @@ public class Controlador_FRM_MenuPrincipal implements ActionListener{
             
             mantenimientoEstudiantes=new FRM_MantenimientoEstudiantes();
             mantenimientoCursos=new FRM_MantenimientoCursos();
-            frm_MantenimientoUsuarios= new  FRM_MantenimientoUsuarios(menu);
-            login=new FRM_Login(menu);                     
+            frm_MantenimientoUsuarios= new  FRM_MantenimientoUsuarios(menu); 
+            login=new FRM_Login(menu);
             conexion=new ConexionBD(); 
             metodos=new Metodos_XML();
             matricula= new FRM_Matricula(mantenimientoEstudiantes,mantenimientoCursos);
             matricula.controlador.metodosEstudiantes=mantenimientoEstudiantes.controlador_FRM_MantenimientoEstudiantes.metodosEstudiantes;
             matricula.controlador.metodosCursos=mantenimientoCursos.controlador.metodosCursos;    
             login.login.archivo=frm_MantenimientoUsuarios.usuarios.archivo;
-            //frm_MantenimientoUsuarios.usuarios.archivo=login.login.archivo;
             this.informacion.setVisible(true);            
             
     
@@ -90,7 +89,8 @@ public class Controlador_FRM_MenuPrincipal implements ActionListener{
         {
        if(frm_MantenimientoUsuarios.usuarios.metodosUsuarios.comprobarUsuario())
        {
-         this.login.setVisible(true);
+           // this.login.setVisible(true);
+            this.menu.setVisible(true);
             }
            else
             {
@@ -114,12 +114,13 @@ public class Controlador_FRM_MenuPrincipal implements ActionListener{
         {
          if(metodos.comprobarUsuarios())
         {
-           this.login.setVisible(true);
+           this.login.setVisible(false);
             }
            else
             {
                 JOptionPane.showMessageDialog(null,"No hay usuarios registrados, favor dirigirse al modulo de usuarios");
-                this.frm_MantenimientoUsuarios.setVisible(true);
+               this.menu.setVisible(true);
+               //this.frm_MantenimientoUsuarios.setVisible(true);
             } 
         }
     }

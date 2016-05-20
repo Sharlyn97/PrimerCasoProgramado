@@ -28,7 +28,7 @@ import java.util.ArrayList;
         else
         {
           System.out.println("Error al cargar archivo");  
-          
+          crearArchivoEstudiantes();
         }
        }
 
