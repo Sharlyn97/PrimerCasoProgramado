@@ -24,7 +24,7 @@ public class MetodosUsuarios {
     }
      public ArrayList <Usuario> getArray()
     {
-        System.out.println("Array: "+arrayUsuarios.get(0).getInformacion());
+        //System.out.println("Array: "+arrayUsuarios.get(0).getInformacion());
         return arrayUsuarios;
     }
     public void setArray(ArrayList<Usuario>array)
@@ -51,19 +51,24 @@ public class MetodosUsuarios {
     public boolean consultarUsuario(String nombreUsuario)
     {
         boolean existe=false;
+        System.out.println("nombreEntrante: "+nombreUsuario);
         
         for(int contador=0;contador<arrayUsuarios.size();contador++)
         {
+            System.out.println("usuarios gurdados: "+arrayUsuarios.get(contador).getNombreUsuario());
+            
+            
             if(arrayUsuarios.get(contador).getNombreUsuario().equals(nombreUsuario))
             {
                 arregloInformacionConsultada[0]=arrayUsuarios.get(contador).getNombre();
                 arregloInformacionConsultada[1]=arrayUsuarios.get(contador).getNombreUsuario();
+
                 existe=true;
             }
         
         }
+        
         return existe;
-    
     }
     
     public boolean consultarLoginUsuario(String nombreUsuario,String contraseña)

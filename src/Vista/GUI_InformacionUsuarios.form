@@ -16,15 +16,15 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jl_Nombre" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="jl_Usuario" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="jl_Contraseña" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="jl_Tipo" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jl_Nombre" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Component id="jcb_Tipo" min="-2" max="-2" attributes="0"/>
@@ -41,17 +41,17 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jl_Nombre" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jt_NombreCompleto" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jl_Usuario" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jt_NombreUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jl_Usuario" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jt_NombreCompleto" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jl_Nombre" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jl_Contraseña" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jpf_Contraseña" alignment="3" min="-2" max="-2" attributes="0"/>

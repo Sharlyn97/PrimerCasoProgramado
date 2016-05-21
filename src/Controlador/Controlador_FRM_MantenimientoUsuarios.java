@@ -47,7 +47,9 @@ int fuente=0;
      
      for(int conta=0; conta<array.size(); conta++)
      {
+         
          archivo.ingresarInformacionUsuarios(array.get(conta));
+         //System.out.println("ingresa la información: "+array.get(conta).getNombreUsuario()+array.get(conta).getNombre()+array.get(conta).getContraseña());
          archivo.devolverInformacionDeUsuario();
      }   
      
@@ -146,6 +148,7 @@ int fuente=0;
             {
              if(fuente==1)
              {
+                 
                  if(metodosUsuarios.consultarUsuario(frm_MantenimientoUsuarios.devolverNombreUsuario()))
                {
                 frm_MantenimientoUsuarios.mostrarInformacion(metodosUsuarios.getArregloInformacion());

@@ -24,6 +24,7 @@ public class FRM_MantenimientoUsuarios extends javax.swing.JFrame {
     }
     public String devolverNombreUsuario()
     {
+        
         return this.gUI_InformacionUsuarios1.devolverNombreDeUsuario();
     }
     
@@ -95,6 +96,11 @@ public class FRM_MantenimientoUsuarios extends javax.swing.JFrame {
         gUI_Botones1 = new Vista.GUI_Botones();
 
         setResizable(false);
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentHidden(java.awt.event.ComponentEvent evt) {
+                formComponentHidden(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -119,6 +125,12 @@ public class FRM_MantenimientoUsuarios extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentHidden
+
+        usuarios.crearArchivo();
+        System.out.println("creo el archivo");
+    }//GEN-LAST:event_formComponentHidden
 
  
 

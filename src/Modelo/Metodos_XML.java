@@ -408,9 +408,11 @@ public class Metodos_XML
             transformer.transform(source, result);
             transformer.transform(source, console);
             agrego=true;
+             
             }
         catch (Exception e) 
         {
+            
             System.err.println("Error al guardar: " + e);
         }
         return agrego;
@@ -624,7 +626,9 @@ public class Metodos_XML
                  tag = datosItem.item(contadorTags); 
                  datoContenido = tag.getFirstChild();
 
-                 if(tag.getNodeName().equals("usuario") && datoContenido.getNodeValue().equals(""+usuario) && tag.getNodeName().equals("contraseña") && datoContenido.getNodeValue().equals(""+contraseña) )
+                 System.out.println(tag.getNodeName().equals("usuario")+" usuario que entra: "+usuario+","+tag.getNodeName().equals("contraseña")+", contraseña que entra: "+contraseña);
+                 
+                 if(tag.getNodeName().equals("usuario") && datoContenido.getNodeValue().equals(""+usuario) && (tag.getNodeName().equals("contraseña") && datoContenido.getNodeValue().equals(""+contraseña)))
                  {
                     itemEncontrado=true;     
                  }
@@ -983,7 +987,7 @@ public class Metodos_XML
 
          boolean usuario=false;
 
-         if(cantidad<0)
+         if(cantidad>0)
         {
             usuario=true;
          }

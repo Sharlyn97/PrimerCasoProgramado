@@ -107,6 +107,7 @@ public class Controlador_FRM_MenuPrincipal implements ActionListener{
            else
             {
                 JOptionPane.showMessageDialog(null,"No hay usuarios registrados, favor dirigirse al modulo de usuarios");
+                //this.frm_MantenimientoUsuarios.setVisible(true);
                 this.frm_MantenimientoUsuarios.setVisible(true);
             }
         }
@@ -114,13 +115,14 @@ public class Controlador_FRM_MenuPrincipal implements ActionListener{
         {
          if(metodos.comprobarUsuarios())
         {
-           this.login.setVisible(false);
+           this.login.setVisible(true);
+           //this.menu.setVisible(true);
             }
            else
             {
                 JOptionPane.showMessageDialog(null,"No hay usuarios registrados, favor dirigirse al modulo de usuarios");
-               this.menu.setVisible(true);
-               //this.frm_MantenimientoUsuarios.setVisible(true);
+               //this.menu.setVisible(true);
+               this.frm_MantenimientoUsuarios.setVisible(true);
             } 
         }
     }

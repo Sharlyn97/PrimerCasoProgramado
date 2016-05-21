@@ -79,9 +79,9 @@ public class Controlador_FRM_Login implements ActionListener {
            }
            else
            {
-               this.login.setVisible(false);
-               this.menu.setVisible(true);
-               login.mensaje("Acceso denegado, por favor revise sus datos e intente nuevamente o registrese");
+               this.login.setVisible(true); 
+               login.mensaje("Acceso denegado, por favor revise sus datos e intente nuevamente");
+              // this.menu.setVisible(true);
            }
            }
            if(fuente==2)
@@ -111,7 +111,7 @@ public class Controlador_FRM_Login implements ActionListener {
            else
            {
                this.login.setVisible(true);
-               login.mensaje("Acceso denegado, por favor revise sus datos e intente nuevamente o registrese");
+               login.mensaje("Acceso denegado, por favor revise sus datos e intente nuevamente");
            }   
            }
         }

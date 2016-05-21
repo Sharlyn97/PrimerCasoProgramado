@@ -56,7 +56,7 @@ public class ArchivoUsuarios {
                             }
                     catch(Exception e)
                     {
-                        System.out.println("Error al cargar archivo cursos"+e);
+                        System.out.println("Error al cargar archivo usuarios"+e);
                     }
                     return existe;
                 }
