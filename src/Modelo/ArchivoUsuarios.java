@@ -23,11 +23,11 @@ public class ArchivoUsuarios {
     public ArchivoUsuarios()
     {
         if(cargarArchivoUsuarios()){
-         System.out.println("El archivo se cargó correctamente");   
+         System.out.println("El archivo usuarios se cargó correctamente");   
         }
         else
         {
-          System.out.println("Error al cargar archivo"); 
+          System.out.println("Error al cargar archivo usuarios"); 
           crearArchivoUsuarios();
         }
     }
@@ -35,12 +35,12 @@ public class ArchivoUsuarios {
      public void crearArchivoUsuarios()
             {
                 try{       
-                archivoSalida=new ObjectOutputStream(new FileOutputStream("archivoCursos.dat"));
-                System.out.println("Se creó el archivo de cursos de forma correcta");
+                archivoSalida=new ObjectOutputStream(new FileOutputStream("archivoUsuarios.dat"));
+                System.out.println("Se creó el archivo de usuarios de forma correcta");
                 }
                 catch(Exception e)
                 {
-                 System.out.println("Error al crear archivo de cursos"+e);
+                 System.out.println("Error al crear archivo de usuarios "+e);
                 }
 
             }
@@ -56,7 +56,7 @@ public class ArchivoUsuarios {
                             }
                     catch(Exception e)
                     {
-                        System.out.println("Error al cargar archivo usuarios"+e);
+                        System.out.println("Error al cargar archivo usuarios "+e);
                     }
                     return existe;
                 }

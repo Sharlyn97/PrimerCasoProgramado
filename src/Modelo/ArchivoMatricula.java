@@ -23,11 +23,11 @@ public class ArchivoMatricula {
     public ArchivoMatricula()
     {
          if(cargarArchivoMatricula()){
-         System.out.println("El archivo se cargó correctamente");   
+         System.out.println("El archivo matricula se cargó correctamente");   
         }
         else
         {
-          System.out.println("Error al cargar archivo"); 
+          System.out.println("Error al cargar archivo matricula"); 
           crearArchivoMatricula();
         }
         
@@ -51,11 +51,11 @@ public class ArchivoMatricula {
          try
          {
              archivoSalida.writeObject(matricula);
-             System.out.println("Se escribió de forma correcta la información del archivo");
+             System.out.println("Se escribió de forma correcta la información del archivo matricula");
          }
          catch(Exception e)
          {
-             System.out.println("Error al ingresar información al archivo"+e);
+             System.out.println("Error al ingresar información al archivo matricula "+e);
          }
         }
       

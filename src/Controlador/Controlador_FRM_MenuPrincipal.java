@@ -90,7 +90,7 @@ public class Controlador_FRM_MenuPrincipal implements ActionListener{
        if(frm_MantenimientoUsuarios.usuarios.metodosUsuarios.comprobarUsuario())
        {
             this.login.setVisible(true);
-            //this.menu.setVisible(true);
+         //   this.menu.setVisible(true);
             }
            else
             {

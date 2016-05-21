@@ -23,11 +23,11 @@ public class ArchivoCursos {
     public ArchivoCursos()
     {
         if(cargarArchivoCursos()){
-         System.out.println("El archivo se cargó correctamente");   
+         System.out.println("El archivo cursos se cargó correctamente");   
         }
         else
         {
-          System.out.println("Error al cargar archivo");  
+          System.out.println("Error al cargar archivo cursos");  
           crearArchivoCursos();
         }
     }
@@ -65,11 +65,11 @@ public class ArchivoCursos {
          try
          {
              archivoSalida.writeObject(cursos);
-             System.out.println("Se escribió de forma correcta la información del archivo");
+             System.out.println("Se escribió de forma correcta la información del archivo cursos");
          }
          catch(Exception e)
          {
-             System.out.println("Error al ingresar información al archivo"+e);
+             System.out.println("Error al ingresar información al archivo cursos "+e);
          }
         }
      

@@ -23,11 +23,11 @@ import java.util.ArrayList;
        public ArchivoEstudiantes()
        {
           if(cargarArchivoEstudiantes()){
-         System.out.println("El archivo se cargó correctamente");   
+         System.out.println("El archivo estudiantes se cargó correctamente");   
         }
         else
         {
-          System.out.println("Error al cargar archivo");  
+          System.out.println("Error al cargar archivo estudiantes");  
           crearArchivoEstudiantes();
         }
        }
