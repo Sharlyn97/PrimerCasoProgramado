@@ -26,7 +26,7 @@ MetodosUsuarios metodosUsuarios;
 public ArchivoUsuarios archivo;
 int fuente=0;
 
-    public Controlador_FRM_MantenimientoUsuarios(FRM_MantenimientoUsuarios frm_MantenimientoUsuarios) 
+    public Controlador_FRM_MantenimientoUsuarios(FRM_MantenimientoUsuarios frm_MantenimientoUsuarios,FRM_Login login) //
     {
         this.frm_MantenimientoUsuarios=frm_MantenimientoUsuarios;
         this.conexion=conexion;

@@ -1,1 +1,1 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><Usuario><Usuario><nombre>Jesse</nombre><usuario>jesse</usuario><contraseña>jesse</contraseña><tipo>1</tipo></Usuario><Usuario><nombre>Jesse</nombre><usuario>jesse</usuario><contraseña>jesse</contraseña><tipo>1</tipo></Usuario><Curso><sigla>1000</sigla><nombre>gfds</nombre><creditos>4</creditos><horario>asdf</horario></Curso><Matricula><codigo>1</codigo><cedula>123</cedula><Sigla>1000</Sigla></Matricula></Usuario>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><Estudiante/>

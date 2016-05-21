@@ -13,13 +13,14 @@ import javax.swing.JOptionPane;
  * @author Jesse Fabian
  */
 public class FRM_MantenimientoUsuarios extends javax.swing.JFrame {
-
+FRM_Login login;///
     
     public Controlador_FRM_MantenimientoUsuarios usuarios;
-    public FRM_MantenimientoUsuarios(FRM_MenuPrincipal menu) {
+    public FRM_MantenimientoUsuarios(FRM_MenuPrincipal menu,FRM_Login login) {///
         initComponents();
+        this.login=login;///
         setVisible(false);
-        usuarios= new Controlador_FRM_MantenimientoUsuarios(this);
+        usuarios= new Controlador_FRM_MantenimientoUsuarios(this,login);
         gUI_Botones1.agregarEventos(usuarios);
     }
     public String devolverNombreUsuario()

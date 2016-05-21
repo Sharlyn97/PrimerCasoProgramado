@@ -625,10 +625,8 @@ public class Metodos_XML
              {           
                  tag = datosItem.item(contadorTags); 
                  datoContenido = tag.getFirstChild();
-
-                 System.out.println(tag.getNodeName().equals("usuario")+" usuario que entra: "+usuario+","+tag.getNodeName().equals("contraseña")+", contraseña que entra: "+contraseña);
                  
-                 if(tag.getNodeName().equals("usuario") && datoContenido.getNodeValue().equals(""+usuario) && (tag.getNodeName().equals("contraseña") && datoContenido.getNodeValue().equals(""+contraseña)))
+                 if(tag.getNodeName().equals("usuario") && datoContenido.getNodeValue().equals(""+usuario))
                  {
                     itemEncontrado=true;     
                  }
@@ -638,6 +636,33 @@ public class Metodos_XML
          return itemEncontrado;
     }
     
+    public boolean consultarInformacionDeUsuariosContraseña(String contraseña)
+    { 
+         Element raiz = document.getDocumentElement();
+         NodeList listaDeItems = raiz.getElementsByTagName("Usuario");
+         Node tag=null,datoContenido=null;
+
+         boolean itemEncontrado=false,tituloUsuario=false;
+         int contador=0;
+
+         for(int contadorItems=0; contadorItems<listaDeItems.getLength(); contadorItems++) 
+         {   
+             Node item = listaDeItems.item(contadorItems);
+             NodeList datosItem = item.getChildNodes();
+             for(int contadorTags=0; contadorTags<datosItem.getLength(); contadorTags++) 
+             {           
+                 tag = datosItem.item(contadorTags); 
+                 datoContenido = tag.getFirstChild();
+                 
+                 if(tag.getNodeName().equals("contraseña") && datoContenido.getNodeValue().equals(""+contraseña))
+                 {
+                    itemEncontrado=true;     
+                 }
+
+         }
+    }
+         return itemEncontrado;
+    }
     public String[] getArregloInformacion()
     {
         return this.arregloInformacion;

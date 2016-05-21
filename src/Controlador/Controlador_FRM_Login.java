@@ -37,7 +37,7 @@ public class Controlador_FRM_Login implements ActionListener {
     public Controlador_FRM_Login(FRM_Login login,FRM_MenuPrincipal menu)
     {
         this.login=login;
-        usuarios=new FRM_MantenimientoUsuarios(menu);
+        usuarios=new FRM_MantenimientoUsuarios(menu,login);
         this.menu=menu;
         this.conexion=conexion;
         this.metodos=metodos;
@@ -101,7 +101,7 @@ public class Controlador_FRM_Login implements ActionListener {
            }
            if(fuente==3)
            {
-            if(metodos.consultarInformacionDeUsuarios(login.devolverNombre(),login.devolverContraseña()))
+            if(metodos.consultarInformacionDeUsuarios(login.devolverNombre(),login.devolverContraseña()) &&  metodos.consultarInformacionDeUsuariosContraseña(login.devolverContraseña()))
            {
                login.mensaje("Bienvenido "+login.devolverNombre());
                this.login.setVisible(false);

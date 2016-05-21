@@ -50,11 +50,11 @@ public class Controlador_FRM_MenuPrincipal implements ActionListener{
             
             mantenimientoEstudiantes=new FRM_MantenimientoEstudiantes();
             mantenimientoCursos=new FRM_MantenimientoCursos();
-            frm_MantenimientoUsuarios= new  FRM_MantenimientoUsuarios(menu); 
             login=new FRM_Login(menu);
             conexion=new ConexionBD(); 
             metodos=new Metodos_XML();
             matricula= new FRM_Matricula(mantenimientoEstudiantes,mantenimientoCursos);
+            frm_MantenimientoUsuarios= new  FRM_MantenimientoUsuarios(menu,login);             
             matricula.controlador.metodosEstudiantes=mantenimientoEstudiantes.controlador_FRM_MantenimientoEstudiantes.metodosEstudiantes;
             matricula.controlador.metodosCursos=mantenimientoCursos.controlador.metodosCursos;    
             login.login.archivo=frm_MantenimientoUsuarios.usuarios.archivo;
@@ -116,7 +116,7 @@ public class Controlador_FRM_MenuPrincipal implements ActionListener{
          if(metodos.comprobarUsuarios())
         {
            this.login.setVisible(true);
-           //this.menu.setVisible(true);
+          // this.menu.setVisible(true);
             }
            else
             {
