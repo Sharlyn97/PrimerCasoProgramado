@@ -114,12 +114,13 @@ public class Controlador_FRM_MantenimientoCursos implements ActionListener{
           {
               if(metodosCursos.consultarCurso(frm_MantenimientoCursos.devolverSigla()))
             {
-                frm_MantenimientoCursos.mostrarInformacion(metodos.getArregloInformacion());
+                frm_MantenimientoCursos.mostrarInformacion(metodosCursos.getArregloInformacion());
                 frm_MantenimientoCursos.mensaje("Se encontró el curso");
             }
             else
             {
                 frm_MantenimientoCursos.mensaje("No se encontró el curso");
+                frm_MantenimientoCursos.habilitarBotones();
             }
           }
           if(fuente==2)

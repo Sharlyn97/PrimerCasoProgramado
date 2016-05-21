@@ -148,7 +148,7 @@ int fuente=0;
              {
                  if(metodosUsuarios.consultarUsuario(frm_MantenimientoUsuarios.devolverNombreUsuario()))
                {
-                frm_MantenimientoUsuarios.mostrarInformacion(metodos.getArregloInformacion());
+                frm_MantenimientoUsuarios.mostrarInformacion(metodosUsuarios.getArregloInformacion());
                 frm_MantenimientoUsuarios.mensaje("Se encontró el usuario");
                 }
             else

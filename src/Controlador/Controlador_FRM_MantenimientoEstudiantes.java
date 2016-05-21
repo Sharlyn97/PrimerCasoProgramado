@@ -73,8 +73,8 @@ public class Controlador_FRM_MantenimientoEstudiantes implements ActionListener{
            {
              if(metodosEstudiantes.consultarEstudiante(mantenimientoEstudiantes.devolverCedula()))
             {
-                mantenimientoEstudiantes.mostrarInformacion(metodos.getArregloInformacion());
-                mantenimientoEstudiantes.mensaje("Se encontó el estudiante");
+                mantenimientoEstudiantes.mostrarInformacion(metodosEstudiantes.getArregloInformacion());
+                mantenimientoEstudiantes.mensaje("Se encontró el estudiante");
             }
             else
             {

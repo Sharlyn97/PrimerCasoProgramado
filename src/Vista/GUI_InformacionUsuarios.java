@@ -58,7 +58,7 @@ public class GUI_InformacionUsuarios extends javax.swing.JPanel {
  
  public void mostrarInformacion(String arreglo[])
  {
-     this.jt_NombreUsuario.setText(arreglo[0]);
+     this.jt_NombreCompleto.setText(arreglo[0]);
      this.jpf_Contraseña.setText(arreglo[1]);
 //     this.jcb_Tipo.setSelectedIndex(Integer.parseInt(arreglo[2]));
  }

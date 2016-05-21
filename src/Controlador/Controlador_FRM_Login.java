@@ -41,9 +41,9 @@ public class Controlador_FRM_Login implements ActionListener {
         this.menu=menu;
         this.conexion=conexion;
         this.metodos=metodos;
-        this.archivo=archivo;
+        archivo=new ArchivoUsuarios();
         metodosUsuarios=new MetodosUsuarios();
-//        metodosUsuarios.setArray(archivo.devolverInformacionDeUsuario());
+        metodosUsuarios.setArray(archivo.devolverInformacionDeUsuario());
     }
     
     public void setFuente(int fuente)
@@ -79,7 +79,8 @@ public class Controlador_FRM_Login implements ActionListener {
            }
            else
            {
-               this.login.setVisible(true);
+               this.login.setVisible(false);
+               this.menu.setVisible(true);
                login.mensaje("Acceso denegado, por favor revise sus datos e intente nuevamente o registrese");
            }
            }

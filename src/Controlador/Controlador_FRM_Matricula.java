@@ -76,7 +76,7 @@ public class Controlador_FRM_Matricula implements ActionListener{
             {
                 if(metodosEstudiantes.consultarEstudiante(frm_Matricula.devolverCedula()))
                 {
-                    String arreglo[]=conexion.getArregloInformacion();
+                    String arreglo[]=metodosEstudiantes.getArregloInformacion();
                     frm_Matricula.mostrarNombreEstudiante(arreglo[0]);
                     frm_Matricula.mostrarMensaje("Se encontró el estudiante");
                     encontroEstudiante=true;        
@@ -121,7 +121,7 @@ public class Controlador_FRM_Matricula implements ActionListener{
            {
                 if(metodosCursos.consultarCurso(frm_Matricula.devolverSigla()))
              {
-                 String arreglo[]=conexion.getArregloInformacion();
+                 String arreglo[]=metodosCursos.getArregloInformacion();
                  frm_Matricula.mostrarNombreCurso(arreglo[0]);
                  frm_Matricula.mostrarMensaje("Se encontró el curso");
                  encontroCurso=true;

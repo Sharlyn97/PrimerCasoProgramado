@@ -65,15 +65,11 @@ public class Metodos_XML
             crearArchivo(nombreArchivo2);
             crearArchivo(nombreArchivo3);
             crearArchivo(nombreArchivo4);
-         //   crearXMLEstudiantes();
-         //   crearXMLCurso();
-         //   crearXMLMatricula();
-          //  crearXMLUsuario();
-           // ventana.mostrarMensaje
+         
             System.out.println("No existía un archivo XML creado, ya fue creado y puede proceder a utilizarlo");
         }
         
-        arregloInformacion=new String[3];
+        arregloInformacion=new String[4];
         titulos = new ArrayList();
         valores = new ArrayList();
     }
