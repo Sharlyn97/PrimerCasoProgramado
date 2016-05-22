@@ -166,9 +166,9 @@ public class Controlador_FRM_Matricula implements ActionListener{
             {
                 if(metodosMatricula.consultarMatricula(frm_Matricula.devolverCodigo()))
              {
-                frm_Matricula.mostrarInformacion(metodosMatricula.getArregloInformacion());
+                frm_Matricula.mostrarInformacionArchivos(metodosMatricula.getArregloInformacion());
                 frm_Matricula.mostrarNombreEstudiante(metodosEstudiantes.consultarNombreEstudiante(frm_Matricula.devolverCedula()));
-                frm_Matricula.mostrarNombreCurso(metodosMatricula.consultarSiglaCurso(frm_Matricula.devolverCodigo()));
+                frm_Matricula.mostrarNombreCurso(metodosCursos.consultarNombreCurso(frm_Matricula.devolverSigla()));
                 frm_Matricula.cargarTabla();
                 frm_Matricula.habilitarModiEliminar();
                 metodosMatricula.devolverCodigo();

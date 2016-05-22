@@ -105,6 +105,21 @@ public class MetodosCursos {
     return consulto;
  }
  
+ public String consultarNombreCurso(String siglasCurso) 
+ {
+    String nombre="";
+     for(int contador=0; contador<arrayCursos.size(); contador++)
+     {
+         if(arrayCursos.get(contador).getSigla().equals(siglasCurso))
+        {
+            nombre=arrayCursos.get(contador).getNombre();
+            
+        }
+     }
+     
+    return nombre;
+ }
+ 
  public boolean  eliminarCurso(String siglasCurso)
  {
      int vueltas=0;
