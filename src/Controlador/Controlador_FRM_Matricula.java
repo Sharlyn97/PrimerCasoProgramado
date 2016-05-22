@@ -105,7 +105,7 @@ public class Controlador_FRM_Matricula implements ActionListener{
                 if(metodos.consultarInformacionDelXmlEstudiantes(frm_Matricula.devolverCedula()))
               {
                   String arreglo[]=metodos.getArregloInformacion();
-                  frm_Matricula.mostrarNombreEstudiante(arreglo[0]);
+                  frm_Matricula.mostrarNombreEstudiante(arreglo[1]);
                   frm_Matricula.mostrarMensaje("Se encontró el estudiante");
                   encontroEstudiante=true;        
               }
@@ -150,7 +150,7 @@ public class Controlador_FRM_Matricula implements ActionListener{
                 if(metodos.consultarInformacionDelXmlCursos(frm_Matricula.devolverSigla()))
               {
                   String arreglo[]=metodos.getArregloInformacion();
-                  frm_Matricula.mostrarNombreCurso(arreglo[0]);
+                  frm_Matricula.mostrarNombreCurso(arreglo[1]);
                   frm_Matricula.mostrarMensaje("Se encontró el curso");
                   encontroCurso=true;
               }
@@ -208,9 +208,9 @@ public class Controlador_FRM_Matricula implements ActionListener{
             {
                 if(metodos.consultarInformacionDelXmlMatricula(frm_Matricula.devolverCodigo()))
               {
-                 frm_Matricula.mostrarInformacion(metodos.getArregloInformacion());
+                 frm_Matricula.mostrarInformacionXML(metodos.getArregloInformacion());
                  frm_Matricula.mostrarNombreEstudiante(metodos.consultarInformacionEstudiantes(frm_Matricula.devolverCedula()));
-                 frm_Matricula.mostrarNombreCurso(frm_Matricula.devolverSigla());
+                 frm_Matricula.mostrarNombreCurso(metodos.consultarInformacionDeCursos(frm_Matricula.devolverSigla()));
                  frm_Matricula.cargarTabla();
                  frm_Matricula.habilitarModiEliminar();
                  metodos.colocarCodigo();

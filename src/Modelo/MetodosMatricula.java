@@ -89,6 +89,22 @@ public class MetodosMatricula {
         return sigla;
     }
  
+    public String consultarNombreCurso(String codigo)
+    {
+        String sigla="";
+        System.out.println("codigo entrante: "+codigo);
+        for(int contador=0;contador<arrayMatricula.size();contador++)
+        {
+            if(arrayMatricula.get(contador).getCodigo().equals(codigo))
+            {
+
+              sigla=arrayMatricula.get(contador).getNombreCurso();
+                
+            }
+        }
+        return sigla;
+    }
+    
     public void modificarMatricula(String arreglo[])
     {
         for(int contador=0;contador<arrayMatricula.size();contador++)

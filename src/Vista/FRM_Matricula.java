@@ -158,6 +158,12 @@ public class FRM_Matricula extends javax.swing.JFrame {
              
     }
     
+    public void mostrarInformacionXML(String arreglo[])
+    {
+        this.jt_Cedula.setText(arreglo[1]);
+        this.jt_Sigla.setText(arreglo[2]);
+             
+    }
     
     public void habilitarModiEliminar()
     {

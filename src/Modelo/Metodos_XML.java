@@ -532,12 +532,49 @@ public class Metodos_XML
                  if(itemEncontrado && contador<4)
                  {
                     arregloInformacion[contador]=datoContenido.getNodeValue();
+                    
                     contador++;
                  }
              }
 
          }
          return itemEncontrado;
+    }
+    
+     public String consultarInformacionDeCursos(String sigla)
+    { 
+        
+         Element raiz = document.getDocumentElement();
+         NodeList listaDeItems = raiz.getElementsByTagName("Curso");
+         Node tag=null,datoContenido=null;
+         String informacion="";
+
+         boolean itemEncontrado=false,tituloSigla=false;
+         int contador=0;
+
+         for(int contadorItems=0; contadorItems<listaDeItems.getLength(); contadorItems++) 
+         {   
+             Node item = listaDeItems.item(contadorItems);
+             NodeList datosItem = item.getChildNodes();
+             for(int contadorTags=0; contadorTags<datosItem.getLength(); contadorTags++) 
+             {           
+                 tag = datosItem.item(contadorTags); 
+                 datoContenido = tag.getFirstChild();
+
+                 if(tag.getNodeName().equals("sigla") && datoContenido.getNodeValue().equals(""+sigla) )
+                 {
+                    itemEncontrado=true;     
+                 }
+                 if(itemEncontrado && contador<4)
+                 {
+                    arregloInformacion[contador]=datoContenido.getNodeValue();
+                    informacion=arregloInformacion[1];
+                    contador++;
+                 }
+             }
+
+         }
+         return informacion;
     }
     
     public boolean consultarInformacionDelXmlMatricula(String codigo)
