@@ -327,7 +327,6 @@ public class Metodos_XML
             transformer.transform(source, result);
             transformer.transform(source, console);
             agrego=true;
-            
             }
         catch (Exception e) 
         {
@@ -509,6 +508,7 @@ public class Metodos_XML
     
     public boolean consultarInformacionDelXmlCursos(String sigla)
     { 
+        
          Element raiz = document.getDocumentElement();
          NodeList listaDeItems = raiz.getElementsByTagName("Curso");
          Node tag=null,datoContenido=null;
