@@ -153,9 +153,9 @@ public class FRM_Matricula extends javax.swing.JFrame {
 
     public void mostrarInformacion(String arreglo[])
     {
-        this.jt_Cedula.setText(arreglo[1]);
-        
-        this.jt_Sigla.setText(arreglo[0]);
+        this.jt_Cedula.setText(arreglo[0]);
+        this.jt_Sigla.setText(arreglo[1]);
+             
     }
     
     

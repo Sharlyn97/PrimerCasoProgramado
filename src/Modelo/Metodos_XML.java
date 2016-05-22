@@ -383,7 +383,7 @@ public class Metodos_XML
             document.getDocumentElement().appendChild(raiz);
             
             Element valor1 = document.createElement("nombre");
-            Text text = document.createTextNode(arregloInformacion[0]);
+            Text text1 = document.createTextNode(arregloInformacion[0]);
             Element valor2 = document.createElement("usuario");
             Text text2 = document.createTextNode(arregloInformacion[1]);
             Element valor3 = document.createElement("contraseña");
@@ -392,7 +392,7 @@ public class Metodos_XML
             Text text4 = document.createTextNode(arregloInformacion[3]);
             
             raiz.appendChild(valor1);
-            valor1.appendChild(text);
+            valor1.appendChild(text1);
             raiz.appendChild(valor2);
             valor2.appendChild(text2);
             raiz.appendChild(valor3);
@@ -529,7 +529,7 @@ public class Metodos_XML
                  {
                     itemEncontrado=true;     
                  }
-                 if(itemEncontrado && contador<3)
+                 if(itemEncontrado && contador<4)
                  {
                     arregloInformacion[contador]=datoContenido.getNodeValue();
                     contador++;

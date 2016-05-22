@@ -75,11 +75,13 @@ public class Controlador_FRM_MantenimientoEstudiantes implements ActionListener{
             {
                 mantenimientoEstudiantes.mostrarInformacion(metodosEstudiantes.getArregloInformacion());
                 mantenimientoEstudiantes.mensaje("Se encontró el estudiante");
+                mantenimientoEstudiantes.deshabilitarTF();
                  mantenimientoEstudiantes.habilitarModEli();
             }
             else
             {
                 mantenimientoEstudiantes.mensaje("No se encontró el estudiante");
+                mantenimientoEstudiantes.habilitarBotones();
                 mantenimientoEstudiantes.habilitarAgregar();
             }
            }
@@ -95,6 +97,7 @@ public class Controlador_FRM_MantenimientoEstudiantes implements ActionListener{
            else
            {
                mantenimientoEstudiantes.mensaje("El estudiante no ha sido registrado");
+               mantenimientoEstudiantes.deshabilitarTF();
                mantenimientoEstudiantes.habilitarBotones();
            }
        
@@ -112,6 +115,7 @@ public class Controlador_FRM_MantenimientoEstudiantes implements ActionListener{
            {
                mantenimientoEstudiantes.mensaje("El estudiante no ha sido registrado");
                mantenimientoEstudiantes.habilitarBotones();
+               mantenimientoEstudiantes.deshabilitarTF();
            }   
            }
         }
@@ -125,7 +129,9 @@ public class Controlador_FRM_MantenimientoEstudiantes implements ActionListener{
                 mantenimientoEstudiantes.resetearInterfaz();
                 mantenimientoEstudiantes.mensaje("Se agregó correctamente");
                 crearArchivo();
-                 mantenimientoEstudiantes.estadoInicial();    
+                 mantenimientoEstudiantes.estadoInicial();  
+                 mantenimientoEstudiantes.habilitarTF();
+                 
             }
             else
             {
@@ -170,6 +176,7 @@ public class Controlador_FRM_MantenimientoEstudiantes implements ActionListener{
                mantenimientoEstudiantes.resetearInterfaz();
                mantenimientoEstudiantes.mensaje("Se modificó correctamente");
                 mantenimientoEstudiantes.estadoInicial();
+                mantenimientoEstudiantes.habilitarTF();
               }
               else
              {
@@ -216,6 +223,7 @@ public class Controlador_FRM_MantenimientoEstudiantes implements ActionListener{
                 mantenimientoEstudiantes.resetearInterfaz();
                 mantenimientoEstudiantes.mensaje("Se eliminó correctamente");
                  mantenimientoEstudiantes.estadoInicial();
+                 mantenimientoEstudiantes.habilitarTF();
               }
                 else
                 {

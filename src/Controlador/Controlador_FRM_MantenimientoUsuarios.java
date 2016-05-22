@@ -67,6 +67,7 @@ int fuente=0;
                     frm_MantenimientoUsuarios.resetearInterfaz();
                     frm_MantenimientoUsuarios.mensaje("Se agregó correctamente");
                     crearArchivo();
+                    frm_MantenimientoUsuarios.habilitarTF();
                     frm_MantenimientoUsuarios.estadoInicial();
                 }
                 else
@@ -112,6 +113,7 @@ int fuente=0;
                     frm_MantenimientoUsuarios.resetearInterfaz();
                     frm_MantenimientoUsuarios.mensaje("Se modificó correctamente");
                     frm_MantenimientoUsuarios.estadoInicial();
+                    frm_MantenimientoUsuarios.habilitarTF();
                     }
                     else
                     {
@@ -156,11 +158,13 @@ int fuente=0;
                {
                 frm_MantenimientoUsuarios.mostrarInformacion(metodosUsuarios.getArregloInformacion());
                 frm_MantenimientoUsuarios.mensaje("Se encontró el usuario");
+                frm_MantenimientoUsuarios.deshabilitarTF();
                 frm_MantenimientoUsuarios.habilitarModEliminar();
                 }
             else
             {
                 frm_MantenimientoUsuarios.mensaje("El usuario no ha sido registrado");
+                frm_MantenimientoUsuarios.deshabilitarTF();
                 frm_MantenimientoUsuarios.habilitarBotones();
             } 
              }
@@ -176,6 +180,7 @@ int fuente=0;
              else
              {
                  frm_MantenimientoUsuarios.mensaje("El usuario no ha sido registrado");
+                 frm_MantenimientoUsuarios.deshabilitarTF();
                  frm_MantenimientoUsuarios.habilitarBotones();
              }
             }
@@ -191,6 +196,7 @@ int fuente=0;
              else
              {
                  frm_MantenimientoUsuarios.mensaje("El usuario no ha sido registrado");
+                 frm_MantenimientoUsuarios.deshabilitarTF();
                  frm_MantenimientoUsuarios.habilitarBotones();
              }  
              }
@@ -205,6 +211,7 @@ int fuente=0;
                         frm_MantenimientoUsuarios.resetearInterfaz();
                         frm_MantenimientoUsuarios.mensaje("Se eliminó correctamente");
                         frm_MantenimientoUsuarios.estadoInicial();
+                        frm_MantenimientoUsuarios.habilitarTF();
                     }
                    else
                    {

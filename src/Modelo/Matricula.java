@@ -16,11 +16,14 @@ public class Matricula implements Serializable {
     private String codigo;
     private String cedula;
     private String sigla;
+    private String nombre;
+    private String nombreCurso;
 
     public Matricula(String codigo, String cedula, String sigla) {
         this.codigo = codigo;
         this.cedula = cedula;
         this.sigla = sigla;
+        
     }
 
     /**
@@ -56,6 +59,12 @@ public class Matricula implements Serializable {
      */
     public String getSigla() {
         return sigla;
+    }
+    public String getNombreCurso() {
+        return nombreCurso;
+    }
+    public String getNombre() {
+        return nombre;
     }
 
     /**

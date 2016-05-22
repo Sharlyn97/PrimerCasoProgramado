@@ -58,13 +58,15 @@ public class MetodosMatricula {
     public boolean consultarMatricula(String codigo)
     {
         boolean existe=false;
-        
+       
         for(int contador=0;contador<arrayMatricula.size();contador++)
         {
+             
             if(arrayMatricula.get(contador).getCodigo().equals(codigo))
             {
                 arregloInformacionConsultada[0]=arrayMatricula.get(contador).getCedula();
                 arregloInformacionConsultada[1]=arrayMatricula.get(contador).getSigla();
+                
                 existe=true;
             }
         }
@@ -74,7 +76,7 @@ public class MetodosMatricula {
     public String consultarSiglaCurso(String codigo)
     {
         String sigla="";
-        
+        System.out.println("codigo entrante: "+codigo);
         for(int contador=0;contador<arrayMatricula.size();contador++)
         {
             if(arrayMatricula.get(contador).getCodigo().equals(codigo))
@@ -86,8 +88,7 @@ public class MetodosMatricula {
         }
         return sigla;
     }
-    
-    
+ 
     public void modificarMatricula(String arreglo[])
     {
         for(int contador=0;contador<arrayMatricula.size();contador++)
@@ -142,12 +143,4 @@ public class MetodosMatricula {
         
         return codigo; 
     }
-    
-    
-    
-    
-    
-    
-    
-    
 }

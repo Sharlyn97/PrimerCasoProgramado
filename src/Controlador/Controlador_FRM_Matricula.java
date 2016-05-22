@@ -135,7 +135,7 @@ public class Controlador_FRM_Matricula implements ActionListener{
            {
             if(conexion.consultarCurso(frm_Matricula.devolverSigla()))
              {
-                 String arreglo[]=conexion.getArregloInformacion();
+                 String arreglo[]=conexion.getArregloInformacionCurso();
                  frm_Matricula.mostrarNombreCurso(arreglo[0]);
                  frm_Matricula.mostrarMensaje("Se encontró el curso");
                  encontroCurso=true;
@@ -185,11 +185,12 @@ public class Controlador_FRM_Matricula implements ActionListener{
             }
             if(fuente==2)
             {
-                if(conexion.consultarMatricula(frm_Matricula.devolverCodigo()))
+                if((conexion.consultarMatricula(frm_Matricula.devolverCodigo()))&&(conexion.consultarMatriculaConCurso(frm_Matricula.devolverCodigo())))
                 {
+       
                    frm_Matricula.mostrarInformacion(conexion.getArregloInformacionMatricula());
                    frm_Matricula.mostrarNombreEstudiante(conexion.consultarNombreEstudiantes(frm_Matricula.devolverCedula()));
-                   frm_Matricula.mostrarNombreCurso(conexion.consultarSiglaCurso(frm_Matricula.devolverCodigo()));
+                   frm_Matricula.mostrarNombreCurso(conexion.consultarNombreCurso(frm_Matricula.devolverSigla()));
                    frm_Matricula.cargarTabla();
                    frm_Matricula.habilitarModiEliminar();
                    conexion.devolverCodigo();
@@ -228,7 +229,7 @@ public class Controlador_FRM_Matricula implements ActionListener{
         {  
             frm_Matricula.cargarTabla();
             frm_Matricula.estadoInicial();
-            frm_Matricula.limpiarCurso(); 
+            //frm_Matricula.limpiarCurso(); 
         }
         if(e.getActionCommand().equals("Finalizar"))
         {  
