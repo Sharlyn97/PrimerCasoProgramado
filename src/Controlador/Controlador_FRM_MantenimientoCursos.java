@@ -142,7 +142,7 @@ public class Controlador_FRM_MantenimientoCursos implements ActionListener{
           {
              if(metodos.consultarInformacionDelXmlCursos(frm_MantenimientoCursos.devolverSigla()))
             {
-             frm_MantenimientoCursos.mostrarInformacion(metodos.getArregloInformacion());
+             frm_MantenimientoCursos.mostrarInformacionXML(metodos.getArregloInformacion());
              frm_MantenimientoCursos.habilitarBotones();
              frm_MantenimientoCursos.deshabilitarTF();
              frm_MantenimientoCursos.mensaje("Se consultó correctamente");

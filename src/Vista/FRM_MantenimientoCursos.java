@@ -58,6 +58,11 @@ public class FRM_MantenimientoCursos extends javax.swing.JFrame {
         this.gUI_InformacionCursos1.mostrarInformacion(arreglo);
     }
     
+    public void mostrarInformacionXML(String arreglo[])
+    {
+        this.gUI_InformacionCursos1.mostrarInformacionXML(arreglo);
+    }
+    
     public void resetearInterfaz()
     {
         this.gUI_InformacionCursos1.resetearInterfaz();

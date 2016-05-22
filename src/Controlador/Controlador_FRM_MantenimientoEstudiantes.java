@@ -102,7 +102,7 @@ public class Controlador_FRM_MantenimientoEstudiantes implements ActionListener{
            {
             if(metodos.consultarInformacionDelXmlEstudiantes(mantenimientoEstudiantes.devolverCedula()))
            {
-           mantenimientoEstudiantes.mostrarInformacion(metodos.getArregloInformacion());
+           mantenimientoEstudiantes.mostrarInformacionXML(metodos.getArregloInformacion());
            mantenimientoEstudiantes.habilitarBotones();
            mantenimientoEstudiantes.deshabilitarTF();
            mantenimientoEstudiantes.mensaje("Se encontró al estudiante");

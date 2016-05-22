@@ -64,6 +64,13 @@ public class GUI_InformacionCursos extends javax.swing.JPanel {
         this.jt_Horario.setText(arreglo[2]);
     }
     
+    public void mostrarInformacionXML(String arreglo[])
+    {
+        this.jt_Nombre.setText(arreglo[1]);
+        this.jcb_Creditos.setSelectedIndex(Integer.parseInt(arreglo[2]));
+        this.jt_Horario.setText(arreglo[3]);
+    }
+    
     public void resetearInterfaz()
     {
         this.jt_Horario.setText("");

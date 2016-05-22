@@ -63,6 +63,12 @@ public class GUI_InformacionUsuarios extends javax.swing.JPanel {
      this.jpf_Contraseña.setText(arreglo[1]);
 //     this.jcb_Tipo.setSelectedIndex(Integer.parseInt(arreglo[2]));
  }
+  public void mostrarInformacionXML(String arreglo[])
+ {
+     this.jt_NombreCompleto.setText(arreglo[0]);
+     this.jpf_Contraseña.setText(arreglo[1]);
+//     this.jcb_Tipo.setSelectedIndex(Integer.parseInt(arreglo[2]));
+ }
  
  public void resetearInterfaz()
  {

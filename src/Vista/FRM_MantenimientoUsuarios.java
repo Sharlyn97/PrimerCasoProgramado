@@ -39,6 +39,11 @@ FRM_Login login;///
          this.gUI_InformacionUsuarios1.mostrarInformacion(arreglo);
     }
 
+     public void mostrarInformacionXML(String arreglo[])
+    {
+         this.gUI_InformacionUsuarios1.mostrarInformacionXML(arreglo);
+    }
+    
     public void habilitarBotones()
     {
         this.gUI_Botones1.habilitarBotones();

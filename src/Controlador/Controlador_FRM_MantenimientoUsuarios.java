@@ -177,7 +177,7 @@ int fuente=0;
              {
                if(metodos.consultarInformacionDelXmlUsuarios(frm_MantenimientoUsuarios.devolverNombreUsuario()))
              {
-             frm_MantenimientoUsuarios.mostrarInformacion(metodos.getArregloInformacion());
+             frm_MantenimientoUsuarios.mostrarInformacionXML(metodos.getArregloInformacion());
              frm_MantenimientoUsuarios.habilitarBotones();
              frm_MantenimientoUsuarios.deshabilitarTF();
              }

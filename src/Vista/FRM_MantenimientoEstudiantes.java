@@ -72,6 +72,11 @@ public class FRM_MantenimientoEstudiantes extends javax.swing.JFrame {
         this.gUI_InformacionEstudiantes1.mostrarInformacion(arreglo);
     }
     
+    public void mostrarInformacionXML(String arreglo[])
+    {
+        this.gUI_InformacionEstudiantes1.mostrarInformacionXML(arreglo);
+    }
+    
     public void deshabilitarTF()
     {
         this.gUI_InformacionEstudiantes1.deshabilitarTF();
