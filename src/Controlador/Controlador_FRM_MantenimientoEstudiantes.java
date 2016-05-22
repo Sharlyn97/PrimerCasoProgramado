@@ -37,13 +37,13 @@ public class Controlador_FRM_MantenimientoEstudiantes implements ActionListener{
     public Controlador_FRM_MantenimientoEstudiantes(FRM_MantenimientoEstudiantes mantenimientoEstudiantes)
     {
         this.mantenimientoEstudiantes=mantenimientoEstudiantes;
-        mantenimientoEstudiantes.estadoInicial();
+      
         this.conexion=conexion;
         this.metodos=metodos;
         metodosEstudiantes=new MetodosEstudiantes();
         archivo=new ArchivoEstudiantes();
         metodosEstudiantes.setArray(archivo.devolverInformacionDeEstudiantes());
-        
+          mantenimientoEstudiantes.estadoInicial();
     }
     
     public void setFuente(int fuente)
@@ -75,6 +75,7 @@ public class Controlador_FRM_MantenimientoEstudiantes implements ActionListener{
             {
                 mantenimientoEstudiantes.mostrarInformacion(metodosEstudiantes.getArregloInformacion());
                 mantenimientoEstudiantes.mensaje("Se encontró el estudiante");
+                 mantenimientoEstudiantes.habilitarModEli();
             }
             else
             {
@@ -87,7 +88,7 @@ public class Controlador_FRM_MantenimientoEstudiantes implements ActionListener{
             if(conexion.consultarEstudiantes(mantenimientoEstudiantes.devolverCedula()))
            {
            mantenimientoEstudiantes.mostrarInformacion(conexion.getArregloInformacion());
-           mantenimientoEstudiantes.habilitarBotones();
+           mantenimientoEstudiantes.habilitarModEli();
            mantenimientoEstudiantes.deshabilitarTF();
            mantenimientoEstudiantes.mensaje("Se encontró al estudiante");
            }
@@ -103,7 +104,7 @@ public class Controlador_FRM_MantenimientoEstudiantes implements ActionListener{
             if(metodos.consultarInformacionDelXmlEstudiantes(mantenimientoEstudiantes.devolverCedula()))
            {
            mantenimientoEstudiantes.mostrarInformacionXML(metodos.getArregloInformacion());
-           mantenimientoEstudiantes.habilitarBotones();
+           mantenimientoEstudiantes.habilitarModEli();
            mantenimientoEstudiantes.deshabilitarTF();
            mantenimientoEstudiantes.mensaje("Se encontró al estudiante");
            }
@@ -124,6 +125,7 @@ public class Controlador_FRM_MantenimientoEstudiantes implements ActionListener{
                 mantenimientoEstudiantes.resetearInterfaz();
                 mantenimientoEstudiantes.mensaje("Se agregó correctamente");
                 crearArchivo();
+                 mantenimientoEstudiantes.estadoInicial();    
             }
             else
             {
@@ -137,6 +139,7 @@ public class Controlador_FRM_MantenimientoEstudiantes implements ActionListener{
                 mantenimientoEstudiantes.mensaje("El estudiante ha sido agregado exitosamente");
                 mantenimientoEstudiantes.resetearInterfaz();
                 mantenimientoEstudiantes.habilitarTF();
+                 mantenimientoEstudiantes.estadoInicial();
             }
             else
             {
@@ -150,6 +153,7 @@ public class Controlador_FRM_MantenimientoEstudiantes implements ActionListener{
                 mantenimientoEstudiantes.mensaje("El estudiante ha sido agregado exitosamente");
                 mantenimientoEstudiantes.resetearInterfaz();
                 mantenimientoEstudiantes.habilitarTF();
+                 mantenimientoEstudiantes.estadoInicial();
             }
             else
             {
@@ -165,6 +169,7 @@ public class Controlador_FRM_MantenimientoEstudiantes implements ActionListener{
               {
                mantenimientoEstudiantes.resetearInterfaz();
                mantenimientoEstudiantes.mensaje("Se modificó correctamente");
+                mantenimientoEstudiantes.estadoInicial();
               }
               else
              {
@@ -210,6 +215,7 @@ public class Controlador_FRM_MantenimientoEstudiantes implements ActionListener{
               {
                 mantenimientoEstudiantes.resetearInterfaz();
                 mantenimientoEstudiantes.mensaje("Se eliminó correctamente");
+                 mantenimientoEstudiantes.estadoInicial();
               }
                 else
                 {

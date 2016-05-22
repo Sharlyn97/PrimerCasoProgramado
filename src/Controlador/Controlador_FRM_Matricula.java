@@ -172,6 +172,7 @@ public class Controlador_FRM_Matricula implements ActionListener{
                 frm_Matricula.cargarTabla();
                 frm_Matricula.habilitarModiEliminar();
                 metodosMatricula.devolverCodigo();
+                //frm_Matricula.habilitarAgregar();
                 frm_Matricula.mostrarMensaje("Se encontró la matricula");
 
              }

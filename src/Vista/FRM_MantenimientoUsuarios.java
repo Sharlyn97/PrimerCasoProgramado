@@ -58,6 +58,10 @@ FRM_Login login;///
     {
         return this.gUI_InformacionUsuarios1.devolverNombreCompleto();
     }
+    public String devolverNombreDeUsuario()
+    {
+        return this.gUI_InformacionUsuarios1.devolverNombreDeUsuario();
+    }
     
     public String devolverContraseña()
     {
@@ -81,6 +85,10 @@ FRM_Login login;///
         this.gUI_Botones1.estadoInicial();
     }
 
+      public void habilitarModEliminar()
+    {
+        this.gUI_Botones1.habilitarModiEliminar();
+    }    
     public void resetearInterfaz()
     {
         this.gUI_InformacionUsuarios1.resetearInterfaz();

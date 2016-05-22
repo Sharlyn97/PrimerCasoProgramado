@@ -71,6 +71,10 @@ public class FRM_MantenimientoCursos extends javax.swing.JFrame {
     {
         this.gUI_Botones1.habilitarBotones();
     }
+     public void habilitarEliMod()
+    {
+        this.gUI_Botones1.habilitarModEl();
+    }
     public void estadoInicial()
     {
         this.gUI_Botones1.estadoInicial();

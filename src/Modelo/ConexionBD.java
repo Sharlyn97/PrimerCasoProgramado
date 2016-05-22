@@ -410,13 +410,13 @@ public class ConexionBD {
         try {
                 cmd = con.createStatement();
                 rs = cmd.executeQuery("SELECT * FROM usuarios where nombres='"+nombre+"'");
-                
+                System.out.println("Nombre "+nombre);
                 while (rs.next()) 
                 {
                     String usuario = rs.getString("nombreUsuario");
                     String contraseña = rs.getString("password");
                     String tipo = rs.getString("tipo");
-                    System.out.println("Información de la BD: Usuario "+usuario+" Tipo: "+tipo); 
+                    //System.out.println("Información de la BD: Usuario "+usuario+" Tipo: "+tipo); 
                     encontro=true;
                 }
                 rs.close();

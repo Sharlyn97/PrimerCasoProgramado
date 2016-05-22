@@ -43,6 +43,10 @@ public class FRM_MantenimientoEstudiantes extends javax.swing.JFrame {
     {
         this.gUI_Botones1.habilitarAgregar();
     }
+    public void habilitarModEli()
+    {
+        this.gUI_Botones1.habilitarModEl();
+    }
     public void habilitarBotones()
     {
         this.gUI_Botones1.habilitarBotones();

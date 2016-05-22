@@ -131,7 +131,7 @@ public class MetodosUsuarios {
     {
         boolean usuario=false;
         
-        if(arrayUsuarios.size()<=1)
+        if(arrayUsuarios.size()>=1)
         {
             usuario=true;
         }

@@ -33,7 +33,8 @@ int fuente=0;
         this.metodos=metodos;
         archivo=new ArchivoUsuarios();  
         metodosUsuarios=new MetodosUsuarios();
-        metodosUsuarios.setArray(archivo.devolverInformacionDeUsuario());        
+        metodosUsuarios.setArray(archivo.devolverInformacionDeUsuario());    
+        frm_MantenimientoUsuarios.estadoInicial();
     }
     public void setFuente(int fuente)
     {
@@ -66,6 +67,7 @@ int fuente=0;
                     frm_MantenimientoUsuarios.resetearInterfaz();
                     frm_MantenimientoUsuarios.mensaje("Se agregó correctamente");
                     crearArchivo();
+                    frm_MantenimientoUsuarios.estadoInicial();
                 }
                 else
                 {
@@ -109,6 +111,7 @@ int fuente=0;
                     {
                     frm_MantenimientoUsuarios.resetearInterfaz();
                     frm_MantenimientoUsuarios.mensaje("Se modificó correctamente");
+                    frm_MantenimientoUsuarios.estadoInicial();
                     }
                     else
                     {
@@ -153,19 +156,22 @@ int fuente=0;
                {
                 frm_MantenimientoUsuarios.mostrarInformacion(metodosUsuarios.getArregloInformacion());
                 frm_MantenimientoUsuarios.mensaje("Se encontró el usuario");
+                frm_MantenimientoUsuarios.habilitarModEliminar();
                 }
             else
             {
                 frm_MantenimientoUsuarios.mensaje("El usuario no ha sido registrado");
+                frm_MantenimientoUsuarios.habilitarBotones();
             } 
              }
              if(fuente==2)
              {
-             if(conexion.consultarUsuario(frm_MantenimientoUsuarios.devolverNombreCompleto()))
+             if(conexion.consultarUsuario(frm_MantenimientoUsuarios.devolverNombreUsuario()))
              {
              frm_MantenimientoUsuarios.mostrarInformacion(conexion.getArregloInformacion());
-             frm_MantenimientoUsuarios.habilitarBotones();
+             frm_MantenimientoUsuarios.habilitarModEliminar();
              frm_MantenimientoUsuarios.deshabilitarTF();
+             frm_MantenimientoUsuarios.mensaje("Se encontró al usuario");
              }
              else
              {
@@ -178,8 +184,9 @@ int fuente=0;
                if(metodos.consultarInformacionDelXmlUsuarios(frm_MantenimientoUsuarios.devolverNombreUsuario()))
              {
              frm_MantenimientoUsuarios.mostrarInformacionXML(metodos.getArregloInformacion());
-             frm_MantenimientoUsuarios.habilitarBotones();
+             frm_MantenimientoUsuarios.habilitarModEliminar();
              frm_MantenimientoUsuarios.deshabilitarTF();
+             frm_MantenimientoUsuarios.mensaje("Se encontró al usuario");
              }
              else
              {
@@ -197,6 +204,7 @@ int fuente=0;
                     {
                         frm_MantenimientoUsuarios.resetearInterfaz();
                         frm_MantenimientoUsuarios.mensaje("Se eliminó correctamente");
+                        frm_MantenimientoUsuarios.estadoInicial();
                     }
                    else
                    {

@@ -43,6 +43,7 @@ public class Controlador_FRM_MantenimientoCursos implements ActionListener{
         metodosCursos=new MetodosCursos();
         frm_MantenimientoCursos.estadoInicial();
         metodosCursos.setArray(archivo.devolverInformacionDeCursos());
+        frm_MantenimientoCursos.estadoInicial();
     } 
     public void setFuente(int fuente)
     {
@@ -73,6 +74,7 @@ public class Controlador_FRM_MantenimientoCursos implements ActionListener{
                 frm_MantenimientoCursos.resetearInterfaz();
                 frm_MantenimientoCursos.mensaje("Se agregó correctamente");
                 crearArchivo();
+                frm_MantenimientoCursos.estadoInicial();
                }
                 else
                 {
@@ -116,6 +118,7 @@ public class Controlador_FRM_MantenimientoCursos implements ActionListener{
             {
                 frm_MantenimientoCursos.mostrarInformacion(metodosCursos.getArregloInformacion());
                 frm_MantenimientoCursos.mensaje("Se encontró el curso");
+                frm_MantenimientoCursos.habilitarEliMod();
             }
             else
             {
@@ -128,7 +131,7 @@ public class Controlador_FRM_MantenimientoCursos implements ActionListener{
             if(conexion.consultarCurso(frm_MantenimientoCursos.devolverSigla()))
             {
              frm_MantenimientoCursos.mostrarInformacion(conexion.retornarCursos());
-             frm_MantenimientoCursos.habilitarBotones();
+             frm_MantenimientoCursos.habilitarEliMod();
              frm_MantenimientoCursos.deshabilitarTF();
              frm_MantenimientoCursos.mensaje("Se consultó correctamente");
             }
@@ -143,7 +146,7 @@ public class Controlador_FRM_MantenimientoCursos implements ActionListener{
              if(metodos.consultarInformacionDelXmlCursos(frm_MantenimientoCursos.devolverSigla()))
             {
              frm_MantenimientoCursos.mostrarInformacionXML(metodos.getArregloInformacion());
-             frm_MantenimientoCursos.habilitarBotones();
+             frm_MantenimientoCursos.habilitarEliMod();
              frm_MantenimientoCursos.deshabilitarTF();
              frm_MantenimientoCursos.mensaje("Se consultó correctamente");
             }
@@ -162,6 +165,7 @@ public class Controlador_FRM_MantenimientoCursos implements ActionListener{
                 {
                     frm_MantenimientoCursos.resetearInterfaz();
                     frm_MantenimientoCursos.mensaje("Se modificó correctamente");
+                    frm_MantenimientoCursos.estadoInicial();
                 }
                 else
                  {
@@ -205,6 +209,7 @@ public class Controlador_FRM_MantenimientoCursos implements ActionListener{
                {
                 frm_MantenimientoCursos.resetearInterfaz();
                 frm_MantenimientoCursos.mensaje("Se eliminó correctamente");
+                frm_MantenimientoCursos.estadoInicial();
                }
                 else
                 {
